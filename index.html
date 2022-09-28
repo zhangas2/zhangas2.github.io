@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Cambiar a barra de navegación">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -111,12 +111,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Inicio</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archivo</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
 
   </li>
   </ul>
@@ -160,7 +160,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/09/28/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5/" class="post-title-link" itemprop="url">有序链表插入</a>
+            <a href="/2022/09/28/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5/" class="post-title-link" itemprop="url">在有序链表插入一个元素</a>
         </h2>
 
         <div class="post-meta">
@@ -168,10 +168,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Creado por: 2022-09-28 17:40:37 / Modificado por: 17:44:03" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
+              <time title="Erstellt: 2022-09-28 17:40:37 / Geändert am: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
             </span>
 
           
@@ -186,8 +186,10 @@
 
       
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct node&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct node *next;</span><br><span class="line">&#125;;//创建结构体 表示链表的节点类型 </span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">struct node *<span class="built_in">head</span>,*p,*q,*t;</span><br><span class="line">	int n,a;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="built_in">head</span>=NULL;//头指针初始化为空 </span><br><span class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;a;//input </span><br><span class="line">		</span><br><span class="line">		p=(struct node*)malloc(sizeof(struct node));//动态申请一个空间 用来存放一个节点 </span><br><span class="line">		//并将临时节点p指向这块内存</span><br><span class="line">		 </span><br><span class="line">		p-&gt;data=a;//将a存储在这个节点的data域中 </span><br><span class="line">		p-&gt;next=NULL;//将当前节点的后继指针指向空 </span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">head</span>==NULL)&#123;</span><br><span class="line">			<span class="built_in">head</span>=p;//如果是是第一个节点 将头指针指向这个节点 </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123; </span><br><span class="line">			q-&gt;next=p;//如果不是第一个节点 将上一节点的后继指针指向当前的节点 </span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		q=p;//更新上一节点 </span><br><span class="line">		p=NULL;//将临时节点p变为空指针 </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">struct node *<span class="built_in">head</span>,*p,*q,*t;</span><br><span class="line">	int n,a;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="built_in">head</span>=NULL;//头指针初始化为空 </span><br><span class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;a;//input </span><br><span class="line">		</span><br><span class="line">		p=(struct node*)malloc(sizeof(struct node));//动态申请一个空间 用来存放一个节点 </span><br><span class="line">		//并将临时节点p指向这块内存</span><br><span class="line">		 </span><br><span class="line">		p-&gt;data=a;//将a存储在这个节点的data域中 </span><br><span class="line">		p-&gt;next=NULL;//将当前节点的后继指针指向空 </span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">head</span>==NULL)&#123;</span><br><span class="line">			<span class="built_in">head</span>=p;//如果是是第一个节点 将头指针指向这个节点 </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123; </span><br><span class="line">			q-&gt;next=p;//如果不是第一个节点 将上一节点的后继指针指向当前的节点 </span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		q=p;//更新上一节点 </span><br><span class="line">		p=NULL;//将临时节点p变为空指针 </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><p>如果这个链表很长，且每个节点的值相同<br>再插一个相同的值进去会遍历整个链表然后插入到链表尾部 浪费了时间<br>将大于号改为大于等于</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   cin&gt;&gt;a; //输入插入的数字 </span><br><span class="line">t=<span class="built_in">head</span>;//从头指针开始遍历 </span><br><span class="line"><span class="keyword">while</span>(t!=NULL)&#123;</span><br><span class="line">	<span class="keyword">if</span>(t-&gt;next==NULL||t-&gt;next-&gt;data&gt;=a)&#123;//如果是在最后一个数字 下一节点指向空或者下一集结点的data域的大小比新插入的数字要大 </span><br><span class="line">		p=(struct node*)malloc(sizeof(struct node));//动态申请一个空间 存放新增节点 </span><br><span class="line">		p-&gt;data=a;//将新节点的data域更新为插入的值 </span><br><span class="line">		p-&gt;next=t-&gt;next;//将新节点的下一节点于t节点的下一节点相连 </span><br><span class="line">		t-&gt;next=p;//将t节点的下一节点更新为新节点p </span><br><span class="line">		p=NULL;//初始化临时指针p </span><br><span class="line">		<span class="built_in">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	t=t-&gt;next;//向下一节点遍历 </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   t=<span class="built_in">head</span>;</span><br><span class="line"><span class="keyword">while</span>(t!=NULL)&#123;</span><br><span class="line">	cout&lt;&lt;<span class="string">t-&gt;data&lt;&lt;&quot; &quot;;//从头节点开始输出 </span></span><br><span class="line"><span class="string">	t</span>=t-&gt;next;//向下一节点遍历 </span><br><span class="line">&#125;</span><br><span class="line">free(t);//清空t指针指向的内存 </span><br><span class="line">t=NULL;//t初始化为空指针 </span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -228,16 +230,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
+              <time title="Erstellt: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
               </span>
 
           
@@ -303,11 +305,17 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
-              
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2022-09-26 17:22:06 / Modificado por: 17:39:41" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
+              <time title="Erstellt: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
+              </span>
 
           
 
@@ -321,7 +329,7 @@
 
       
           <h1 id="zhangas"><a href="#zhangas" class="headerlink" title="zhangas"></a>zhangas</h1><p>a freshman from Shandong University of Science and Technology.<br>contact with me:</p>
-<p>my <a target="_blank" rel="noopener" href="https://user.qzone.qq.com/88066902">QQzone</a> </p>
+<p>QQ:<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&uin=88066902&site=qq&menu=yes">click here to add me</a> </p>
 <hr>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -373,10 +381,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Creado por: 2022-09-26 14:26:56 / Modificado por: 17:43:56" itemprop="dateCreated datePublished" datetime="2022-09-26T14:26:56+08:00">2022-09-26</time>
+              <time title="Erstellt: 2022-09-26 14:26:56 / Geändert am: 17:43:56" itemprop="dateCreated datePublished" datetime="2022-09-26T14:26:56+08:00">2022-09-26</time>
             </span>
 
           
@@ -431,10 +439,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Creado por: 2022-09-26 12:39:36 / Modificado por: 14:25:53" itemprop="dateCreated datePublished" datetime="2022-09-26T12:39:36+08:00">2022-09-26</time>
+              <time title="Erstellt: 2022-09-26 12:39:36 / Geändert am: 14:25:53" itemprop="dateCreated datePublished" datetime="2022-09-26T12:39:36+08:00">2022-09-26</time>
             </span>
 
           
@@ -489,16 +497,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Creado por: 2022-09-26 09:22:25" itemprop="dateCreated datePublished" datetime="2022-09-26T09:22:25+08:00">2022-09-26</time>
+              <time title="Erstellt: 2022-09-26 09:22:25" itemprop="dateCreated datePublished" datetime="2022-09-26T09:22:25+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-09-27 23:28:42" itemprop="dateModified" datetime="2022-09-27T23:28:42+08:00">2022-09-27</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-09-27 23:28:42" itemprop="dateModified" datetime="2022-09-27T23:28:42+08:00">2022-09-27</time>
               </span>
 
           
@@ -577,10 +585,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Tabla de contenidos
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          Inicio
+          Übersicht
         </li>
       </ul>
 
@@ -600,7 +608,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">6</span>
-          <span class="site-state-item-name">entradas</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
   </nav>
@@ -633,7 +641,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">Creado mediante <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

@@ -171,7 +171,7 @@
               <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Erstellt: 2022-10-03 18:11:00 / Geändert am: 21:16:17" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
+              <time title="Erstellt: 2022-10-03 18:11:00 / Geändert am: 21:18:11" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
             </span>
 
           
@@ -185,7 +185,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>模板 (i与j有单调关系)</p>
+          <p>模板 (i与j有单调关系)对于一个序列 借助两个指针维护一个区间</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">    j=i;</span><br><span class="line">    <span class="keyword">while</span>(j&lt;n&amp;&amp;check(i,j))&#123;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    //每道题的具体逻辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可将暴力两层嵌套循环O(n^2)优化到O(n)</p>
 <h3 id="799-最长连续不重复子序列"><a href="#799-最长连续不重复子序列" class="headerlink" title="799. 最长连续不重复子序列"></a>799. 最长连续不重复子序列</h3><p>找出最长的不包含重复数字的连续子序列[l,c]的长度<br>input 1 2 2 3 5<br>output 3</p>

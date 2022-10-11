@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Cambiar a barra de navegación">
+    <div class="toggle" aria-label="تشغيل شريط التصفح">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -111,12 +111,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Inicio</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archivo</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
 
   </li>
   </ul>
@@ -168,16 +168,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-06 19:38:59" itemprop="dateCreated datePublished" datetime="2022-10-06T19:38:59+08:00">2022-10-06</time>
+              <time title="أُنشأ: 2022-10-06 19:38:59" itemprop="dateCreated datePublished" datetime="2022-10-06T19:38:59+08:00">2022-10-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-10-08 13:35:12" itemprop="dateModified" datetime="2022-10-08T13:35:12+08:00">2022-10-08</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-10-09 13:42:33" itemprop="dateModified" datetime="2022-10-09T13:42:33+08:00">2022-10-09</time>
               </span>
 
           
@@ -199,6 +199,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int stk[maxn];</span><br><span class="line">int tt=0;</span><br><span class="line">void push(int x)&#123;</span><br><span class="line">	stk[++tt]=x;</span><br><span class="line">&#125;</span><br><span class="line">void <span class="function"><span class="title">pop</span></span>()&#123;</span><br><span class="line">	--tt;</span><br><span class="line">&#125;</span><br><span class="line">bool <span class="function"><span class="title">empty</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> tt&gt;0?<span class="literal">false</span>:<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">query</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> stk[tt];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="模拟队列"><a href="#模拟队列" class="headerlink" title="模拟队列"></a>模拟队列</h3><p>队尾插入 队头弹出 判断是否为空 查询队头元素</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int q[maxn];</span><br><span class="line">int tt=-1,hh=0;</span><br><span class="line">void push(int x)&#123;</span><br><span class="line">	q[++tt]=x;</span><br><span class="line">&#125;</span><br><span class="line">void <span class="function"><span class="title">pop</span></span>()&#123;</span><br><span class="line">	hh++;</span><br><span class="line">&#125;</span><br><span class="line">bool <span class="function"><span class="title">empty</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> hh&gt;tt?<span class="literal">false</span>:<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">query</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> q[hh];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><p>输出左侧第一个比当前数字小的数 没有输出-1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const int maxn=1e5+10;</span><br><span class="line">int stk[maxn];</span><br><span class="line">int tt=0;</span><br><span class="line">int n,x;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		<span class="keyword">while</span>(tt&amp;&amp;stk[tt]&gt;=x)&#123;//栈不空且栈顶比不比x小</span><br><span class="line">			tt- -;//栈顶出栈</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(tt)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">stk[tt]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		else&#123;</span></span><br><span class="line"><span class="string">			cout&lt;&lt;&quot;-1 &quot;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		stk</span>[++tt]=x;//x入栈</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -239,10 +243,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Creado por: 2022-10-04 15:44:07 / Modificado por: 20:21:38" itemprop="dateCreated datePublished" datetime="2022-10-04T15:44:07+08:00">2022-10-04</time>
+              <time title="أُنشأ: 2022-10-04 15:44:07 / عُدل: 20:21:38" itemprop="dateCreated datePublished" datetime="2022-10-04T15:44:07+08:00">2022-10-04</time>
             </span>
 
           
@@ -304,16 +308,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-03 21:31:37" itemprop="dateCreated datePublished" datetime="2022-10-03T21:31:37+08:00">2022-10-03</time>
+              <time title="أُنشأ: 2022-10-03 21:31:37" itemprop="dateCreated datePublished" datetime="2022-10-03T21:31:37+08:00">2022-10-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-10-04 15:21:26" itemprop="dateModified" datetime="2022-10-04T15:21:26+08:00">2022-10-04</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-10-04 15:21:26" itemprop="dateModified" datetime="2022-10-04T15:21:26+08:00">2022-10-04</time>
               </span>
 
           
@@ -371,16 +375,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-03 18:11:00" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
+              <time title="أُنشأ: 2022-10-03 18:11:00" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-10-04 22:01:28" itemprop="dateModified" datetime="2022-10-04T22:01:28+08:00">2022-10-04</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-10-04 22:01:28" itemprop="dateModified" datetime="2022-10-04T22:01:28+08:00">2022-10-04</time>
               </span>
 
           
@@ -442,16 +446,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-02 18:24:18" itemprop="dateCreated datePublished" datetime="2022-10-02T18:24:18+08:00">2022-10-02</time>
+              <time title="أُنشأ: 2022-10-02 18:24:18" itemprop="dateCreated datePublished" datetime="2022-10-02T18:24:18+08:00">2022-10-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-10-03 10:19:22" itemprop="dateModified" datetime="2022-10-03T10:19:22+08:00">2022-10-03</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-10-03 10:19:22" itemprop="dateModified" datetime="2022-10-03T10:19:22+08:00">2022-10-03</time>
               </span>
 
           
@@ -513,10 +517,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Creado por: 2022-10-02 10:03:49 / Modificado por: 10:14:04" itemprop="dateCreated datePublished" datetime="2022-10-02T10:03:49+08:00">2022-10-02</time>
+              <time title="أُنشأ: 2022-10-02 10:03:49 / عُدل: 10:14:04" itemprop="dateCreated datePublished" datetime="2022-10-02T10:03:49+08:00">2022-10-02</time>
             </span>
 
           
@@ -574,10 +578,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Creado por: 2022-09-29 08:35:43 / Modificado por: 08:40:03" itemprop="dateCreated datePublished" datetime="2022-09-29T08:35:43+08:00">2022-09-29</time>
+              <time title="أُنشأ: 2022-09-29 08:35:43 / عُدل: 08:40:03" itemprop="dateCreated datePublished" datetime="2022-09-29T08:35:43+08:00">2022-09-29</time>
             </span>
 
           
@@ -638,10 +642,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Creado por: 2022-09-28 17:40:37 / Modificado por: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
+              <time title="أُنشأ: 2022-09-28 17:40:37 / عُدل: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
             </span>
 
           
@@ -700,16 +704,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
+              <time title="أُنشأ: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
               </span>
 
           
@@ -775,16 +779,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
+              <time title="أُنشأ: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
               </span>
 
           
@@ -828,7 +832,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Página siguiente"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="الصفحة التالية"></i></a>
   </nav>
 
 
@@ -872,10 +876,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Tabla de contenidos
+          المحتويات
         </li>
         <li class="sidebar-nav-overview">
-          Inicio
+          عام
         </li>
       </ul>
 
@@ -895,7 +899,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">13</span>
-          <span class="site-state-item-name">entradas</span>
+          <span class="site-state-item-name">المقالات</span>
         </a>
       </div>
   </nav>
@@ -928,7 +932,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">Creado mediante <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

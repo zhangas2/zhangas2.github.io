@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Cambiar a barra de navegación">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -111,12 +111,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Inicio</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archivo</a>
 
   </li>
   </ul>
@@ -168,16 +168,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
 
-              <time title="Erstellt: 2022-10-06 19:38:59" itemprop="dateCreated datePublished" datetime="2022-10-06T19:38:59+08:00">2022-10-06</time>
+              <time title="Creado por: 2022-10-06 19:38:59" itemprop="dateCreated datePublished" datetime="2022-10-06T19:38:59+08:00">2022-10-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2022-10-11 17:52:41" itemprop="dateModified" datetime="2022-10-11T17:52:41+08:00">2022-10-11</time>
+                <span class="post-meta-item-text">Editado el</span>
+                <time title="Modificado por: 2022-10-11 19:33:30" itemprop="dateModified" datetime="2022-10-11T19:33:30+08:00">2022-10-11</time>
               </span>
 
           
@@ -209,6 +209,20 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;//i指向窗口的末端</span><br><span class="line">    	<span class="keyword">if</span>(hh&lt;=tt&amp;&amp;i-q[hh]+1&gt;k)&#123;//队列不为空且滑动窗口的大小&gt;k</span><br><span class="line">    		hh++;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">while</span>(hh&lt;=tt&amp;&amp;a[q[tt]]&gt;=a[i])&#123;</span><br><span class="line">    		tt--;</span><br><span class="line">		&#125;</span><br><span class="line">		q[++tt]=i;</span><br><span class="line">		<span class="keyword">if</span>(i&gt;=k-1)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">a[q[hh]]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
 <p>求最大值</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;//i指向窗口的末端</span><br><span class="line">    	<span class="keyword">if</span>(hh&lt;=tt&amp;&amp;i-q[hh]+1&gt;k)&#123;//队列不为空且滑动窗口的大小&gt;k</span><br><span class="line">    		hh++;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">while</span>(hh&lt;=tt&amp;&amp;a[q[tt]]&lt;=a[i])&#123;</span><br><span class="line">    		tt--;</span><br><span class="line">		&#125;</span><br><span class="line">		q[++tt]=i;</span><br><span class="line">		<span class="keyword">if</span>(i&gt;=k-1)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">a[q[hh]]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="KMP字符串匹配"><a href="#KMP字符串匹配" class="headerlink" title="KMP字符串匹配"></a>KMP字符串匹配</h3><p>初始化并输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const int N=1e5+10,M=1e6+10;</span><br><span class="line">char p[N],s[M];//p是子串 s是母串 </span><br><span class="line">int ne[N];//next</span><br><span class="line">int n,m;</span><br><span class="line"></span><br><span class="line">cin&gt;&gt;n&gt;&gt;p+1&gt;&gt;m&gt;&gt;s+1;</span><br></pre></td></tr></table></figure>
+<p>求next[]</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ne[1]=0;</span><br><span class="line"><span class="keyword">for</span>(int i=2,j=0;p[i];i++)&#123;</span><br><span class="line">	<span class="keyword">while</span>(j&amp;&amp;p[i]!=p[j+1])&#123;</span><br><span class="line">		j=ne[j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(p[i]==p[j+1])&#123;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	ne[i]=j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>KMP算法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=1,j=0;s[i];i++)&#123;</span><br><span class="line">		<span class="keyword">while</span>(j&amp;&amp;s[i]!=p[j+1])&#123;</span><br><span class="line">			j=ne[j];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(s[i]==p[j+1])&#123;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(j==n)&#123;//匹配成功时 i在字符串s上对应串p的末尾 </span><br><span class="line">			cout&lt;&lt;<span class="string">i-n&lt;&lt;&quot; &quot;;//输出的是数组的初位置 不需要+1</span></span><br><span class="line"><span class="string">			j=ne[j];</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Trie字符串统计"><a href="#Trie字符串统计" class="headerlink" title="Trie字符串统计"></a>Trie字符串统计</h3><p>I x 向集合中插入一个字符串 x<br>Q x 询问一个字符串在集合中出现了多少次<br>初始化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const int maxn=1e5+10;</span><br><span class="line">int son[maxn][26],cnt[maxn];//son[]子节点 cnt[]统计一个串出现了多少次</span><br><span class="line">int idx=0;//表示用到了第几个节点</span><br><span class="line">char op[2];//操作符的读入</span><br></pre></td></tr></table></figure>
+<p>插入操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void insert(char str[])&#123;</span><br><span class="line">	int p=0;</span><br><span class="line">	<span class="keyword">for</span>(int i=0;str[i];i++)&#123;</span><br><span class="line">		int u=str[i]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		<span class="keyword">if</span>(!son[p][u])&#123;//如果该节点不存在</span><br><span class="line">			son[p][u]=++idx;//添加并记录为当前节点</span><br><span class="line">		&#125;</span><br><span class="line">		p=son[p][u];//进入子节点</span><br><span class="line">	&#125;</span><br><span class="line">	cnt[p]++;//计算串的出现次数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查找操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int query(char str[])&#123;</span><br><span class="line">	int p=0;</span><br><span class="line">	<span class="keyword">for</span>(int i=0;str[i];i++)&#123;</span><br><span class="line">		int u=str[i]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		<span class="keyword">if</span>(!son[p][u])&#123;</span><br><span class="line">			<span class="built_in">return</span> 0;//找不到子节点直接返回0</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> cnt[p];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line"><span class="keyword">while</span>(n--)&#123;</span><br><span class="line">	cin&gt;&gt;op&gt;&gt;str;</span><br><span class="line">	<span class="keyword">if</span>(op[0]==<span class="string">&#x27;I&#x27;</span>)&#123;</span><br><span class="line">		insert(str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(op[0]==<span class="string">&#x27;Q&#x27;</span>)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">query(str)&lt;&lt;endl;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -249,10 +263,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
               
 
-              <time title="Erstellt: 2022-10-04 15:44:07 / Geändert am: 20:21:38" itemprop="dateCreated datePublished" datetime="2022-10-04T15:44:07+08:00">2022-10-04</time>
+              <time title="Creado por: 2022-10-04 15:44:07 / Modificado por: 20:21:38" itemprop="dateCreated datePublished" datetime="2022-10-04T15:44:07+08:00">2022-10-04</time>
             </span>
 
           
@@ -314,16 +328,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
 
-              <time title="Erstellt: 2022-10-03 21:31:37" itemprop="dateCreated datePublished" datetime="2022-10-03T21:31:37+08:00">2022-10-03</time>
+              <time title="Creado por: 2022-10-03 21:31:37" itemprop="dateCreated datePublished" datetime="2022-10-03T21:31:37+08:00">2022-10-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2022-10-04 15:21:26" itemprop="dateModified" datetime="2022-10-04T15:21:26+08:00">2022-10-04</time>
+                <span class="post-meta-item-text">Editado el</span>
+                <time title="Modificado por: 2022-10-04 15:21:26" itemprop="dateModified" datetime="2022-10-04T15:21:26+08:00">2022-10-04</time>
               </span>
 
           
@@ -381,16 +395,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
 
-              <time title="Erstellt: 2022-10-03 18:11:00" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
+              <time title="Creado por: 2022-10-03 18:11:00" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2022-10-04 22:01:28" itemprop="dateModified" datetime="2022-10-04T22:01:28+08:00">2022-10-04</time>
+                <span class="post-meta-item-text">Editado el</span>
+                <time title="Modificado por: 2022-10-04 22:01:28" itemprop="dateModified" datetime="2022-10-04T22:01:28+08:00">2022-10-04</time>
               </span>
 
           
@@ -452,16 +466,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
 
-              <time title="Erstellt: 2022-10-02 18:24:18" itemprop="dateCreated datePublished" datetime="2022-10-02T18:24:18+08:00">2022-10-02</time>
+              <time title="Creado por: 2022-10-02 18:24:18" itemprop="dateCreated datePublished" datetime="2022-10-02T18:24:18+08:00">2022-10-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2022-10-03 10:19:22" itemprop="dateModified" datetime="2022-10-03T10:19:22+08:00">2022-10-03</time>
+                <span class="post-meta-item-text">Editado el</span>
+                <time title="Modificado por: 2022-10-03 10:19:22" itemprop="dateModified" datetime="2022-10-03T10:19:22+08:00">2022-10-03</time>
               </span>
 
           
@@ -523,10 +537,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
               
 
-              <time title="Erstellt: 2022-10-02 10:03:49 / Geändert am: 10:14:04" itemprop="dateCreated datePublished" datetime="2022-10-02T10:03:49+08:00">2022-10-02</time>
+              <time title="Creado por: 2022-10-02 10:03:49 / Modificado por: 10:14:04" itemprop="dateCreated datePublished" datetime="2022-10-02T10:03:49+08:00">2022-10-02</time>
             </span>
 
           
@@ -584,10 +598,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
               
 
-              <time title="Erstellt: 2022-09-29 08:35:43 / Geändert am: 08:40:03" itemprop="dateCreated datePublished" datetime="2022-09-29T08:35:43+08:00">2022-09-29</time>
+              <time title="Creado por: 2022-09-29 08:35:43 / Modificado por: 08:40:03" itemprop="dateCreated datePublished" datetime="2022-09-29T08:35:43+08:00">2022-09-29</time>
             </span>
 
           
@@ -648,10 +662,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
               
 
-              <time title="Erstellt: 2022-09-28 17:40:37 / Geändert am: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
+              <time title="Creado por: 2022-09-28 17:40:37 / Modificado por: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
             </span>
 
           
@@ -710,16 +724,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
 
-              <time title="Erstellt: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
+              <time title="Creado por: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
+                <span class="post-meta-item-text">Editado el</span>
+                <time title="Modificado por: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
               </span>
 
           
@@ -785,16 +799,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Publicado el</span>
 
-              <time title="Erstellt: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
+              <time title="Creado por: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
+                <span class="post-meta-item-text">Editado el</span>
+                <time title="Modificado por: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
               </span>
 
           
@@ -838,7 +852,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Página siguiente"></i></a>
   </nav>
 
 
@@ -882,10 +896,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          Tabla de contenidos
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          Inicio
         </li>
       </ul>
 
@@ -905,7 +919,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">13</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-name">entradas</span>
         </a>
       </div>
   </nav>
@@ -938,7 +952,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Creado mediante <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

@@ -369,7 +369,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-11 19:33:30" itemprop="dateModified" datetime="2022-10-11T19:33:30+08:00">2022-10-11</time>
+                <time title="عُدل: 2022-10-17 17:31:28" itemprop="dateModified" datetime="2022-10-17T17:31:28+08:00">2022-10-17</time>
               </span>
 
           
@@ -415,6 +415,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int query(char str[])&#123;</span><br><span class="line">	int p=0;</span><br><span class="line">	<span class="keyword">for</span>(int i=0;str[i];i++)&#123;</span><br><span class="line">		int u=str[i]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		<span class="keyword">if</span>(!son[p][u])&#123;</span><br><span class="line">			<span class="built_in">return</span> 0;//找不到子节点直接返回0</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> cnt[p];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>主函数</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line"><span class="keyword">while</span>(n--)&#123;</span><br><span class="line">	cin&gt;&gt;op&gt;&gt;str;</span><br><span class="line">	<span class="keyword">if</span>(op[0]==<span class="string">&#x27;I&#x27;</span>)&#123;</span><br><span class="line">		insert(str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(op[0]==<span class="string">&#x27;Q&#x27;</span>)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">query(str)&lt;&lt;endl;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>①讲两个集合合并<br>②询问两个集合是否在一个集合当中</p>
+<p>基本原理:每个集合用一棵树来表示.树根的标号就是整个集合的编号.每个节点存储它的父节点.p[x]表示 x 的父节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//初始化</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">	fa[i]=i;//让i的父节点指向i</span><br><span class="line">&#125;</span><br><span class="line">//判断树根</span><br><span class="line"><span class="keyword">if</span>(p[x]==x)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//求x的集合编号</span><br><span class="line"><span class="keyword">while</span>(p[x]!=x)&#123;</span><br><span class="line">	x=p[x];</span><br><span class="line">&#125;</span><br><span class="line">//路程压缩优化</span><br><span class="line">int find(int x)&#123;//查询x的属于哪个集合 (返回x的根节点)</span><br><span class="line">	<span class="keyword">if</span>(p[x]!=x)&#123;</span><br><span class="line">		p[x]=find(p[x]);//路径压缩 路径上所有的点都指向树根</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line">//合并两个集合 px是a的集合编号 py是b的集合编号</span><br><span class="line">px=find(x);</span><br><span class="line">py=find(y);</span><br><span class="line">p[px]=py;//让a的根节点的父节点指向b的根节点</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -897,7 +900,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">المقالات</span>
         </a>
       </div>

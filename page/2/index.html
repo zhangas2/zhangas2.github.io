@@ -148,6 +148,140 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/04/%E7%A6%BB%E6%95%A3%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/04/%E7%A6%BB%E6%95%A3%E5%8C%96/" class="post-title-link" itemprop="url">离散化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">نُشر في</span>
+              
+
+              <time title="أُنشأ: 2022-10-04 15:44:07 / عُدل: 20:21:38" itemprop="dateCreated datePublished" datetime="2022-10-04T15:44:07+08:00">2022-10-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>利用vector存储映射的一组数据 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typedef pair&lt;int,int&gt; PII; </span><br><span class="line">vector&lt;PII&gt; add,query;//add是添加操作 query是查询操作</span><br></pre></td></tr></table></figure>
+<h3 id="①先排序-再去重"><a href="#①先排序-再去重" class="headerlink" title="①先排序 再去重"></a>①先排序 再去重</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unique函数的原型:</span><br><span class="line">iterator unique(iterator it_1,iterator it_2);</span><br></pre></td></tr></table></figure>
+<p>返回值指向去重后容器中不重复序列的最后一个元素的下一元素</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(all.begin(),alls.end());</span><br><span class="line">alls.erase(unique(alls.begin(),alls.end()),alls.end());</span><br></pre></td></tr></table></figure>
+<h3 id="②二分查找"><a href="#②二分查找" class="headerlink" title="②二分查找"></a>②二分查找</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int find(int x)&#123;</span><br><span class="line">	int l=0,r=alls.size()-1;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">		int mid=l+c&gt;&gt;1;</span><br><span class="line">		<span class="keyword">if</span>(alls[mid]&gt;=x)&#123;</span><br><span class="line">			r=mid;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			l=mid+1;		</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//return l;//映射到0,1,2,3...</span><br><span class="line">	<span class="built_in">return</span> r+1;//映射到1,2,3,4s... </span><br><span class="line">        //在计算a的前缀和时 不需要考虑边界问题 s[i]=s[i-1]+a[i];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="遍历add容器和求数组a的前缀和s"><a href="#遍历add容器和求数组a的前缀和s" class="headerlink" title="遍历add容器和求数组a的前缀和s"></a>遍历add容器和求数组a的前缀和s</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(auto it:add)&#123;</span><br><span class="line">		int x=find(it.first);</span><br><span class="line">		a[x]+=it.second;</span><br><span class="line">	&#125; </span><br><span class="line"><span class="keyword">for</span>(int i=0;i&lt;=alls.size();i++)&#123;</span><br><span class="line">    s[i]=s[i-1]+a[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="遍历query容器输出"><a href="#遍历query容器输出" class="headerlink" title="遍历query容器输出"></a>遍历query容器输出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(auto it:query)&#123;</span><br><span class="line">    int l=find(it.first);</span><br><span class="line">    int r=find(it,second);</span><br><span class="line">    cout&lt;&lt;<span class="string">s[r]-s</span>[l-1]&lt;&lt;<span class="string">endl;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/03/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">位运算</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">نُشر في</span>
+
+              <time title="أُنشأ: 2022-10-03 21:31:37" itemprop="dateCreated datePublished" datetime="2022-10-03T21:31:37+08:00">2022-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-10-27 23:22:36" itemprop="dateModified" datetime="2022-10-27T23:22:36+08:00">2022-10-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>位运算概览</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">符号 描述	 运算规则</span><br><span class="line">&amp;	 与	    两个位都为1时，结果才为1</span><br><span class="line">|	 或	    两个位都为0时，结果才为0</span><br><span class="line">^	 异或	两个位相同为0，相异为1</span><br><span class="line">~	 取反	0变1，1变0</span><br><span class="line">&lt;&lt;	 左移	各二进位全部左移若干位，高位丢弃，低位补0</span><br><span class="line">&gt;&gt;	 右移	各二进位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方法不一样，有的补符号位（算术右移），有的补0（逻辑右移）</span><br></pre></td></tr></table></figure>
+<h3 id="求n的二进制第k位是多少"><a href="#求n的二进制第k位是多少" class="headerlink" title="求n的二进制第k位是多少"></a>求n的二进制第k位是多少</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;(n&gt;&gt;k&amp;1);</span><br></pre></td></tr></table></figure>
+<p>这里&amp;1判断n是否为奇数<br>①n为奇数时,对应的二进制数最低位一定为1,&amp;1的结果就是1.<br>②n为偶数时,相应的最低位为0,n&amp;1的结果就是0.<br>这里等价于 (n&gt;&gt;k)%2</p>
+<h3 id="统计n的二进制中有多少个1"><a href="#统计n的二进制中有多少个1" class="headerlink" title="统计n的二进制中有多少个1"></a>统计n的二进制中有多少个1</h3><p>x&amp;-x<br>(-x)&#x3D;~x+1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">假设x==42</span><br><span class="line">原码  x  (101010)</span><br><span class="line">反码 ~x  (010101)</span><br><span class="line">补码 ~x+1(010110)</span><br><span class="line">   x&amp;-x  (000010)</span><br><span class="line">*/</span><br><span class="line">int lowbit(int x)&#123;</span><br><span class="line">	<span class="built_in">return</span> x&amp;-x;</span><br><span class="line">&#125; </span><br><span class="line">int cnt=0;</span><br><span class="line">	<span class="keyword">while</span>(a)&#123;</span><br><span class="line">		a-=lowbit(a);//减去最右侧第一个1到末尾的部分</span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;<span class="string">cnt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/%E5%8F%8C%E6%8C%87%E9%92%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -688,77 +822,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/26/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/26/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/" class="post-title-link" itemprop="url">高精度计算</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">نُشر في</span>
-
-              <time title="أُنشأ: 2022-09-26 12:39:36" itemprop="dateCreated datePublished" datetime="2022-09-26T12:39:36+08:00">2022-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-09-30 23:21:33" itemprop="dateModified" datetime="2022-09-30T23:21:33+08:00">2022-09-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="加法-A-B"><a href="#加法-A-B" class="headerlink" title="加法 A+B"></a>加法 A+B</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; add(vector&lt;int&gt; &amp;a,vector&lt;int&gt; &amp;b)&#123;//默认字符串a的长 </span><br><span class="line">	vector&lt;int&gt;c;//加上引用不用拷贝整个数组 可以加快效率 </span><br><span class="line">	<span class="keyword">if</span>(a.size()&lt;b.size())&#123;</span><br><span class="line">		<span class="built_in">return</span> add(b,a);</span><br><span class="line">	&#125;</span><br><span class="line">	int t=0;//处理进位问题 </span><br><span class="line">	<span class="keyword">for</span>(int i=0;i&lt;a.size();i++)&#123;</span><br><span class="line">		t+=a[i];</span><br><span class="line">		<span class="keyword">if</span>(i&lt;b.size())&#123;</span><br><span class="line">			t+=b[i];</span><br><span class="line">		&#125;</span><br><span class="line">		c.push_back(t%10);</span><br><span class="line">		t/=10;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(t)&#123;//若最高位向前进了1 则添加到c中</span><br><span class="line">		c.push_back(t);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="减法-A-B"><a href="#减法-A-B" class="headerlink" title="减法 A-B"></a>减法 A-B</h1><h3 id="需要判断读入A和B的大小"><a href="#需要判断读入A和B的大小" class="headerlink" title="需要判断读入A和B的大小"></a>需要判断读入A和B的大小</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//比较A和B的大小 </span><br><span class="line">bool cmp(vector&lt;int&gt;&amp;a,vector&lt;int&gt;&amp;b)&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.size()!=b.size())&#123;</span><br><span class="line">		<span class="built_in">return</span> a.size()&gt;b.size();</span><br><span class="line">	&#125;</span><br><span class="line">	//长度相同 </span><br><span class="line">	<span class="keyword">for</span>(int i=a.size()-1;i&gt;=0;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i]!=b[i])&#123;</span><br><span class="line">			<span class="built_in">return</span> a[i]&gt;b[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">true</span>;	</span><br><span class="line">&#125;</span><br><span class="line">vector&lt;int&gt; subtraction(vector&lt;int&gt;&amp;a,vector&lt;int&gt;&amp;b)&#123;</span><br><span class="line">	vector&lt;int&gt;c;//计算A-B </span><br><span class="line">	<span class="keyword">for</span>(int i=0,t=0;i&lt;a.size();i++)&#123;</span><br><span class="line">		t=a[i]-t;</span><br><span class="line">		<span class="keyword">if</span>(i&lt;b.size())&#123;//判断b是不是已经越界了 </span><br><span class="line">			t-=b[i];</span><br><span class="line">		&#125;</span><br><span class="line">		c.push_back((t+10)%10);</span><br><span class="line">		//等价于判断t&lt;0时候 t+=10 t&lt;10时 直接在尾部添加t</span><br><span class="line">		t=t&lt;0?1:0;//更新t 若借一 t在下次循环要减去一</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c.size()&gt;1&amp;&amp;c.back()==0)&#123;//例如123-120=3 容器c的长度和a一样 返回的应该是003</span><br><span class="line">		c.pop_back();//删除容器尾部元素</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="乘法-A-b"><a href="#乘法-A-b" class="headerlink" title="乘法 A*b"></a>乘法 A*b</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; multiple(vector&lt;int&gt;a,int b)&#123;</span><br><span class="line">	vector&lt;int&gt;c;</span><br><span class="line">	int t=0; </span><br><span class="line">	<span class="keyword">for</span>(int i=0;i&lt;a.size();i++)&#123;</span><br><span class="line">		t+=a[i]*b;		</span><br><span class="line">		c.push_back(t%10);</span><br><span class="line">		t/=10;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(t)&#123;//t不为零时 可以加到c的最高位上 </span><br><span class="line">		c.push_back(t);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="الصفحة السابقة"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="الصفحة السابقة"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="الصفحة التالية"></i></a>
   </nav>
 
 
@@ -824,7 +891,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">المقالات</span>
         </a>
       </div>

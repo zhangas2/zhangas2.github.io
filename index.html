@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -113,12 +113,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
 
   </li>
   </ul>
@@ -170,10 +170,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2022-10-31 08:45:55 / Modified: 08:46:59" itemprop="dateCreated datePublished" datetime="2022-10-31T08:45:55+08:00">2022-10-31</time>
+              <time title="Erstellt: 2022-10-31 08:45:55 / Geändert am: 22:26:10" itemprop="dateCreated datePublished" datetime="2022-10-31T08:45:55+08:00">2022-10-31</time>
             </span>
 
           
@@ -187,7 +187,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h2><h2 id="组合计数"><a href="#组合计数" class="headerlink" title="组合计数"></a>组合计数</h2><h2 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h2><h2 id="简单博弈论"><a href="#简单博弈论" class="headerlink" title="简单博弈论"></a>简单博弈论</h2>
+          <h2 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h2><h3 id="质数判断-试除法"><a href="#质数判断-试除法" class="headerlink" title="质数判断(试除法)"></a>质数判断(试除法)</h3><p>复杂度为O(sqrt(n))<br>若n%d&#x3D;&#x3D;0, 则n%n&#x2F;d&#x3D;&#x3D;0<br>只需d&lt;&#x3D;n&#x2F;d 即d*d&lt;&#x3D;n</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bool checkprime(int n)&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;2)&#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    //不写成i*i&lt;=n是怕int类型溢出</span><br><span class="line">    <span class="keyword">for</span>(int i=2;i&lt;=n/i;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==0)&#123;</span><br><span class="line">            <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分解质因数-试除法"><a href="#分解质因数-试除法" class="headerlink" title="分解质因数(试除法)"></a>分解质因数(试除法)</h4><p>复杂度为O(logn)~O(sqrt(n))</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">void divide(int n)&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;2)&#123;</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int i=2;i&lt;=n/i;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==0)&#123;//i是质因数</span><br><span class="line">            int s=0;</span><br><span class="line">            <span class="keyword">while</span>(n/i==0)&#123;</span><br><span class="line">                n/=i;</span><br><span class="line">                s++;</span><br><span class="line">            &#125;</span><br><span class="line">            cout&lt;&lt;<span class="string">i&lt;&lt;&quot; &quot;&lt;&lt;s&lt;&lt;endl;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    if(n&gt;1)&#123;</span></span><br><span class="line"><span class="string">        cout&lt;&lt;n&lt;&lt;&quot; &quot;&lt;&lt;1&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    pust(&quot;&quot;);</span></span><br><span class="line"><span class="string">    return;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="筛质数-统计质数个数"><a href="#筛质数-统计质数个数" class="headerlink" title="筛质数 统计质数个数"></a>筛质数 统计质数个数</h3><p>① 埃式筛法<br>唯一分解定理 任意合数可由素数p1^a1 p2^a2 p3^a3…pk^a3之积表示<br>(算术基本定理: 任何一个大于1的合数 N可以唯一分解成有限个质数的乘积)<br>1&#x2F;2+1&#x2F;3+…+1&#x2F;n之和称为调和级数 当n-&gt;∞时 Σ-&gt;ln n+c (c称为欧拉常数≈0.57721)<br>时间复杂度为O(n*ln n)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void get_primes(int n)&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!st[i])&#123;</span><br><span class="line">            prime[cnt++]=i;</span><br><span class="line">            <span class="keyword">for</span>(int j=i+i;j&lt;=n;j+=i)&#123;</span><br><span class="line">                st[j]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>② 线性筛法<br>根据素数定理 从2到x的素数个数为x&#x2F;ln x<br>若只遍历素数 时间复杂度为(n*log(logn))</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void get_primes(int n)&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i=2;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!st[i])&#123;</span><br><span class="line">            prime[cnt++]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int j=0;prime[j]&lt;=n/i;j++)&#123;</span><br><span class="line">            st[prime[j]*i]=<span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(i%prime[j]==0)&#123;</span><br><span class="line">                <span class="built_in">break</span>;//prime[j]一定是i的最小质因数</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="试除法求约数"><a href="#试除法求约数" class="headerlink" title="试除法求约数"></a>试除法求约数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; get_advisor(int n)&#123;</span><br><span class="line">    vector&lt;int&gt; a;</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n/i;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==0)&#123;</span><br><span class="line">            a.push_back(i);</span><br><span class="line">            <span class="keyword">if</span>(i!=n/i)&#123;</span><br><span class="line">                a.push_back(n/i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(a.begin(),a.end());</span><br><span class="line">    <span class="built_in">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组合计数"><a href="#组合计数" class="headerlink" title="组合计数"></a>组合计数</h2><h2 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h2><h2 id="简单博弈论"><a href="#简单博弈论" class="headerlink" title="简单博弈论"></a>简单博弈论</h2>
       
     </div>
 
@@ -228,16 +237,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2022-10-29 17:12:51" itemprop="dateCreated datePublished" datetime="2022-10-29T17:12:51+08:00">2022-10-29</time>
+              <time title="Erstellt: 2022-10-29 17:12:51" itemprop="dateCreated datePublished" datetime="2022-10-29T17:12:51+08:00">2022-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-10-31 08:44:23" itemprop="dateModified" datetime="2022-10-31T08:44:23+08:00">2022-10-31</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-10-31 08:44:23" itemprop="dateModified" datetime="2022-10-31T08:44:23+08:00">2022-10-31</time>
               </span>
 
           
@@ -296,16 +305,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
+              <time title="Erstellt: 2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-10-30 15:31:37" itemprop="dateModified" datetime="2022-10-30T15:31:37+08:00">2022-10-30</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-10-30 15:31:37" itemprop="dateModified" datetime="2022-10-30T15:31:37+08:00">2022-10-30</time>
               </span>
 
           
@@ -364,10 +373,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2022-10-27 20:09:53 / Modified: 23:20:40" itemprop="dateCreated datePublished" datetime="2022-10-27T20:09:53+08:00">2022-10-27</time>
+              <time title="Erstellt: 2022-10-27 20:09:53 / Geändert am: 23:20:40" itemprop="dateCreated datePublished" datetime="2022-10-27T20:09:53+08:00">2022-10-27</time>
             </span>
 
           
@@ -425,10 +434,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2022-10-26 17:08:10 / Modified: 17:27:45" itemprop="dateCreated datePublished" datetime="2022-10-26T17:08:10+08:00">2022-10-26</time>
+              <time title="Erstellt: 2022-10-26 17:08:10 / Geändert am: 17:27:45" itemprop="dateCreated datePublished" datetime="2022-10-26T17:08:10+08:00">2022-10-26</time>
             </span>
 
           
@@ -489,16 +498,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
+              <time title="Erstellt: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-10-23 18:05:05" itemprop="dateModified" datetime="2022-10-23T18:05:05+08:00">2022-10-23</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-10-23 18:05:05" itemprop="dateModified" datetime="2022-10-23T18:05:05+08:00">2022-10-23</time>
               </span>
 
           
@@ -574,10 +583,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2022-10-18 13:41:55 / Modified: 13:48:50" itemprop="dateCreated datePublished" datetime="2022-10-18T13:41:55+08:00">2022-10-18</time>
+              <time title="Erstellt: 2022-10-18 13:41:55 / Geändert am: 13:48:50" itemprop="dateCreated datePublished" datetime="2022-10-18T13:41:55+08:00">2022-10-18</time>
             </span>
 
           
@@ -638,10 +647,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2022-10-16 15:24:50 / Modified: 15:34:48" itemprop="dateCreated datePublished" datetime="2022-10-16T15:24:50+08:00">2022-10-16</time>
+              <time title="Erstellt: 2022-10-16 15:24:50 / Geändert am: 15:34:48" itemprop="dateCreated datePublished" datetime="2022-10-16T15:24:50+08:00">2022-10-16</time>
             </span>
 
           
@@ -701,10 +710,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2022-10-16 15:19:29 / Modified: 15:24:09" itemprop="dateCreated datePublished" datetime="2022-10-16T15:19:29+08:00">2022-10-16</time>
+              <time title="Erstellt: 2022-10-16 15:19:29 / Geändert am: 15:24:09" itemprop="dateCreated datePublished" datetime="2022-10-16T15:19:29+08:00">2022-10-16</time>
             </span>
 
           
@@ -764,16 +773,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2022-10-13 22:55:55" itemprop="dateCreated datePublished" datetime="2022-10-13T22:55:55+08:00">2022-10-13</time>
+              <time title="Erstellt: 2022-10-13 22:55:55" itemprop="dateCreated datePublished" datetime="2022-10-13T22:55:55+08:00">2022-10-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-10-30 13:14:21" itemprop="dateModified" datetime="2022-10-30T13:14:21+08:00">2022-10-30</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-10-30 13:14:21" itemprop="dateModified" datetime="2022-10-30T13:14:21+08:00">2022-10-30</time>
               </span>
 
           
@@ -818,7 +827,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -862,10 +871,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          Übersicht
         </li>
       </ul>
 
@@ -885,7 +894,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">22</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
   </nav>
@@ -918,7 +927,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

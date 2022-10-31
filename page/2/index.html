@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -118,7 +118,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
@@ -148,6 +148,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">数据结构基础</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-10-06 19:38:59" itemprop="dateCreated datePublished" datetime="2022-10-06T19:38:59+08:00">2022-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-20 19:29:52" itemprop="dateModified" datetime="2022-10-20T19:29:52+08:00">2022-10-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">int e[maxn],ne[maxn];</span><br><span class="line">//e指的是当前节点的值 而ne指的是当前节点的下一个节点的指针</span><br><span class="line">int <span class="built_in">head</span>,idx;</span><br><span class="line">//head表示头节点的下标 而idx是当前节已经用到了那个点</span><br><span class="line">void <span class="function"><span class="title">init</span></span>()&#123;</span><br><span class="line">	<span class="built_in">head</span>=-1;</span><br><span class="line">	idx=0;</span><br><span class="line">&#125;//初始化</span><br><span class="line">void add_to_head(int x)&#123;</span><br><span class="line">	e[idx]=x;</span><br><span class="line">	ne[idx]=<span class="built_in">head</span>;</span><br><span class="line">	<span class="built_in">head</span>=idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;//在头节点插入值为x的节点</span><br><span class="line">void add(int k,int x)&#123;</span><br><span class="line">	e[idx]=x;</span><br><span class="line">	ne[idx]=ne[k];</span><br><span class="line">	ne[k]=idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;//在第k个节点的后面插入值为x的节点</span><br><span class="line">void remove(int k)&#123;</span><br><span class="line">	ne[k]=ne[ne[k]];</span><br><span class="line">&#125;//删去第k个节点</span><br></pre></td></tr></table></figure>
+<h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">int idx;</span><br><span class="line">int e[maxn],l[maxn],r[maxn];//e是当前节点的值 l是上一节点的指针 r是下一节点的指针</span><br><span class="line">void <span class="function"><span class="title">init</span></span>()&#123;//初始化</span><br><span class="line">	r[0]=1;//左边界</span><br><span class="line">	l[1]=0;//右边界</span><br><span class="line">	idx=2;//0 1 两个节点已经被使用</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">void add(int k,int x)&#123;//在第k个节点后插入值为x的节点</span><br><span class="line">	e[idx]=x;</span><br><span class="line">	r[idx]=r[k];</span><br><span class="line">	l[idx]=k;</span><br><span class="line"></span><br><span class="line">	l[r[k]]=idx;</span><br><span class="line">	r[k]=idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;//若实现在第k个节点的前面插入 相当于在第k个节点前面的节点后面插入值为x的节点</span><br><span class="line">void del(int k)&#123;//删除第k个节点</span><br><span class="line">	r[l[k]]=r[k];</span><br><span class="line">	l[r[k]]=l[k;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add(r[0],x);//在链表的最左端插入值为x的节点 </span><br><span class="line">add(l[1],x);//在链表的最右端插入值为x的节点</span><br></pre></td></tr></table></figure>
+<h2 id="模拟栈"><a href="#模拟栈" class="headerlink" title="模拟栈"></a>模拟栈</h2><p>栈顶插入 栈顶弹出 判断是否为空 查询栈顶元素</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int stk[maxn];</span><br><span class="line">int tt=0;</span><br><span class="line">void push(int x)&#123;</span><br><span class="line">	stk[++tt]=x;</span><br><span class="line">&#125;</span><br><span class="line">void <span class="function"><span class="title">pop</span></span>()&#123;</span><br><span class="line">	--tt;</span><br><span class="line">&#125;</span><br><span class="line">bool <span class="function"><span class="title">empty</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> tt&gt;0?<span class="literal">false</span>:<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">query</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> stk[tt];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="模拟队列"><a href="#模拟队列" class="headerlink" title="模拟队列"></a>模拟队列</h2><p>队尾插入 队头弹出 判断是否为空 查询队头元素</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int q[maxn];</span><br><span class="line">int tt=-1,hh=0;</span><br><span class="line">void push(int x)&#123;</span><br><span class="line">	q[++tt]=x;</span><br><span class="line">&#125;</span><br><span class="line">void <span class="function"><span class="title">pop</span></span>()&#123;</span><br><span class="line">	hh++;</span><br><span class="line">&#125;</span><br><span class="line">bool <span class="function"><span class="title">empty</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> hh&gt;tt?<span class="literal">false</span>:<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">query</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> q[hh];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><p>输出左侧第一个比当前数字小的数 没有输出-1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const int maxn=1e5+10;</span><br><span class="line">int stk[maxn];</span><br><span class="line">int tt=0;</span><br><span class="line">int n,x;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		<span class="keyword">while</span>(tt&amp;&amp;stk[tt]&gt;=x)&#123;//栈不空且栈顶比不比x小</span><br><span class="line">			tt- -;//栈顶出栈</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(tt)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">stk[tt]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		else&#123;</span></span><br><span class="line"><span class="string">			cout&lt;&lt;&quot;-1 &quot;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		stk</span>[++tt]=x;//x入栈</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单调队列"><a href="#单调队列" class="headerlink" title="单调队列"></a>单调队列</h2><p>有一个大小为 k 的滑动窗口,它从数组的最左边移动到最右边且每次向右移动一个位置,分别输出窗口的最大值和最小值.<br>初始化并读入到a[]中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const int maxn=1e6+10;</span><br><span class="line">int a[maxn],q[maxn];</span><br><span class="line">int tt=-1,hh=0;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">    	cin&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>求最小值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;//i指向窗口的末端</span><br><span class="line">    	<span class="keyword">if</span>(hh&lt;=tt&amp;&amp;i-q[hh]+1&gt;k)&#123;//队列不为空且滑动窗口的大小&gt;k</span><br><span class="line">    		hh++;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">while</span>(hh&lt;=tt&amp;&amp;a[q[tt]]&gt;=a[i])&#123;</span><br><span class="line">    		tt--;</span><br><span class="line">		&#125;</span><br><span class="line">		q[++tt]=i;</span><br><span class="line">		<span class="keyword">if</span>(i&gt;=k-1)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">a[q[hh]]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
+<p>求最大值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;//i指向窗口的末端</span><br><span class="line">    	<span class="keyword">if</span>(hh&lt;=tt&amp;&amp;i-q[hh]+1&gt;k)&#123;//队列不为空且滑动窗口的大小&gt;k</span><br><span class="line">    		hh++;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">while</span>(hh&lt;=tt&amp;&amp;a[q[tt]]&lt;=a[i])&#123;</span><br><span class="line">    		tt--;</span><br><span class="line">		&#125;</span><br><span class="line">		q[++tt]=i;</span><br><span class="line">		<span class="keyword">if</span>(i&gt;=k-1)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">a[q[hh]]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="KMP字符串匹配"><a href="#KMP字符串匹配" class="headerlink" title="KMP字符串匹配"></a>KMP字符串匹配</h2><p>初始化并输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const int N=1e5+10,M=1e6+10;</span><br><span class="line">char p[N],s[M];//p是子串 s是母串 </span><br><span class="line">int ne[N];//next</span><br><span class="line">int n,m;</span><br><span class="line"></span><br><span class="line">cin&gt;&gt;n&gt;&gt;p+1&gt;&gt;m&gt;&gt;s+1;</span><br></pre></td></tr></table></figure>
+<p>求next[]</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ne[1]=0;</span><br><span class="line"><span class="keyword">for</span>(int i=2,j=0;p[i];i++)&#123;</span><br><span class="line">	<span class="keyword">while</span>(j&amp;&amp;p[i]!=p[j+1])&#123;</span><br><span class="line">		j=ne[j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(p[i]==p[j+1])&#123;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	ne[i]=j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>KMP算法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=1,j=0;s[i];i++)&#123;</span><br><span class="line">		<span class="keyword">while</span>(j&amp;&amp;s[i]!=p[j+1])&#123;</span><br><span class="line">			j=ne[j];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(s[i]==p[j+1])&#123;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(j==n)&#123;//匹配成功时 i在字符串s上对应串p的末尾 </span><br><span class="line">			cout&lt;&lt;<span class="string">i-n&lt;&lt;&quot; &quot;;//输出的是数组的初位置 不需要+1</span></span><br><span class="line"><span class="string">			j=ne[j];</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Trie字符串统计"><a href="#Trie字符串统计" class="headerlink" title="Trie字符串统计"></a>Trie字符串统计</h2><p>I x 向集合中插入一个字符串 x<br>Q x 询问一个字符串在集合中出现了多少次<br>初始化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const int maxn=1e5+10;</span><br><span class="line">int son[maxn][26],cnt[maxn];//son[]子节点 cnt[]统计一个串出现了多少次</span><br><span class="line">int idx=0;//表示用到了第几个节点</span><br><span class="line">char op[2];//操作符的读入</span><br></pre></td></tr></table></figure>
+<p>插入操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void insert(char str[])&#123;</span><br><span class="line">	int p=0;</span><br><span class="line">	<span class="keyword">for</span>(int i=0;str[i];i++)&#123;</span><br><span class="line">		int u=str[i]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		<span class="keyword">if</span>(!son[p][u])&#123;//如果该节点不存在</span><br><span class="line">			son[p][u]=++idx;//添加并记录为当前节点</span><br><span class="line">		&#125;</span><br><span class="line">		p=son[p][u];//进入子节点</span><br><span class="line">	&#125;</span><br><span class="line">	cnt[p]++;//计算串的出现次数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查找操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int query(char str[])&#123;</span><br><span class="line">	int p=0;</span><br><span class="line">	<span class="keyword">for</span>(int i=0;str[i];i++)&#123;</span><br><span class="line">		int u=str[i]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		<span class="keyword">if</span>(!son[p][u])&#123;</span><br><span class="line">			<span class="built_in">return</span> 0;//找不到子节点直接返回0</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> cnt[p];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line"><span class="keyword">while</span>(n--)&#123;</span><br><span class="line">	cin&gt;&gt;op&gt;&gt;str;</span><br><span class="line">	<span class="keyword">if</span>(op[0]==<span class="string">&#x27;I&#x27;</span>)&#123;</span><br><span class="line">		insert(str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(op[0]==<span class="string">&#x27;Q&#x27;</span>)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">query(str)&lt;&lt;endl;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>①讲两个集合合并<br>②询问两个集合是否在一个集合当中</p>
+<p>基本原理:每个集合用一棵树来表示.树根的标号就是整个集合的编号.每个节点存储它的父节点.p[x]表示 x 的父节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//初始化</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">	fa[i]=i;//让i的父节点指向i</span><br><span class="line">&#125;</span><br><span class="line">//判断树根</span><br><span class="line"><span class="keyword">if</span>(p[x]==x)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//求x的集合编号</span><br><span class="line"><span class="keyword">while</span>(p[x]!=x)&#123;</span><br><span class="line">	x=p[x];</span><br><span class="line">&#125;</span><br><span class="line">//路程压缩优化</span><br><span class="line">int find(int x)&#123;//查询x的属于哪个集合 (返回x的根节点)</span><br><span class="line">	<span class="keyword">if</span>(p[x]!=x)&#123;</span><br><span class="line">		p[x]=find(p[x]);//路径压缩 路径上所有的点都指向树根</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line">//合并两个集合 px是a的集合编号 py是b的集合编号</span><br><span class="line">px=find(x);</span><br><span class="line">py=find(y);</span><br><span class="line">p[px]=py;//让a的根节点的父节点指向b的根节点</span><br></pre></td></tr></table></figure>
+<h2 id="模拟堆"><a href="#模拟堆" class="headerlink" title="模拟堆"></a>模拟堆</h2><p>① I x 插入一个数 x;<br>② PM 输出当前集合中的最小值;(输出堆顶 h[1])<br>③ DM 删除当前集合中的最小值(数据保证此时的最小值唯一);<br>④ D k 删除第 k 个插入的数;<br>⑤ C k x 修改第 k 个插入的数,将其变为 x;</p>
+<p>预处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">int siz;//堆的末尾</span><br><span class="line">int m;//记录使用节点个数</span><br><span class="line">int k,x;//输入第k个插入的数字 x存储这个数字</span><br><span class="line">int h[N];//存储节点</span><br><span class="line">int ph[N],hp[N];//ph指向第i个插入的数的下标x 插入序数映射到堆的下标 </span><br><span class="line">//hp指向下标是x的数是第i个插入的数 由堆的下标映射到插入序数</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void heap_swap(int a,int b)&#123;//堆排列特有的交换方式</span><br><span class="line">	swap(ph[hp[a]],ph[hp[b]]);</span><br><span class="line">	swap(hp[a],hp[b]);</span><br><span class="line">	swap(h[a],h[b]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>两个堆的排序函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">void down(int u)&#123;//u是节点的序号 寻找三个节点中最小的节点</span><br><span class="line">	int t=u;</span><br><span class="line">	<span class="keyword">if</span>(u*2&lt;=siz&amp;&amp;h[u*2]&gt;h[t])&#123;//未出界 且满足比子节点大 </span><br><span class="line">		t=u*2;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(u*2+1&lt;=siz&amp;&amp;h[u*2+1]&gt;h[t])&#123;</span><br><span class="line">		t=u*2+1;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(t!=u)&#123;</span><br><span class="line">		heap_swap(u,t);</span><br><span class="line">		down(t);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">void up(int u)&#123;//交换比u大的父节点</span><br><span class="line">	<span class="keyword">while</span>(u/2&gt;=1&amp;&amp;h[u/2]&gt;h[u])&#123;</span><br><span class="line">		heap_swap(u,u/2);</span><br><span class="line">		u/=2;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>操作实现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!strcmp(op,<span class="string">&quot;I&quot;</span>))&#123;//插入数x</span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	m++;siz++;</span><br><span class="line">	ph[m]=siz;hp[siz]=m;</span><br><span class="line">	h[siz]=x;</span><br><span class="line">	up(siz);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!strcmp(op,<span class="string">&quot;DM&quot;</span>))&#123;//删除堆顶</span><br><span class="line">	heap_swap(1,siz);</span><br><span class="line">	siz--;</span><br><span class="line">	up(1);</span><br><span class="line">	down(1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!strcmp(op,<span class="string">&quot;D&quot;</span>))&#123;//删除第K的插入的数字</span><br><span class="line">	cin&gt;&gt;k;</span><br><span class="line">	k=ph[k];//在交换的过程中ph[k]会变化 预先存储到k上</span><br><span class="line">	heap_swap(k,siz);</span><br><span class="line">	siz--;</span><br><span class="line">	up(k);</span><br><span class="line">	down(k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!strcmp(op,<span class="string">&quot;C&quot;</span>))&#123;//将第k个插入的数改变成x</span><br><span class="line">	cin&gt;&gt;k&gt;&gt;x;</span><br><span class="line">	k=ph[k];//同理</span><br><span class="line">	h[k]=x;</span><br><span class="line">	up(k);</span><br><span class="line">	down(k);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><h3 id="开放寻址法-蹲坑法"><a href="#开放寻址法-蹲坑法" class="headerlink" title="开放寻址法(蹲坑法)"></a>开放寻址法(蹲坑法)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const int null=0x3f3f3f3f;//极大值1061109567与INT_MAX同一数量级 且不会溢出</span><br><span class="line">const int N=2e5+3;</span><br><span class="line">int h[N];</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int find(int x)&#123;//哈希表特有的搜索函数</span><br><span class="line">	int k=(x%N+N)%N;</span><br><span class="line">	<span class="keyword">while</span>(h[k]!=null&amp;&amp;h[k]!=x)&#123;</span><br><span class="line">		k++;</span><br><span class="line">		<span class="keyword">if</span>(k==N)&#123;//搜到了最后一个槽也是满的 让k回到头节点</span><br><span class="line">			k=0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> k;//返回x在哈希表中的位置 若不存在返回null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">memset(h,0x3f,sizeof(h));</span><br><span class="line">//插入x操作</span><br><span class="line">int k=find(x);</span><br><span class="line">h[k]=x;</span><br><span class="line">//查询x操作</span><br><span class="line">int k=find(x);</span><br><span class="line"><span class="keyword">if</span>(h[k]!=null)&#123;</span><br><span class="line">	puts(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	puts(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拉链法"><a href="#拉链法" class="headerlink" title="拉链法"></a>拉链法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const int N=2e5+3;</span><br><span class="line">int h[N];</span><br><span class="line">int e[N],ne[N],idx;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void insert(int x)&#123;</span><br><span class="line">	int k=(x%N+N)%N;//负数取模还是负数 会导致数组越界 (+N)%N 避免这一问题</span><br><span class="line">	e[idx]=x;</span><br><span class="line">	ne[idx]=k;</span><br><span class="line">	h[k]=idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line">bool find(int x)&#123;</span><br><span class="line">	int k=(x%N+N)%N;</span><br><span class="line">	<span class="keyword">for</span>(int i=h[k];i!=-1;i=ne[i])&#123;</span><br><span class="line">		<span class="keyword">if</span>(e[k]==x)&#123;</span><br><span class="line">			<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">memset(h,-1,sizeof(h));//-1表示链表的末尾</span><br><span class="line"><span class="keyword">if</span>(*op==<span class="string">&#x27;I&#x27;</span>)&#123;</span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	insert(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(*op==<span class="string">&#x27;Q&#x27;</span>)&#123;</span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	<span class="keyword">if</span>(find(x))&#123;</span><br><span class="line">		puts(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		puts(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串哈希"><a href="#字符串哈希" class="headerlink" title="字符串哈希"></a>字符串哈希</h3><p>判断一个字符串的两个子区间是否完全相等</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typedef unsigned long long ULL;</span><br><span class="line">const int N=1e5+5,Q=133;</span><br><span class="line">char str[N];//存储字符串</span><br><span class="line">ULL p[N];//对Q进行预处理</span><br><span class="line">ULL h[N];</span><br><span class="line">int n,m;//n是字符串的长度 m是操作次数</span><br><span class="line">int l1,r1,l2,r2,</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ULL get(int l,int r)&#123;</span><br><span class="line">	<span class="built_in">return</span> h[r]-h[l-1]*p[r-l+1];//前缀和计算</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//预处理</span><br><span class="line">cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">p[0]=1;</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">	p[i]=p[i-1]*Q;</span><br><span class="line">	h[i]=h[i-1]*Q+str[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(m--)&#123;</span><br><span class="line">	cin&gt;&gt;l1&gt;&gt;r1&gt;&gt;l2&gt;&gt;r2;</span><br><span class="line">	<span class="keyword">if</span>(get(l1,r1)==get(l2,r2))&#123;</span><br><span class="line">		puts(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		puts(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/04/%E7%A6%BB%E6%95%A3%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -170,10 +289,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="أُنشأ: 2022-10-04 15:44:07 / عُدل: 20:21:38" itemprop="dateCreated datePublished" datetime="2022-10-04T15:44:07+08:00">2022-10-04</time>
+              <time title="Created: 2022-10-04 15:44:07 / Modified: 20:21:38" itemprop="dateCreated datePublished" datetime="2022-10-04T15:44:07+08:00">2022-10-04</time>
             </span>
 
           
@@ -235,16 +354,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="أُنشأ: 2022-10-03 21:31:37" itemprop="dateCreated datePublished" datetime="2022-10-03T21:31:37+08:00">2022-10-03</time>
+              <time title="Created: 2022-10-03 21:31:37" itemprop="dateCreated datePublished" datetime="2022-10-03T21:31:37+08:00">2022-10-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-27 23:22:36" itemprop="dateModified" datetime="2022-10-27T23:22:36+08:00">2022-10-27</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-27 23:22:36" itemprop="dateModified" datetime="2022-10-27T23:22:36+08:00">2022-10-27</time>
               </span>
 
           
@@ -304,16 +423,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="أُنشأ: 2022-10-03 18:11:00" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
+              <time title="Created: 2022-10-03 18:11:00" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-04 22:01:28" itemprop="dateModified" datetime="2022-10-04T22:01:28+08:00">2022-10-04</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-04 22:01:28" itemprop="dateModified" datetime="2022-10-04T22:01:28+08:00">2022-10-04</time>
               </span>
 
           
@@ -375,16 +494,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="أُنشأ: 2022-10-02 18:24:18" itemprop="dateCreated datePublished" datetime="2022-10-02T18:24:18+08:00">2022-10-02</time>
+              <time title="Created: 2022-10-02 18:24:18" itemprop="dateCreated datePublished" datetime="2022-10-02T18:24:18+08:00">2022-10-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-03 10:19:22" itemprop="dateModified" datetime="2022-10-03T10:19:22+08:00">2022-10-03</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-03 10:19:22" itemprop="dateModified" datetime="2022-10-03T10:19:22+08:00">2022-10-03</time>
               </span>
 
           
@@ -446,16 +565,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="أُنشأ: 2022-10-02 10:03:49" itemprop="dateCreated datePublished" datetime="2022-10-02T10:03:49+08:00">2022-10-02</time>
+              <time title="Created: 2022-10-02 10:03:49" itemprop="dateCreated datePublished" datetime="2022-10-02T10:03:49+08:00">2022-10-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-18 13:52:53" itemprop="dateModified" datetime="2022-10-18T13:52:53+08:00">2022-10-18</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-18 13:52:53" itemprop="dateModified" datetime="2022-10-18T13:52:53+08:00">2022-10-18</time>
               </span>
 
           
@@ -513,10 +632,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="أُنشأ: 2022-09-29 08:35:43 / عُدل: 08:40:03" itemprop="dateCreated datePublished" datetime="2022-09-29T08:35:43+08:00">2022-09-29</time>
+              <time title="Created: 2022-09-29 08:35:43 / Modified: 08:40:03" itemprop="dateCreated datePublished" datetime="2022-09-29T08:35:43+08:00">2022-09-29</time>
             </span>
 
           
@@ -577,10 +696,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="أُنشأ: 2022-09-28 17:40:37 / عُدل: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
+              <time title="Created: 2022-09-28 17:40:37 / Modified: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
             </span>
 
           
@@ -639,16 +758,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="أُنشأ: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
+              <time title="Created: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
               </span>
 
           
@@ -714,16 +833,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="أُنشأ: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
+              <time title="Created: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
               </span>
 
           
@@ -764,68 +883,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/26/%E8%B4%A8%E6%95%B0%E5%88%A4%E6%96%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/26/%E8%B4%A8%E6%95%B0%E5%88%A4%E6%96%AD/" class="post-title-link" itemprop="url">质数判断</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">نُشر في</span>
-              
-
-              <time title="أُنشأ: 2022-09-26 14:26:56 / عُدل: 17:43:56" itemprop="dateCreated datePublished" datetime="2022-09-26T14:26:56+08:00">2022-09-26</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="复杂度为O-sqrt-n"><a href="#复杂度为O-sqrt-n" class="headerlink" title="复杂度为O(sqrt(n))"></a>复杂度为O(sqrt(n))</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bool checkPrime(int n)&#123;</span><br><span class="line">	<span class="keyword">if</span>(n&lt;=3)&#123;//直接返回</span><br><span class="line">		<span class="built_in">return</span> n&gt;1;</span><br><span class="line">	&#125;</span><br><span class="line">	int x=(int)sqrt(n);</span><br><span class="line">	<span class="keyword">for</span>(int i=2;i&lt;=x;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%i==0)&#123;</span><br><span class="line">			<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="الصفحة السابقة"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="الصفحة التالية"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -869,10 +930,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          المحتويات
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          عام
+          Overview
         </li>
       </ul>
 
@@ -891,8 +952,8 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
-          <span class="site-state-item-name">المقالات</span>
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
   </nav>
@@ -925,7 +986,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

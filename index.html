@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Cambiar a barra de navegación">
+    <div class="toggle" aria-label="تشغيل شريط التصفح">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -113,12 +113,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Inicio</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archivo</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
 
   </li>
   </ul>
@@ -148,7 +148,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/06/%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%88%A4%E6%96%AD/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/06/%E6%9D%82%E7%89%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -162,7 +162,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/11/06/%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%88%A4%E6%96%AD/" class="post-title-link" itemprop="url">杂物</a>
+            <a href="/2022/11/06/%E6%9D%82%E7%89%A9/" class="post-title-link" itemprop="url">杂物</a>
         </h2>
 
         <div class="post-meta">
@@ -170,11 +170,17 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
-              
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-11-06 19:53:57 / Modificado por: 20:19:21" itemprop="dateCreated datePublished" datetime="2022-11-06T19:53:57+08:00">2022-11-06</time>
+              <time title="أُنشأ: 2022-11-06 19:53:57" itemprop="dateCreated datePublished" datetime="2022-11-06T19:53:57+08:00">2022-11-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-11-08 14:22:24" itemprop="dateModified" datetime="2022-11-08T14:22:24+08:00">2022-11-08</time>
+              </span>
 
           
 
@@ -187,10 +193,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h3><p>输入字符串s 判断是否是回文串</p>
+          <p>factorial n.阶乘<br>inversion n.倒置,反转 (逆元)<br>fact[]表示阶乘 infact表示阶乘的逆元</p>
+<h2 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h2><p>输入字符串s 判断是否是回文串</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">scanf(<span class="string">&quot;%s&quot;</span>,&amp;c);</span><br><span class="line">int l=strlen(c);</span><br><span class="line">	int f=0;</span><br><span class="line">	<span class="keyword">for</span>(int i=0, j=l - 1;i&lt;j;i++,j--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i]!=c[j])&#123;</span><br><span class="line">           	f=1;</span><br><span class="line">           	<span class="built_in">printf</span>(<span class="string">&quot;No.\n&quot;</span>);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">if</span>(!f)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Yes.\n&quot;</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="计算e"><a href="#计算e" class="headerlink" title="计算e"></a>计算e</h3><p>利用公式e&#x3D;1+1&#x2F;(1!)+…+1&#x2F;(n!) 求e的近似值 </p>
+<h2 id="计算e"><a href="#计算e" class="headerlink" title="计算e"></a>计算e</h2><p>利用公式e&#x3D;1+1&#x2F;(1!)+…+1&#x2F;(n!) 求e的近似值 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">scanf(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">double fn=1.0,<span class="built_in">sum</span>=1.0;//fn计算阶乘 注意两者都为浮点型</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">    fn*=i;</span><br><span class="line">    <span class="built_in">sum</span>+=1/fn;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.*lf&quot;</span>,10,<span class="built_in">sum</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="前导0输出"><a href="#前导0输出" class="headerlink" title="前导0输出"></a>前导0输出</h2><h3 id="printf输出数字-位数不够前面补0，适用于输出编号"><a href="#printf输出数字-位数不够前面补0，适用于输出编号" class="headerlink" title="printf输出数字,位数不够前面补0，适用于输出编号"></a>printf输出数字,位数不够前面补0，适用于输出编号</h3><p>printf的输出格式%[flags][width][.perc][F|N|h|l]type<br>用到了flags中的0,将输出的前面补上0,直到占满指定列宽为止</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a=1;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%03d&quot;</span>,a);</span><br></pre></td></tr></table></figure>
+<p>output: 001</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a=1;</span><br><span class="line">int n=3; //n表示位数 用 * 代替位数，在后面的参数列表中用变量控制</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%0*d&quot;</span>,n,a);</span><br></pre></td></tr></table></figure>
+<p>output: 001</p>
+<h2 id="最小公倍数和最大公约数的计算"><a href="#最小公倍数和最大公约数的计算" class="headerlink" title="最小公倍数和最大公约数的计算"></a>最小公倍数和最大公约数的计算</h2><h3 id="借助库函数-gcd"><a href="#借助库函数-gcd" class="headerlink" title="借助库函数__gcd()"></a>借助<algorithm>库函数__gcd()</h3><p>int、long long类型都可以，需要注意的是两个类型必须要相同，还有不能用浮点型</p>
+<h3 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt; </span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">	int a,b;</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">	cout&lt;&lt;<span class="string">__gcd(a,b);</span></span><br><span class="line"><span class="string">	return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="最小公倍数-最大公约数-x3D-两数之积"><a href="#最小公倍数-最大公约数-x3D-两数之积" class="headerlink" title="最小公倍数*最大公约数&#x3D;两数之积"></a>最小公倍数*最大公约数&#x3D;两数之积</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">a*b/__gcd(a</span>,b);</span><br></pre></td></tr></table></figure>
+
+
 
       
     </div>
@@ -232,16 +249,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-31 08:45:55" itemprop="dateCreated datePublished" datetime="2022-10-31T08:45:55+08:00">2022-10-31</time>
+              <time title="أُنشأ: 2022-10-31 08:45:55" itemprop="dateCreated datePublished" datetime="2022-10-31T08:45:55+08:00">2022-10-31</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-11-08 13:51:09" itemprop="dateModified" datetime="2022-11-08T13:51:09+08:00">2022-11-08</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-11-08 15:06:46" itemprop="dateModified" datetime="2022-11-08T15:06:46+08:00">2022-11-08</time>
               </span>
 
           
@@ -286,11 +303,12 @@
 <h2 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h2><h3 id="解的判断"><a href="#解的判断" class="headerlink" title="解的判断"></a>解的判断</h3><p>① 完美阶梯型 唯一解<br>② 0&#x3D;bn (bn!&#x3D;0)无解<br>③ 0&#x3D;0有无穷解</p>
 <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>枚举每一列的 c<br>① 从第r列中 找到绝对值最大的一行<br>② 将该行换到最上面<br>③ 将该行第一个数变成1<br>④ 将下面所有行的第c列消成0</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="组合计数"><a href="#组合计数" class="headerlink" title="组合计数"></a>组合计数</h2><p>数学意义: C(b,a)&#x3D;a!&#x2F;(b!*(a-b)!);</p>
-<h3 id="递推的方式-a-b∈-1-2000"><a href="#递推的方式-a-b∈-1-2000" class="headerlink" title="递推的方式: a,b∈[1,2000]"></a>递推的方式: a,b∈[1,2000]</h3><p>C(b,a)&#x3D;C(b,a-1)+C(b-1,a-1);</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//O(N^2)</span><br></pre></td></tr></table></figure>
-<h3 id="预处理-a-b∈-1-1e5-n∈-1-1e5"><a href="#预处理-a-b∈-1-1e5-n∈-1-1e5" class="headerlink" title="预处理: a,b∈[1,1e5] n∈[1,1e5]"></a>预处理: a,b∈[1,1e5] n∈[1,1e5]</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//O(Nlog N)</span><br></pre></td></tr></table></figure>
-<h3 id="lucas定理"><a href="#lucas定理" class="headerlink" title="lucas定理"></a>lucas定理</h3><p>证明: 0!&#x3D;1;<br>(n+1)!&#x3D;(n+1)*n! 当n&#x3D;&#x3D;0时<br>n!&#x3D;1 证得</p>
+<h2 id="组合计数"><a href="#组合计数" class="headerlink" title="组合计数"></a>组合计数</h2><p>数学公式: C(b,a)&#x3D;a!&#x2F;(b!*(a-b)!);<br>证明: 0!&#x3D;1;<br>(n+1)!&#x3D;(n+1)*n! 当n&#x3D;&#x3D;0时<br>n!&#x3D;1 证得</p>
+<h3 id="I-递推的方式"><a href="#I-递推的方式" class="headerlink" title="I 递推的方式:"></a>I 递推的方式:</h3><p>a,b∈[1,2000]<br>C(b,a)&#x3D;C(b,a-1)+C(b-1,a-1);</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//时间复杂度O(N^2)</span><br><span class="line">const int N=2010,mod=1e9+7;</span><br><span class="line">void <span class="function"><span class="title">init</span></span>()&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(int j=0;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!j)&#123;//从i中选0个 为1种情况</span><br><span class="line">                a[i][j]=1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                a[i][j]=a[i-1][j]+a[i-1][j-1];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">init();</span><br><span class="line">cout&lt;&lt;<span class="string">c[a][b]&lt;&lt;endl;//O(1)的时间查询</span></span><br></pre></td></tr></table></figure>
+<h3 id="II-预处理出阶乘和阶乘的逆元"><a href="#II-预处理出阶乘和阶乘的逆元" class="headerlink" title="II 预处理出阶乘和阶乘的逆元:"></a>II 预处理出阶乘和阶乘的逆元:</h3><p>a,b∈[1,1e5] n∈[1,1e5]<br>数学公式: C(b,a)&#x3D;a!&#x2F;(b!*(a-b)!);</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//时间复杂度O(Nlog N)</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int N=1e5+10,mod=1e9+7;</span><br><span class="line">int fact[N],infact[N];</span><br><span class="line">int qmi(ll a,ll k,ll p)&#123;</span><br><span class="line">    int res=1;</span><br><span class="line">    <span class="keyword">while</span>(k)&#123;</span><br><span class="line">        <span class="keyword">if</span>(k&amp;1)&#123;</span><br><span class="line">            res=(ll)res*a%p;</span><br><span class="line">        &#125;</span><br><span class="line">        k&gt;&gt;=1;</span><br><span class="line">        a=(ll)a*a%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    //0!=1;</span><br><span class="line">    fact[0]=infact[0]=1;</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;N;i++)&#123;</span><br><span class="line">        fact[i]=(ll)fact[i-1]*i%mod;</span><br><span class="line">        infact[i]=(ll)infact[i-1]*qmi(i,mod-2,mod)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    int n;cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        ll a,b;cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        cout&lt;&lt;(ll)fact[a]*infact[b]%mod*infact[a-b]%mod&lt;&lt;<span class="string">endl;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="lucas定理"><a href="#lucas定理" class="headerlink" title="lucas定理"></a>lucas定理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="简单博弈论"><a href="#简单博弈论" class="headerlink" title="简单博弈论"></a>简单博弈论</h2>
       
     </div>
@@ -332,16 +350,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-29 17:12:51" itemprop="dateCreated datePublished" datetime="2022-10-29T17:12:51+08:00">2022-10-29</time>
+              <time title="أُنشأ: 2022-10-29 17:12:51" itemprop="dateCreated datePublished" datetime="2022-10-29T17:12:51+08:00">2022-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-10-31 08:44:23" itemprop="dateModified" datetime="2022-10-31T08:44:23+08:00">2022-10-31</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-10-31 08:44:23" itemprop="dateModified" datetime="2022-10-31T08:44:23+08:00">2022-10-31</time>
               </span>
 
           
@@ -400,16 +418,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
+              <time title="أُنشأ: 2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-10-30 15:31:37" itemprop="dateModified" datetime="2022-10-30T15:31:37+08:00">2022-10-30</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-10-30 15:31:37" itemprop="dateModified" datetime="2022-10-30T15:31:37+08:00">2022-10-30</time>
               </span>
 
           
@@ -468,10 +486,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Creado por: 2022-10-27 20:09:53 / Modificado por: 23:20:40" itemprop="dateCreated datePublished" datetime="2022-10-27T20:09:53+08:00">2022-10-27</time>
+              <time title="أُنشأ: 2022-10-27 20:09:53 / عُدل: 23:20:40" itemprop="dateCreated datePublished" datetime="2022-10-27T20:09:53+08:00">2022-10-27</time>
             </span>
 
           
@@ -529,10 +547,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Creado por: 2022-10-26 17:08:10 / Modificado por: 17:27:45" itemprop="dateCreated datePublished" datetime="2022-10-26T17:08:10+08:00">2022-10-26</time>
+              <time title="أُنشأ: 2022-10-26 17:08:10 / عُدل: 17:27:45" itemprop="dateCreated datePublished" datetime="2022-10-26T17:08:10+08:00">2022-10-26</time>
             </span>
 
           
@@ -593,16 +611,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
+              <time title="أُنشأ: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Editado el</span>
-                <time title="Modificado por: 2022-10-23 18:05:05" itemprop="dateModified" datetime="2022-10-23T18:05:05+08:00">2022-10-23</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-10-23 18:05:05" itemprop="dateModified" datetime="2022-10-23T18:05:05+08:00">2022-10-23</time>
               </span>
 
           
@@ -678,10 +696,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Creado por: 2022-10-18 13:41:55 / Modificado por: 13:48:50" itemprop="dateCreated datePublished" datetime="2022-10-18T13:41:55+08:00">2022-10-18</time>
+              <time title="أُنشأ: 2022-10-18 13:41:55 / عُدل: 13:48:50" itemprop="dateCreated datePublished" datetime="2022-10-18T13:41:55+08:00">2022-10-18</time>
             </span>
 
           
@@ -742,10 +760,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Creado por: 2022-10-16 15:24:50 / Modificado por: 15:34:48" itemprop="dateCreated datePublished" datetime="2022-10-16T15:24:50+08:00">2022-10-16</time>
+              <time title="أُنشأ: 2022-10-16 15:24:50 / عُدل: 15:34:48" itemprop="dateCreated datePublished" datetime="2022-10-16T15:24:50+08:00">2022-10-16</time>
             </span>
 
           
@@ -783,7 +801,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E5%89%8D%E5%AF%BC0%E8%BE%93%E5%87%BA/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/13/%E5%9B%BE%E8%AE%BA%20%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -797,7 +815,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/10/16/%E5%89%8D%E5%AF%BC0%E8%BE%93%E5%87%BA/" class="post-title-link" itemprop="url">前导0输出</a>
+            <a href="/2022/10/13/%E5%9B%BE%E8%AE%BA%20%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">图论 最短路问题</a>
         </h2>
 
         <div class="post-meta">
@@ -805,11 +823,17 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Publicado el</span>
-              
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Creado por: 2022-10-16 15:19:29 / Modificado por: 15:24:09" itemprop="dateCreated datePublished" datetime="2022-10-16T15:19:29+08:00">2022-10-16</time>
+              <time title="أُنشأ: 2022-10-13 22:55:55" itemprop="dateCreated datePublished" datetime="2022-10-13T22:55:55+08:00">2022-10-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-11-03 18:54:17" itemprop="dateModified" datetime="2022-11-03T18:54:17+08:00">2022-11-03</time>
+              </span>
 
           
 
@@ -822,12 +846,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="printf输出数字-位数不够前面补0，适用于输出编号"><a href="#printf输出数字-位数不够前面补0，适用于输出编号" class="headerlink" title="printf输出数字,位数不够前面补0，适用于输出编号"></a>printf输出数字,位数不够前面补0，适用于输出编号</h3><p>printf的输出格式%[flags][width][.perc][F|N|h|l]type<br>用到了flags中的0,将输出的前面补上0,直到占满指定列宽为止</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a=1;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%03d&quot;</span>,a);</span><br></pre></td></tr></table></figure>
-<p>output: 001</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a=1;</span><br><span class="line">int n=3; //n表示位数 用 * 代替位数，在后面的参数列表中用变量控制</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%0*d&quot;</span>,n,a);</span><br></pre></td></tr></table></figure>
-<p>output: 001</p>
+          <h2 id="dijkstra-所有边权都是正数"><a href="#dijkstra-所有边权都是正数" class="headerlink" title="dijkstra 所有边权都是正数"></a>dijkstra 所有边权都是正数</h2><h3 id="朴素版-O-n-2"><a href="#朴素版-O-n-2" class="headerlink" title="朴素版 O(n^2)"></a>朴素版 O(n^2)</h3><p>n:节点个数<br>m:边的个数</p>
+<p>n^2~m (同一数量级)<br>稠密图: 用邻接矩阵存储d[t][j]表示从t到j的权重</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">int g[N][N];//权重</span><br><span class="line">int dist[N];//到一号点的距离</span><br><span class="line">bool st[N];//表示哪些点的最短距离已经确定</span><br><span class="line">void <span class="function"><span class="title">dijkstra</span></span>()&#123;</span><br><span class="line">    memset(dist,0x3f,sizeof(dist));</span><br><span class="line">    dist[1]=0;//初始化一号点的距离为0</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        int t=-1;</span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!st[j]&amp;&amp;(dist[t]&gt;dist[j||t==-1]))&#123;</span><br><span class="line">                t=j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        st[t]=<span class="literal">true</span>;//最短距离已经确定</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dist[j]&gt;dist[t]+g[t][j])&#123;</span><br><span class="line">                dist[j]=dist[t]+g[t][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    memset(g,0x3f,sizeof(g));</span><br><span class="line">    //读入的时候 存在重边 和自环</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        g[x][y]=min(g[x][y],z);//取长度最短的边</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra();</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h3 id="堆优化版O-m-logn"><a href="#堆优化版O-m-logn" class="headerlink" title="堆优化版O(m*logn)"></a>堆优化版O(m*logn)</h3><p>n~m (同一数量级)<br>稀疏图: 用邻接表存储</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;queue&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string.h&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">int h[N],e[N],ne[N],w[N],idx;</span><br><span class="line">int n,m,s;</span><br><span class="line">void add(int a,int b,int c)&#123;</span><br><span class="line">    e[idx]=b;</span><br><span class="line">    w[dix]=c;//权重为c</span><br><span class="line">    ne[a]=h[a];</span><br><span class="line">    h[a]=idx++;</span><br><span class="line">&#125;</span><br><span class="line">//拓展 遍历每个节点的出度</span><br><span class="line">void <span class="function"><span class="title">dijkstra</span></span>()&#123;</span><br><span class="line">    memset(dist,0x3f,sizeof(dist));</span><br><span class="line">    priority_queue&lt;PII,vector&lt;PII&gt;,greater&lt;PII&gt;&gt; heap;</span><br><span class="line">    //PII: distance 序号</span><br><span class="line">    heap.push(&#123;0,s&#125;);</span><br><span class="line">    dist[s]=0；</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(heap.size())&#123;</span><br><span class="line">        int t=heap.top();</span><br><span class="line">        heap.pop();</span><br><span class="line"></span><br><span class="line">        int distance=t.first,ver=t.second;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(st[ver])<span class="built_in">continue</span>;</span><br><span class="line"></span><br><span class="line">        st[ver]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(int i=h[ver];i!=-1;i=ne[i])&#123;</span><br><span class="line">            int j=e[i],c=w[i];</span><br><span class="line">            <span class="keyword">if</span>(dist[j]&gt;distance+c)&#123;</span><br><span class="line">                dist[j]=distance+c;</span><br><span class="line">                heap.push(&#123;dist[j],j&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    //链表初始化</span><br><span class="line">    memset(h,-1,sizeof(-1));</span><br><span class="line">    </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">    int a,b,c;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        add(a,b,c);</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">dist[i]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Bellman-Ford"><a href="#Bellman-Ford" class="headerlink" title="Bellman_Ford"></a>Bellman_Ford</h2><h3 id="利用结构体存储-O-n-m"><a href="#利用结构体存储-O-n-m" class="headerlink" title="利用结构体存储 O(n*m)"></a>利用结构体存储 O(n*m)</h3><p>松弛操作<br>两层循环</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//N为最大节点的个数</span><br><span class="line">int n,m,a,b,w;</span><br><span class="line">int dist[N];//存储到第一节点的距离</span><br><span class="line">int backup[N];</span><br><span class="line">struct Egde&#123;</span><br><span class="line">    int a,int b,int w;</span><br><span class="line">&#125;edges[M];//M为最大边数</span><br><span class="line">void <span class="function"><span class="title">bellman_ford</span></span>()&#123;</span><br><span class="line">    memset(dist,-1,sizeof(dist));</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;k;i++)&#123;//题干中最大步数k</span><br><span class="line">        memcpy(backup,dist,sizeof(dist));</span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;=m;j++)&#123;//开始拓展</span><br><span class="line">            int a=edges[j].a,b=edges[j].b,w=edges[j].w;</span><br><span class="line">            dist[b]=min(dist[b],backup[a]+w);       </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主函数</span><br><span class="line">cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line"><span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;w;</span><br><span class="line">    edges[i]=&#123;a,b,w&#125;;</span><br><span class="line">&#125;</span><br><span class="line">bellman_ford();</span><br><span class="line"><span class="keyword">if</span>(dist[n]&gt;0x3f3f3f3f/2)&#123;//为什么不是0x3f3f3f3f3f呢</span><br><span class="line">    //存在负权时 (+∞-w)&lt;+∞ dist[]的值可能会被更新为比+∞小一点的数</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;impossible&quot;</span>&lt;&lt;<span class="string">endl;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">else&#123;</span></span><br><span class="line"><span class="string">    cout&lt;&lt;dist[n];</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>目的是实现三角不等式即</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dist[b]&lt;=dist[a]+w;</span><br></pre></td></tr></table></figure>
+<h2 id="SPFA"><a href="#SPFA" class="headerlink" title="SPFA"></a>SPFA</h2><h3 id="利用BFS优化松弛操作-O-m-O-n-m"><a href="#利用BFS优化松弛操作-O-m-O-n-m" class="headerlink" title="利用BFS优化松弛操作 O(m)~O(n*m)"></a>利用BFS优化松弛操作 O(m)~O(n*m)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">const int N=1e5+5;</span><br><span class="line">int e[N],ne[N],w[N],h[N],idx;</span><br><span class="line">int add(int a,int b,int c)&#123;</span><br><span class="line">    e[idx]=b;</span><br><span class="line">    w[idx]=c;</span><br><span class="line">    ne[idx]=h[a];</span><br><span class="line">    h[a]=idx++;</span><br><span class="line">&#125;</span><br><span class="line">void <span class="function"><span class="title">spfa</span></span>()&#123;</span><br><span class="line">    memset(dist,0x3f,sizeof(dist));</span><br><span class="line">    queue&lt;int&gt;q;</span><br><span class="line">    q.push(1);</span><br><span class="line"></span><br><span class="line">    dist[1]=0;</span><br><span class="line">    st[1]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">        int t=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        st[t]=<span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(int i=h[t];i!=-1;i=ne[i])&#123;</span><br><span class="line">            int j=ne[i];</span><br><span class="line">            <span class="keyword">if</span>(dist[j]&gt;dist[t]+w[i])&#123;</span><br><span class="line">                dist[j]=dist[t]+w[i];</span><br><span class="line">                <span class="keyword">if</span>(!st[j])&#123;</span><br><span class="line">                    q.push(j);</span><br><span class="line">                    st[j]=<span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    memset(h,-1,sizeof(h));</span><br><span class="line">    //省略输入...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(dist[n]==0x3f3f3f3f)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;impossible&lt;&lt;ednl;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    else&#123;</span></span><br><span class="line"><span class="string">        cout&lt;&lt;dist[n]&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="可以用来判断是否存在重环和自环"><a href="#可以用来判断是否存在重环和自环" class="headerlink" title="可以用来判断是否存在重环和自环"></a>可以用来判断是否存在重环和自环</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void <span class="function"><span class="title">spfa</span></span>()&#123;</span><br><span class="line">    queue&lt;int&gt;q;</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        q.push(i);</span><br><span class="line">        st[i]=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">        int t=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        st[t]=<span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Floyd"><a href="#Floyd" class="headerlink" title="Floyd"></a>Floyd</h2><h3 id="邻接矩阵存储-不能出现负权回路-O-n-3"><a href="#邻接矩阵存储-不能出现负权回路-O-n-3" class="headerlink" title="邻接矩阵存储 不能出现负权回路 O(n^3)"></a>邻接矩阵存储 不能出现负权回路 O(n^3)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">const int INF=1e9;</span><br><span class="line">int n,m,k;//n是节点的个数 m是边数</span><br><span class="line">int a,b,w;</span><br><span class="line">int g[N][N];</span><br><span class="line">void <span class="function"><span class="title">floyd</span></span>()&#123;</span><br><span class="line">    <span class="keyword">for</span>(int k=1;k&lt;=n;k++)&#123;//寻找i和j之间的节点 且满足经过k的路径更短</span><br><span class="line">        <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">                g[i][j]=min(g[i][j],g[i][k]+g[k][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    //初始化</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i==j)&#123;</span><br><span class="line">                g[i][j]=0;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                g[i][j]=INF;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //输入操作</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;w;</span><br><span class="line">        //重边保留边权最小的</span><br><span class="line">        g[a][b]=min(g[a][b],w);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    floyd();</span><br><span class="line">    //处理数据</span><br><span class="line">    <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        //出现负权边 可能更新距离后比INF略小</span><br><span class="line">        <span class="keyword">if</span>(g[a][b]&gt;=INF/2)&#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;impossible&quot;</span>&lt;&lt;<span class="string">endl;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        else&#123;</span></span><br><span class="line"><span class="string">            cout&lt;&lt;g[a][b]&lt;&lt;endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -845,7 +877,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Página siguiente"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="الصفحة التالية"></i></a>
   </nav>
 
 
@@ -889,10 +921,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Tabla de contenidos
+          المحتويات
         </li>
         <li class="sidebar-nav-overview">
-          Inicio
+          عام
         </li>
       </ul>
 
@@ -911,8 +943,8 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
-          <span class="site-state-item-name">entradas</span>
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">المقالات</span>
         </a>
       </div>
   </nav>
@@ -945,7 +977,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">Creado mediante <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

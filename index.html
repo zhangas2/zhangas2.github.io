@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -113,12 +113,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
 
   </li>
   </ul>
@@ -148,6 +148,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/22/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/22/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">约瑟夫环问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              <time title="Erstellt: 2022-11-22 19:59:10 / Geändert am: 20:11:48" itemprop="dateCreated datePublished" datetime="2022-11-22T19:59:10+08:00">2022-11-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="队列模拟"><a href="#队列模拟" class="headerlink" title="队列模拟"></a>队列模拟</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;queue&gt;</span></span><br><span class="line">queue&lt;int&gt;ql;</span><br><span class="line">int n=<span class="built_in">read</span>(),k=<span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">    q.push(i);</span><br><span class="line">&#125;</span><br><span class="line">//开始操作</span><br><span class="line">int now=1;//用来计数 当now == k的时候满足条件 让q.front() 输出并出列</span><br><span class="line"><span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">    <span class="keyword">if</span>(now==k)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">q.front()&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">        q</span>.pop();</span><br><span class="line">        now=1;//初始化</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;//如果不满足是第k个, 则将队头转移到队尾</span><br><span class="line">        now++;</span><br><span class="line">        q.push(q.front());</span><br><span class="line">        q.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="公式法"><a href="#公式法" class="headerlink" title="公式法"></a>公式法</h2><p>f(10,3)&#x3D;(f(9,3)+3)%10<br>∴ 从n中依次删去第k的数子<br>f(n,k)&#x3D;(f(n-1,k)+k)%n</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//函数的两种实现方式</span><br><span class="line">int josephus(int n,int k)&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==1)<span class="built_in">return</span> 0;</span><br><span class="line">    <span class="built_in">return</span> (josephus(n-1,k)+k)%n;</span><br><span class="line">&#125;</span><br><span class="line">//第二种</span><br><span class="line">int josephus(int n,int k)&#123;</span><br><span class="line">    //从底层向上推</span><br><span class="line">    int value=0;//value 即为f(0,k) -&gt; 向上递推到 f(m,k)</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;//从n 一直到 1推出答案 共n次</span><br><span class="line">        value=(value+k)%i; //i即使n的变化值</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line">int n=<span class="built_in">read</span>(),k=<span class="built_in">read</span>();</span><br><span class="line">cout&lt;&lt;<span class="string">josephus(n,k)+1&lt;&lt;endl;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-title-link" itemprop="url">动态规划</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2022-11-17 11:39:41" itemprop="dateCreated datePublished" datetime="2022-11-17T11:39:41+08:00">2022-11-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-11-19 13:28:59" itemprop="dateModified" datetime="2022-11-19T13:28:59+08:00">2022-11-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><h2 id="线性DP"><a href="#线性DP" class="headerlink" title="线性DP"></a>线性DP</h2><h3 id="数字三角形"><a href="#数字三角形" class="headerlink" title="数字三角形"></a>数字三角形</h3><p>从顶部出发，在每一结点可以选择移动至其左下方的结点或移动至其右下方的结点，一直走到底层，要求找出一条路径，使路径上的数字的和最大。<br>input:<br>5<br>7<br>3 8<br>8 1 0<br>2 7 4 4<br>4 5 2 6 5<br>output:<br>30</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//从下向上DP更新</span><br><span class="line">//f[i][j]=max(f[i+1][j],f[i+1][j+1])+a[i][j];</span><br><span class="line"><span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">    f[n][j]=a[n][j];//将最后一行输入到f数组中</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(int i=n-1;i&gt;=1;i--)&#123;//从n-1行开始</span><br><span class="line">    <span class="keyword">for</span>(int j=1;j&lt;=i;j++)&#123;</span><br><span class="line">        f[i][j]=max(f[i+1][j],f[i+1][j+1])+a[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;<span class="string">f[1][1];</span></span><br></pre></td></tr></table></figure>
+<h3 id="最长上升子序列"><a href="#最长上升子序列" class="headerlink" title="最长上升子序列"></a>最长上升子序列</h3><p>给定一个长度为 N 的数列，求数值严格单调递增的子序列的长度最长是多少。<br>input:<br>7<br>3 1 2 1 8 5 6<br>output:<br>1 2 5 6<br>4</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; q;</span><br><span class="line">q.push_back(a[0]);</span><br><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a[i]&gt;q.back())&#123;</span><br><span class="line">        q.push_back(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        *lower_bound(q.begin(),q.end(),a[i])=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(auto i:q)&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">i&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">cout&lt;&lt;endl&lt;&lt;q.size();</span></span><br></pre></td></tr></table></figure>
+<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p>给定两个长度分别为 N 和 M 的字符串 A 和 B，求既是 A 的子序列又是 B 的子序列的字符串长度最长是多少。<br>input：<br>4 5<br>acbd<br>abedc<br>output：<br>abd<br>3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//f[i][j]表示A的前i个于B的前j个的最长公共子序列</span><br><span class="line">//f[i][j]=max(f[i-1][j-1]AB都不选,f[i][j-1]A选B不选,f[i-1][j]A不选B选,f[i-1][j-1]+1AB都选)</span><br><span class="line">const int N=1005;</span><br><span class="line">char a[N],b[N];</span><br><span class="line">int f[N][N];</span><br><span class="line">int n=<span class="built_in">read</span>(),m=<span class="built_in">read</span>();</span><br><span class="line">scanf(<span class="string">&quot;%s,a+1);scanf(&quot;</span>%s,b+1);</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;++i)&#123;</span><br><span class="line">    <span class="keyword">for</span>(int j=1;j&lt;=m;j++)&#123;</span><br><span class="line">        f[i][j]=max(f[i-1][j],f[i][j-1]);</span><br><span class="line">        <span class="keyword">if</span>(a[i]==b[j]) f[i][j]=max(f[i][j],f[i-1][j-1]+1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h2><h3 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h3><p>设有 N 堆石子排成一排，其编号为 1，2，3，…N。</p>
+<p>每堆石子有一定的质量，可以用一个整数来描述，现在要将这 N 堆石子合并成为一堆。</p>
+<p>每次只能合并相邻的两堆，合并的代价为这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻，合并时由于选择的顺序不同，合并的总代价也不相同。<br>input：<br>4<br>1 3 5 2<br>output：<br>22</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/06/%E6%9D%82%E7%89%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -170,16 +303,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="أُنشأ: 2022-11-06 19:53:57" itemprop="dateCreated datePublished" datetime="2022-11-06T19:53:57+08:00">2022-11-06</time>
+              <time title="Erstellt: 2022-11-06 19:53:57" itemprop="dateCreated datePublished" datetime="2022-11-06T19:53:57+08:00">2022-11-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-11-08 14:22:24" itemprop="dateModified" datetime="2022-11-08T14:22:24+08:00">2022-11-08</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-11-21 15:25:48" itemprop="dateModified" datetime="2022-11-21T15:25:48+08:00">2022-11-21</time>
               </span>
 
           
@@ -193,7 +326,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>factorial n.阶乘<br>inversion n.倒置,反转 (逆元)<br>fact[]表示阶乘 infact表示阶乘的逆元</p>
+          <h2 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">十进制转十六进制</span><br><span class="line">char c[30];</span><br><span class="line">sprintf(c,&quot;%x&quot;,num);</span><br><span class="line">cout&lt;&lt;c;</span><br><span class="line">十进制转八进制</span><br><span class="line">sprintf(c,&quot;%o&quot;,num);</span><br><span class="line">cout&lt;&lt;c;</span><br></pre></td></tr></table></figure>
+<p>factorial n.阶乘<br>inversion n.倒置,反转 (逆元)<br>fact[]表示阶乘 infact表示阶乘的逆元 </p>
 <h2 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h2><p>输入字符串s 判断是否是回文串</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">scanf(<span class="string">&quot;%s&quot;</span>,&amp;c);</span><br><span class="line">int l=strlen(c);</span><br><span class="line">	int f=0;</span><br><span class="line">	<span class="keyword">for</span>(int i=0, j=l - 1;i&lt;j;i++,j--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i]!=c[j])&#123;</span><br><span class="line">           	f=1;</span><br><span class="line">           	<span class="built_in">printf</span>(<span class="string">&quot;No.\n&quot;</span>);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">if</span>(!f)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Yes.\n&quot;</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="计算e"><a href="#计算e" class="headerlink" title="计算e"></a>计算e</h2><p>利用公式e&#x3D;1+1&#x2F;(1!)+…+1&#x2F;(n!) 求e的近似值 </p>
@@ -249,16 +383,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="أُنشأ: 2022-10-31 08:45:55" itemprop="dateCreated datePublished" datetime="2022-10-31T08:45:55+08:00">2022-10-31</time>
+              <time title="Erstellt: 2022-10-31 08:45:55" itemprop="dateCreated datePublished" datetime="2022-10-31T08:45:55+08:00">2022-10-31</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-11-12 11:58:08" itemprop="dateModified" datetime="2022-11-12T11:58:08+08:00">2022-11-12</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-11-12 11:58:08" itemprop="dateModified" datetime="2022-11-12T11:58:08+08:00">2022-11-12</time>
               </span>
 
           
@@ -360,16 +494,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="أُنشأ: 2022-10-29 17:12:51" itemprop="dateCreated datePublished" datetime="2022-10-29T17:12:51+08:00">2022-10-29</time>
+              <time title="Erstellt: 2022-10-29 17:12:51" itemprop="dateCreated datePublished" datetime="2022-10-29T17:12:51+08:00">2022-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-31 08:44:23" itemprop="dateModified" datetime="2022-10-31T08:44:23+08:00">2022-10-31</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-10-31 08:44:23" itemprop="dateModified" datetime="2022-10-31T08:44:23+08:00">2022-10-31</time>
               </span>
 
           
@@ -428,16 +562,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="أُنشأ: 2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
+              <time title="Erstellt: 2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-30 15:31:37" itemprop="dateModified" datetime="2022-10-30T15:31:37+08:00">2022-10-30</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-10-30 15:31:37" itemprop="dateModified" datetime="2022-10-30T15:31:37+08:00">2022-10-30</time>
               </span>
 
           
@@ -496,10 +630,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="أُنشأ: 2022-10-27 20:09:53 / عُدل: 23:20:40" itemprop="dateCreated datePublished" datetime="2022-10-27T20:09:53+08:00">2022-10-27</time>
+              <time title="Erstellt: 2022-10-27 20:09:53 / Geändert am: 23:20:40" itemprop="dateCreated datePublished" datetime="2022-10-27T20:09:53+08:00">2022-10-27</time>
             </span>
 
           
@@ -557,10 +691,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="أُنشأ: 2022-10-26 17:08:10 / عُدل: 17:27:45" itemprop="dateCreated datePublished" datetime="2022-10-26T17:08:10+08:00">2022-10-26</time>
+              <time title="Erstellt: 2022-10-26 17:08:10 / Geändert am: 17:27:45" itemprop="dateCreated datePublished" datetime="2022-10-26T17:08:10+08:00">2022-10-26</time>
             </span>
 
           
@@ -621,16 +755,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="أُنشأ: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
+              <time title="Erstellt: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-23 18:05:05" itemprop="dateModified" datetime="2022-10-23T18:05:05+08:00">2022-10-23</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-11-20 00:07:14" itemprop="dateModified" datetime="2022-11-20T00:07:14+08:00">2022-11-20</time>
               </span>
 
           
@@ -660,7 +794,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">size(),empty(),clear() </span><br><span class="line">begin(),end(); ++ -- 返回前驱和后继(前一个迭代器) 时间复杂度为o(logn)</span><br></pre></td></tr></table></figure>
 <h3 id="set-x2F-multiset"><a href="#set-x2F-multiset" class="headerlink" title="set&#x2F;multiset"></a>set&#x2F;multiset</h3><p>set容器中元素不能重复而multiset可以</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">insert();//插入一个数</span><br><span class="line">find();//查询一个数</span><br><span class="line">count();//返回某一个数的个数</span><br><span class="line">erase();//①输入一个数x 删除所有x O(k+logn)</span><br><span class="line">        //②输入一个迭代器 删除这个迭代器</span><br><span class="line">lower_bound();//返回第一个不小于x的数字</span><br><span class="line">upper_bound();//返回第一个不大于x的数字</span><br></pre></td></tr></table></figure>
-<h3 id="map-x2F-multimap"><a href="#map-x2F-multimap" class="headerlink" title="map&#x2F;multimap"></a>map&#x2F;multimap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">insert();//插入一个pair</span><br><span class="line">erase();//输入的是一个pari或者是迭代器</span><br><span class="line">find();</span><br><span class="line">支持[]</span><br><span class="line">lower_bound()/upper_bound()</span><br></pre></td></tr></table></figure>
+<h3 id="map-x2F-multimap"><a href="#map-x2F-multimap" class="headerlink" title="map&#x2F;multimap"></a>map&#x2F;multimap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;PII,int&gt;mp;</span><br><span class="line">mp.insert(&#123;a,b&#125;);//添加数对a-&gt;b</span><br><span class="line">insert();//插入一个pair</span><br><span class="line">erase();//输入的是一个pari或者是迭代器</span><br><span class="line">find();</span><br><span class="line">支持[]</span><br><span class="line">lower_bound()/upper_bound()</span><br></pre></td></tr></table></figure>
 <h2 id="无序容器-哈希容器-也叫散列表"><a href="#无序容器-哈希容器-也叫散列表" class="headerlink" title="无序容器 (哈希容器(也叫散列表))"></a>无序容器 (哈希容器(也叫散列表))</h2><h3 id="unordered-set-unordered-map-unordered-multiset-unordered-multimap"><a href="#unordered-set-unordered-map-unordered-multiset-unordered-multimap" class="headerlink" title="unordered_set unordered_map unordered_multiset unordered_multimap"></a>unordered_set unordered_map unordered_multiset unordered_multimap</h3><p>和上面操作类似 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">优点: 增删改查的时间复杂度为O(1),<span class="built_in">set</span> map容器的时间复杂度为O(logn)基于红黑树的高度</span><br><span class="line">缺点: 不支持lower_bound()和upper_bound()操作   也不支持迭代器的++ --</span><br></pre></td></tr></table></figure>
 <h2 id="bitset-压位运算"><a href="#bitset-压位运算" class="headerlink" title="bitset 压位运算"></a>bitset 压位运算</h2><p>&amp; 按位与  :  如果对应位都为1,那么结果就是1;如果任意一个位是0,则结果就是0<br>| 按位或  : 与&amp; 的区别在于 如果对应位中任一个操作数为1 那么结果就是1(不需要两个对应位都为1)<br>~ 取反    : 对位求反 1变0, 0变1<br>^ 按位异或 : 跟 | 类似, 但有一点不同的是 如果两个操作位都为1的话，结果产生0<br>&lt;&lt;左移   &gt;&gt;右移<br>&#x3D;&#x3D;  !&#x3D;<br>[]</p>
@@ -706,10 +840,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="أُنشأ: 2022-10-18 13:41:55 / عُدل: 13:48:50" itemprop="dateCreated datePublished" datetime="2022-10-18T13:41:55+08:00">2022-10-18</time>
+              <time title="Erstellt: 2022-10-18 13:41:55 / Geändert am: 13:48:50" itemprop="dateCreated datePublished" datetime="2022-10-18T13:41:55+08:00">2022-10-18</time>
             </span>
 
           
@@ -744,150 +878,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E5%90%91%E4%B8%8A%E5%8F%96%E6%95%B4%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/16/%E5%90%91%E4%B8%8A%E5%8F%96%E6%95%B4%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">向上取整函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">نُشر في</span>
-              
-
-              <time title="أُنشأ: 2022-10-16 15:24:50 / عُدل: 15:34:48" itemprop="dateCreated datePublished" datetime="2022-10-16T15:24:50+08:00">2022-10-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="头文件-lt-math-h-gt"><a href="#头文件-lt-math-h-gt" class="headerlink" title="头文件&lt;math.h&gt;"></a>头文件&lt;math.h&gt;</h3><p>原型</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">double ceil(double x)</span><br></pre></td></tr></table></figure>
-<p>调用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int x;</span><br><span class="line">cout&lt;&lt;<span class="string">ceil(x*1.0);</span></span><br></pre></td></tr></table></figure>
-<p>function:返回大于或等于 x 的最小的整数值.<br>warning:当-1&lt; x &lt; 0 返回值是 -0</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/13/%E5%9B%BE%E8%AE%BA%20%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/13/%E5%9B%BE%E8%AE%BA%20%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">图论 最短路问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">نُشر في</span>
-
-              <time title="أُنشأ: 2022-10-13 22:55:55" itemprop="dateCreated datePublished" datetime="2022-10-13T22:55:55+08:00">2022-10-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-11-03 18:54:17" itemprop="dateModified" datetime="2022-11-03T18:54:17+08:00">2022-11-03</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="dijkstra-所有边权都是正数"><a href="#dijkstra-所有边权都是正数" class="headerlink" title="dijkstra 所有边权都是正数"></a>dijkstra 所有边权都是正数</h2><h3 id="朴素版-O-n-2"><a href="#朴素版-O-n-2" class="headerlink" title="朴素版 O(n^2)"></a>朴素版 O(n^2)</h3><p>n:节点个数<br>m:边的个数</p>
-<p>n^2~m (同一数量级)<br>稠密图: 用邻接矩阵存储d[t][j]表示从t到j的权重</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">int g[N][N];//权重</span><br><span class="line">int dist[N];//到一号点的距离</span><br><span class="line">bool st[N];//表示哪些点的最短距离已经确定</span><br><span class="line">void <span class="function"><span class="title">dijkstra</span></span>()&#123;</span><br><span class="line">    memset(dist,0x3f,sizeof(dist));</span><br><span class="line">    dist[1]=0;//初始化一号点的距离为0</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        int t=-1;</span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!st[j]&amp;&amp;(dist[t]&gt;dist[j||t==-1]))&#123;</span><br><span class="line">                t=j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        st[t]=<span class="literal">true</span>;//最短距离已经确定</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dist[j]&gt;dist[t]+g[t][j])&#123;</span><br><span class="line">                dist[j]=dist[t]+g[t][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    memset(g,0x3f,sizeof(g));</span><br><span class="line">    //读入的时候 存在重边 和自环</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        g[x][y]=min(g[x][y],z);//取长度最短的边</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra();</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="堆优化版O-m-logn"><a href="#堆优化版O-m-logn" class="headerlink" title="堆优化版O(m*logn)"></a>堆优化版O(m*logn)</h3><p>n~m (同一数量级)<br>稀疏图: 用邻接表存储</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;queue&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string.h&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">int h[N],e[N],ne[N],w[N],idx;</span><br><span class="line">int n,m,s;</span><br><span class="line">void add(int a,int b,int c)&#123;</span><br><span class="line">    e[idx]=b;</span><br><span class="line">    w[dix]=c;//权重为c</span><br><span class="line">    ne[a]=h[a];</span><br><span class="line">    h[a]=idx++;</span><br><span class="line">&#125;</span><br><span class="line">//拓展 遍历每个节点的出度</span><br><span class="line">void <span class="function"><span class="title">dijkstra</span></span>()&#123;</span><br><span class="line">    memset(dist,0x3f,sizeof(dist));</span><br><span class="line">    priority_queue&lt;PII,vector&lt;PII&gt;,greater&lt;PII&gt;&gt; heap;</span><br><span class="line">    //PII: distance 序号</span><br><span class="line">    heap.push(&#123;0,s&#125;);</span><br><span class="line">    dist[s]=0；</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(heap.size())&#123;</span><br><span class="line">        int t=heap.top();</span><br><span class="line">        heap.pop();</span><br><span class="line"></span><br><span class="line">        int distance=t.first,ver=t.second;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(st[ver])<span class="built_in">continue</span>;</span><br><span class="line"></span><br><span class="line">        st[ver]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(int i=h[ver];i!=-1;i=ne[i])&#123;</span><br><span class="line">            int j=e[i],c=w[i];</span><br><span class="line">            <span class="keyword">if</span>(dist[j]&gt;distance+c)&#123;</span><br><span class="line">                dist[j]=distance+c;</span><br><span class="line">                heap.push(&#123;dist[j],j&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    //链表初始化</span><br><span class="line">    memset(h,-1,sizeof(-1));</span><br><span class="line">    </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">    int a,b,c;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        add(a,b,c);</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">dist[i]&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Bellman-Ford"><a href="#Bellman-Ford" class="headerlink" title="Bellman_Ford"></a>Bellman_Ford</h2><h3 id="利用结构体存储-O-n-m"><a href="#利用结构体存储-O-n-m" class="headerlink" title="利用结构体存储 O(n*m)"></a>利用结构体存储 O(n*m)</h3><p>松弛操作<br>两层循环</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//N为最大节点的个数</span><br><span class="line">int n,m,a,b,w;</span><br><span class="line">int dist[N];//存储到第一节点的距离</span><br><span class="line">int backup[N];</span><br><span class="line">struct Egde&#123;</span><br><span class="line">    int a,int b,int w;</span><br><span class="line">&#125;edges[M];//M为最大边数</span><br><span class="line">void <span class="function"><span class="title">bellman_ford</span></span>()&#123;</span><br><span class="line">    memset(dist,-1,sizeof(dist));</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;k;i++)&#123;//题干中最大步数k</span><br><span class="line">        memcpy(backup,dist,sizeof(dist));</span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;=m;j++)&#123;//开始拓展</span><br><span class="line">            int a=edges[j].a,b=edges[j].b,w=edges[j].w;</span><br><span class="line">            dist[b]=min(dist[b],backup[a]+w);       </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主函数</span><br><span class="line">cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line"><span class="keyword">for</span>(int i=0;i&lt;m;i++)&#123;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;w;</span><br><span class="line">    edges[i]=&#123;a,b,w&#125;;</span><br><span class="line">&#125;</span><br><span class="line">bellman_ford();</span><br><span class="line"><span class="keyword">if</span>(dist[n]&gt;0x3f3f3f3f/2)&#123;//为什么不是0x3f3f3f3f3f呢</span><br><span class="line">    //存在负权时 (+∞-w)&lt;+∞ dist[]的值可能会被更新为比+∞小一点的数</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;impossible&quot;</span>&lt;&lt;<span class="string">endl;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">else&#123;</span></span><br><span class="line"><span class="string">    cout&lt;&lt;dist[n];</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>目的是实现三角不等式即</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dist[b]&lt;=dist[a]+w;</span><br></pre></td></tr></table></figure>
-<h2 id="SPFA"><a href="#SPFA" class="headerlink" title="SPFA"></a>SPFA</h2><h3 id="利用BFS优化松弛操作-O-m-O-n-m"><a href="#利用BFS优化松弛操作-O-m-O-n-m" class="headerlink" title="利用BFS优化松弛操作 O(m)~O(n*m)"></a>利用BFS优化松弛操作 O(m)~O(n*m)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">const int N=1e5+5;</span><br><span class="line">int e[N],ne[N],w[N],h[N],idx;</span><br><span class="line">int add(int a,int b,int c)&#123;</span><br><span class="line">    e[idx]=b;</span><br><span class="line">    w[idx]=c;</span><br><span class="line">    ne[idx]=h[a];</span><br><span class="line">    h[a]=idx++;</span><br><span class="line">&#125;</span><br><span class="line">void <span class="function"><span class="title">spfa</span></span>()&#123;</span><br><span class="line">    memset(dist,0x3f,sizeof(dist));</span><br><span class="line">    queue&lt;int&gt;q;</span><br><span class="line">    q.push(1);</span><br><span class="line"></span><br><span class="line">    dist[1]=0;</span><br><span class="line">    st[1]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">        int t=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        st[t]=<span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(int i=h[t];i!=-1;i=ne[i])&#123;</span><br><span class="line">            int j=ne[i];</span><br><span class="line">            <span class="keyword">if</span>(dist[j]&gt;dist[t]+w[i])&#123;</span><br><span class="line">                dist[j]=dist[t]+w[i];</span><br><span class="line">                <span class="keyword">if</span>(!st[j])&#123;</span><br><span class="line">                    q.push(j);</span><br><span class="line">                    st[j]=<span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    memset(h,-1,sizeof(h));</span><br><span class="line">    //省略输入...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(dist[n]==0x3f3f3f3f)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;impossible&lt;&lt;ednl;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    else&#123;</span></span><br><span class="line"><span class="string">        cout&lt;&lt;dist[n]&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="可以用来判断是否存在重环和自环"><a href="#可以用来判断是否存在重环和自环" class="headerlink" title="可以用来判断是否存在重环和自环"></a>可以用来判断是否存在重环和自环</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void <span class="function"><span class="title">spfa</span></span>()&#123;</span><br><span class="line">    queue&lt;int&gt;q;</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        q.push(i);</span><br><span class="line">        st[i]=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">        int t=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        st[t]=<span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Floyd"><a href="#Floyd" class="headerlink" title="Floyd"></a>Floyd</h2><h3 id="邻接矩阵存储-不能出现负权回路-O-n-3"><a href="#邻接矩阵存储-不能出现负权回路-O-n-3" class="headerlink" title="邻接矩阵存储 不能出现负权回路 O(n^3)"></a>邻接矩阵存储 不能出现负权回路 O(n^3)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">const int INF=1e9;</span><br><span class="line">int n,m,k;//n是节点的个数 m是边数</span><br><span class="line">int a,b,w;</span><br><span class="line">int g[N][N];</span><br><span class="line">void <span class="function"><span class="title">floyd</span></span>()&#123;</span><br><span class="line">    <span class="keyword">for</span>(int k=1;k&lt;=n;k++)&#123;//寻找i和j之间的节点 且满足经过k的路径更短</span><br><span class="line">        <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">                g[i][j]=min(g[i][j],g[i][k]+g[k][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    //初始化</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i==j)&#123;</span><br><span class="line">                g[i][j]=0;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                g[i][j]=INF;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //输入操作</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;w;</span><br><span class="line">        //重边保留边权最小的</span><br><span class="line">        g[a][b]=min(g[a][b],w);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    floyd();</span><br><span class="line">    //处理数据</span><br><span class="line">    <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        //出现负权边 可能更新距离后比INF略小</span><br><span class="line">        <span class="keyword">if</span>(g[a][b]&gt;=INF/2)&#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;impossible&quot;</span>&lt;&lt;<span class="string">endl;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        else&#123;</span></span><br><span class="line"><span class="string">            cout&lt;&lt;g[a][b]&lt;&lt;endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="الصفحة التالية"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -931,10 +925,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          المحتويات
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          عام
+          Übersicht
         </li>
       </ul>
 
@@ -953,8 +947,8 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
-          <span class="site-state-item-name">المقالات</span>
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
   </nav>
@@ -987,7 +981,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

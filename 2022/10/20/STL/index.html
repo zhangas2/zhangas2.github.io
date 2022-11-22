@@ -28,7 +28,7 @@
 <meta property="og:description" content=".empty();&#x2F;&#x2F;空返回true 非空返回false vector123456789101112#include&lt;vector&gt;vector&lt;int&gt; a(n,x);&#x2F;&#x2F;初始化n个空间为xfor(auto item: a)&amp;#123;&#x2F;&#x2F;遍历容器    cout&lt;&lt;item&lt;&lt;&quot; &quot;;&amp;#125;a.siz">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-10-20T12:19:14.402Z">
-<meta property="article:modified_time" content="2022-10-23T10:05:05.647Z">
+<meta property="article:modified_time" content="2022-11-19T16:07:14.289Z">
 <meta property="article:author" content="zhangas">
 <meta name="twitter:card" content="summary">
 
@@ -85,7 +85,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -115,12 +115,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
 
   </li>
   </ul>
@@ -172,16 +172,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="أُنشأ: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
+              <time title="Erstellt: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-23 18:05:05" itemprop="dateModified" datetime="2022-10-23T18:05:05+08:00">2022-10-23</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2022-11-20 00:07:14" itemprop="dateModified" datetime="2022-11-20T00:07:14+08:00">2022-11-20</time>
               </span>
 
           
@@ -211,7 +211,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">size(),empty(),clear() </span><br><span class="line">begin(),end(); ++ -- 返回前驱和后继(前一个迭代器) 时间复杂度为o(logn)</span><br></pre></td></tr></table></figure>
 <h3 id="set-x2F-multiset"><a href="#set-x2F-multiset" class="headerlink" title="set&#x2F;multiset"></a>set&#x2F;multiset</h3><p>set容器中元素不能重复而multiset可以</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">insert();//插入一个数</span><br><span class="line">find();//查询一个数</span><br><span class="line">count();//返回某一个数的个数</span><br><span class="line">erase();//①输入一个数x 删除所有x O(k+logn)</span><br><span class="line">        //②输入一个迭代器 删除这个迭代器</span><br><span class="line">lower_bound();//返回第一个不小于x的数字</span><br><span class="line">upper_bound();//返回第一个不大于x的数字</span><br></pre></td></tr></table></figure>
-<h3 id="map-x2F-multimap"><a href="#map-x2F-multimap" class="headerlink" title="map&#x2F;multimap"></a>map&#x2F;multimap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">insert();//插入一个pair</span><br><span class="line">erase();//输入的是一个pari或者是迭代器</span><br><span class="line">find();</span><br><span class="line">支持[]</span><br><span class="line">lower_bound()/upper_bound()</span><br></pre></td></tr></table></figure>
+<h3 id="map-x2F-multimap"><a href="#map-x2F-multimap" class="headerlink" title="map&#x2F;multimap"></a>map&#x2F;multimap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;PII,int&gt;mp;</span><br><span class="line">mp.insert(&#123;a,b&#125;);//添加数对a-&gt;b</span><br><span class="line">insert();//插入一个pair</span><br><span class="line">erase();//输入的是一个pari或者是迭代器</span><br><span class="line">find();</span><br><span class="line">支持[]</span><br><span class="line">lower_bound()/upper_bound()</span><br></pre></td></tr></table></figure>
 <h2 id="无序容器-哈希容器-也叫散列表"><a href="#无序容器-哈希容器-也叫散列表" class="headerlink" title="无序容器 (哈希容器(也叫散列表))"></a>无序容器 (哈希容器(也叫散列表))</h2><h3 id="unordered-set-unordered-map-unordered-multiset-unordered-multimap"><a href="#unordered-set-unordered-map-unordered-multiset-unordered-multimap" class="headerlink" title="unordered_set unordered_map unordered_multiset unordered_multimap"></a>unordered_set unordered_map unordered_multiset unordered_multimap</h3><p>和上面操作类似 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">优点: 增删改查的时间复杂度为O(1),<span class="built_in">set</span> map容器的时间复杂度为O(logn)基于红黑树的高度</span><br><span class="line">缺点: 不支持lower_bound()和upper_bound()操作   也不支持迭代器的++ --</span><br></pre></td></tr></table></figure>
 <h2 id="bitset-压位运算"><a href="#bitset-压位运算" class="headerlink" title="bitset 压位运算"></a>bitset 压位运算</h2><p>&amp; 按位与  :  如果对应位都为1,那么结果就是1;如果任意一个位是0,则结果就是0<br>| 按位或  : 与&amp; 的区别在于 如果对应位中任一个操作数为1 那么结果就是1(不需要两个对应位都为1)<br>~ 取反    : 对位求反 1变0, 0变1<br>^ 按位异或 : 跟 | 类似, 但有一点不同的是 如果两个操作位都为1的话，结果产生0<br>&lt;&lt;左移   &gt;&gt;右移<br>&#x3D;&#x3D;  !&#x3D;<br>[]</p>
@@ -287,10 +287,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          المحتويات
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          عام
+          Übersicht
         </li>
       </ul>
 
@@ -310,8 +310,8 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
-          <span class="site-state-item-name">المقالات</span>
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
   </nav>
@@ -344,7 +344,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

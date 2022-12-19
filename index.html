@@ -148,6 +148,65 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/19/Daily%20problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/19/Daily%20problems/" class="post-title-link" itemprop="url">daily problems</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">نُشر في</span>
+              
+
+              <time title="أُنشأ: 2022-12-19 14:37:11 / عُدل: 14:52:29" itemprop="dateCreated datePublished" datetime="2022-12-19T14:37:11+08:00">2022-12-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="孤独的照片"><a href="#孤独的照片" class="headerlink" title="孤独的照片"></a>孤独的照片</h2><p>给一个只含’A’,’B’两种字符的字符串<br>找出所有字串中 含有单个元素的个数<br>input：<br>5<br>GHGHG<br>output：<br>3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">易知<span class="string">&#x27;A&#x27;</span>和<span class="string">&#x27;B&#x27;</span>地位相同</span><br><span class="line">情况分为两种</span><br><span class="line">① AAB BAAA B前面或者后面A的个数-1 即为方案数</span><br><span class="line">② ABA ABAA B前后A的个数之积 即为方案数</span><br><span class="line">先预处理打上序号</span><br><span class="line">const int N=5e5+5;</span><br><span class="line">ll g[2][N],h[2][N];</span><br><span class="line">//第0行表示从前往后连续出现的个数</span><br><span class="line">//第1行表示从后往前连续出现的个数</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>) h[0][i]=h[0][i-1]+1;</span><br><span class="line">    <span class="keyword">else</span> g[0][i]=g[0][i-1]+1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(int i=n;i&gt;=1;i--)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>) h[1][i]=h[1][i+1]+1;</span><br><span class="line">    <span class="keyword">else</span> g[1][i]=g[1][i+1]+1;</span><br><span class="line">&#125;</span><br><span class="line">//遍历计算两种方案</span><br><span class="line">ll ans=0;</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i-1]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;g[0][i-1]&gt;1) ans+=g[0][i-1]-1;</span><br><span class="line">        <span class="keyword">if</span>(c[i+1]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;g[1][i+1]&gt;1) ans+=g[1][i+1]-1;</span><br><span class="line">        <span class="keyword">if</span>(c[i-1]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;c[i+1]==<span class="string">&#x27;G&#x27;</span>) ans+=g[0][i-1]*g[1][i+1];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i-1]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;h[0][i-1]&gt;1) ans+=h[0][i-1]-1;</span><br><span class="line">        <span class="keyword">if</span>(c[i+1]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;h[1][i+1]&gt;1) ans+=h[1][i+1]-1;</span><br><span class="line">        <span class="keyword">if</span>(c[i-1]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;c[i+1]==<span class="string">&#x27;H&#x27;</span>) ans+=h[0][i-1]*h[i+1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;cout&lt;&lt;<span class="string">ans&lt;&lt;endl;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/26/CF836div2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -162,7 +221,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/11/26/CF836div2/" class="post-title-link" itemprop="url">CF836div2</a>
+            <a href="/2022/11/26/CF836div2/" class="post-title-link" itemprop="url">思维题</a>
         </h2>
 
         <div class="post-meta">
@@ -171,10 +230,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">نُشر في</span>
-              
 
-              <time title="أُنشأ: 2022-11-26 12:48:28 / عُدل: 13:28:36" itemprop="dateCreated datePublished" datetime="2022-11-26T12:48:28+08:00">2022-11-26</time>
+              <time title="أُنشأ: 2022-11-26 12:48:28" itemprop="dateCreated datePublished" datetime="2022-11-26T12:48:28+08:00">2022-11-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2022-11-27 15:31:17" itemprop="dateModified" datetime="2022-11-27T15:31:17+08:00">2022-11-27</time>
+              </span>
 
           
 
@@ -187,10 +252,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>T2:给定数字n 构造数列a1…an s.t.<br>a1^a2^…^an&#x3D;(a1+a2+…+an)&#x2F;n &amp;&amp;(ai&gt;&#x3D;1)<br>intput:<br>3<br>1<br>4<br>3<br>output:<br>69<br>13 2 8 1<br>7 7 7</p>
+          <h2 id="CF836div2"><a href="#CF836div2" class="headerlink" title="CF836div2"></a>CF836div2</h2><p>T2:给定数字n 构造数列a1…an s.t.<br>a1^a2^…^an&#x3D;(a1+a2+…+an)&#x2F;n &amp;&amp;(ai&gt;&#x3D;1)<br>intput:<br>3<br>1<br>4<br>3<br>output:<br>69<br>13 2 8 1<br>7 7 7</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">性质 a为偶数的时候a^1==a+1 a为奇数的时候 a^1==a-1</span><br><span class="line">a^a=0 0^a=a </span><br><span class="line">so: 当n为奇数的时候 n个1满足条件 1^1^1==1 (1+1+1)/3=1成立</span><br><span class="line">当n为偶数的时候 1^3==2 (1+3)/2==2 只需让其余的全为2即可</span><br><span class="line">void <span class="function"><span class="title">solve</span></span>()&#123;</span><br><span class="line">    int t=<span class="built_in">read</span>();<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        int n=<span class="built_in">read</span>();</span><br><span class="line">        <span class="keyword">if</span>(t%2)&#123;</span><br><span class="line">            <span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">                cout&lt;&lt;<span class="string">&quot;1 &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;1 3 &quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(int i=0;i&lt;n-2;i++)&#123;</span><br><span class="line">                cout&lt;&lt;<span class="string">&quot;2 &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        puts(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>T4 构造严格递增数列满足 max(a1,a2,a3…an)-min(a1,a2,a3…an)&#x3D;√a1+a2+…+an</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">假定每个数为4n 那么 a1+a2+...+an==4n^2 √a1+a2+...+an==2n</span><br><span class="line">设最大值为x最小值为y x+y=8n x-y=2n -&gt; x=5n y=3n </span><br><span class="line">如果输入的n是奇数 中间的数为4n 向左为4n-1 4n-2... 向右为4n+1 4n+2...</span><br><span class="line">void <span class="function"><span class="title">solve</span></span>()&#123;</span><br><span class="line">    int t=<span class="built_in">read</span>();<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        int n=<span class="built_in">read</span>();</span><br><span class="line">        cout&lt;&lt;<span class="string">3*n&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">        int t=4*n-n/2+1;</span></span><br><span class="line"><span class="string">        for(int i=0;i&lt;n/2-1;i++)&#123;</span></span><br><span class="line"><span class="string">            cout&lt;&lt;t&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">            t++;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        if(n%2)cout&lt;&lt;4*n&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">        t=4n+1;</span></span><br><span class="line"><span class="string">        for(int i=0;i&lt;n/2-1;i++)&#123;</span></span><br><span class="line"><span class="string">            cout&lt;&lt;t&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">            t++;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        cout&lt;&lt;5*n；</span></span><br><span class="line"><span class="string">        puts(&quot;&quot;);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ABC279"><a href="#ABC279" class="headerlink" title="ABC279"></a>ABC279</h2><p>T3 给定两个大小相同A B字符矩阵 问A矩阵可以通过列的交换化成B矩阵吗? 可以的话输出Yes 否则输出No </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">将A字符矩阵的每一个列向量存入map中 接着讲B字符矩阵从map中减去</span><br><span class="line">const int N=4e5;</span><br><span class="line">mp&lt;vector&lt;char&gt;,int&gt;mp;</span><br><span class="line">string s[N];</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    int h=<span class="built_in">read</span>(),w=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;h;i++)&#123;</span><br><span class="line">        cin&gt;&gt;s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int j=0;j&lt;w;j++)&#123;</span><br><span class="line">        vector&lt;char&gt;v;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;h;i++)&#123;</span><br><span class="line">            v.push_back(s[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        mp[v]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;h;i++)&#123;</span><br><span class="line">        cin&gt;&gt;s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int j=0;j&lt;w;j++)&#123;</span><br><span class="line">        vector&lt;char&gt;v;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;h;i++)&#123;</span><br><span class="line">            v.push_back(s[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        mp[v]--;</span><br><span class="line">    &#125;</span><br><span class="line">    //检查是否合法</span><br><span class="line">    <span class="keyword">for</span>(auto i:mp)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i.second)&#123;//不为0</span><br><span class="line">            puts(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">            <span class="built_in">return</span> 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    puts(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -791,91 +858,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/STL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/20/STL/" class="post-title-link" itemprop="url">STL容器的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">نُشر في</span>
-
-              <time title="أُنشأ: 2022-10-20 20:19:14" itemprop="dateCreated datePublished" datetime="2022-10-20T20:19:14+08:00">2022-10-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-11-20 00:07:14" itemprop="dateModified" datetime="2022-11-20T00:07:14+08:00">2022-11-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>.empty();&#x2F;&#x2F;空返回true 非空返回false</p>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;vector&gt;</span></span><br><span class="line">vector&lt;int&gt; a(n,x);//初始化n个空间为x</span><br><span class="line"><span class="keyword">for</span>(auto item: a)&#123;//遍历容器</span><br><span class="line">    cout&lt;&lt;<span class="string">item&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">a.size();//返回大小</span></span><br><span class="line"><span class="string">a.empty();//判断是否为空</span></span><br><span class="line"><span class="string">a.clear();//清空</span></span><br><span class="line"><span class="string">a.front()/a.back()//返回头 尾元素</span></span><br><span class="line"><span class="string">a.push_back()/a.pop_back()//添加 删除末尾元素</span></span><br><span class="line"><span class="string">a.begin()//a[0]</span></span><br><span class="line"><span class="string">a.end()//a[a.size()]</span></span><br></pre></td></tr></table></figure>
-<h2 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h2><p>比一般的结构体多实现了比较函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;int,string&gt; p;//把需要排序的一类元素 放到first里面</span><br><span class="line">p.first()/p.second()//返回第一二个元素</span><br><span class="line">pair&lt;int,pair&lt;int,string&gt;&gt;p;//三列的pair</span><br></pre></td></tr></table></figure>
-<h2 id="string-字符串"><a href="#string-字符串" class="headerlink" title="string 字符串"></a>string 字符串</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">s.size()/s/length()//返回字符串的长度</span><br><span class="line">s.substr(n,m);//n起始位置 m是数组的长度 </span><br><span class="line">s.c_str();//返回该字符串的指针常量 与c语言兼容(c语言无法直接输出string类型的变量)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,s.c_str());//输出字符串s</span><br></pre></td></tr></table></figure>
-<h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue 队列"></a>queue 队列</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;queue&gt;</span></span><br><span class="line">queue&lt;int&gt; q;</span><br><span class="line">q.size();</span><br><span class="line">q.empty();</span><br><span class="line">q.push();//在队尾添加一个元素</span><br><span class="line">q.front();//返回队头元素</span><br><span class="line">q.back();//返回队尾元素</span><br><span class="line">q.pop();//弹出队头元素</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>虽然没有clear函数 但可以通过构造新队列初始化 如下 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q=queue&lt;int&gt; ();</span><br></pre></td></tr></table></figure>
-<h2 id="priority-queue-优先队列-堆"><a href="#priority-queue-优先队列-堆" class="headerlink" title="priority_queue 优先队列 (堆)"></a>priority_queue 优先队列 (堆)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;int&gt;q;//定义默认是 大根堆(堆顶是最大的元素)</span><br><span class="line">q.push();//插入元素到堆末(并进行排序)</span><br><span class="line">q.top();//返回堆顶的值</span><br><span class="line">q.pop();//弹出堆顶的值</span><br><span class="line">priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt;q;//定义 小根堆(堆顶是最小的元素)</span><br><span class="line">//小根堆的遍历方式 与大根堆的遍历方式略有不同</span><br><span class="line"><span class="keyword">for</span>(auto item:(vector&lt;int&gt;&amp;)q)&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">item&lt;&lt;&quot; &quot;;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="栈-stack"><a href="#栈-stack" class="headerlink" title="栈 stack"></a>栈 stack</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stack&gt;</span></span><br><span class="line">stack&lt;int&gt;stk;</span><br><span class="line">stk.size();//返回大小</span><br><span class="line">stk.empty();//判断是否为空</span><br><span class="line">stk.push();//向栈顶添加元素</span><br><span class="line">stk.top();//返回栈顶的值</span><br><span class="line">stk.pop();//弹出栈顶</span><br></pre></td></tr></table></figure>
-<h2 id="deque-双端队列"><a href="#deque-双端队列" class="headerlink" title="deque 双端队列"></a>deque 双端队列</h2><p>速度比一般的数组慢上几倍</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;deque&gt;//双端队列具有清楚的功能</span></span><br><span class="line">deque&lt;int&gt;q;</span><br><span class="line">q.front();//返回队列头</span><br><span class="line">q.back();//返回队列尾</span><br><span class="line">q.push_front()/q.push_back()//向队列的头 尾插入元素</span><br><span class="line">q.size();//返回队列的大小</span><br><span class="line">q.clear();//清除双端队列</span><br><span class="line">q.begin()/q.end();//支持迭代器  </span><br></pre></td></tr></table></figure>
-<h2 id="set-x2F-multiset-map-x2F-multimap-基于平衡二叉树-红黑树-动态维护有序序列"><a href="#set-x2F-multiset-map-x2F-multimap-基于平衡二叉树-红黑树-动态维护有序序列" class="headerlink" title="set&#x2F;multiset map&#x2F;multimap 基于平衡二叉树(红黑树) 动态维护有序序列"></a>set&#x2F;multiset map&#x2F;multimap 基于平衡二叉树(红黑树) 动态维护有序序列</h2><p>支持以下操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">size(),empty(),clear() </span><br><span class="line">begin(),end(); ++ -- 返回前驱和后继(前一个迭代器) 时间复杂度为o(logn)</span><br></pre></td></tr></table></figure>
-<h3 id="set-x2F-multiset"><a href="#set-x2F-multiset" class="headerlink" title="set&#x2F;multiset"></a>set&#x2F;multiset</h3><p>set容器中元素不能重复而multiset可以</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">insert();//插入一个数</span><br><span class="line">find();//查询一个数</span><br><span class="line">count();//返回某一个数的个数</span><br><span class="line">erase();//①输入一个数x 删除所有x O(k+logn)</span><br><span class="line">        //②输入一个迭代器 删除这个迭代器</span><br><span class="line">lower_bound();//返回第一个不小于x的数字</span><br><span class="line">upper_bound();//返回第一个不大于x的数字</span><br></pre></td></tr></table></figure>
-<h3 id="map-x2F-multimap"><a href="#map-x2F-multimap" class="headerlink" title="map&#x2F;multimap"></a>map&#x2F;multimap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;PII,int&gt;mp;</span><br><span class="line">mp.insert(&#123;a,b&#125;);//添加数对a-&gt;b</span><br><span class="line">insert();//插入一个pair</span><br><span class="line">erase();//输入的是一个pari或者是迭代器</span><br><span class="line">find();</span><br><span class="line">支持[]</span><br><span class="line">lower_bound()/upper_bound()</span><br></pre></td></tr></table></figure>
-<h2 id="无序容器-哈希容器-也叫散列表"><a href="#无序容器-哈希容器-也叫散列表" class="headerlink" title="无序容器 (哈希容器(也叫散列表))"></a>无序容器 (哈希容器(也叫散列表))</h2><h3 id="unordered-set-unordered-map-unordered-multiset-unordered-multimap"><a href="#unordered-set-unordered-map-unordered-multiset-unordered-multimap" class="headerlink" title="unordered_set unordered_map unordered_multiset unordered_multimap"></a>unordered_set unordered_map unordered_multiset unordered_multimap</h3><p>和上面操作类似 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">优点: 增删改查的时间复杂度为O(1),<span class="built_in">set</span> map容器的时间复杂度为O(logn)基于红黑树的高度</span><br><span class="line">缺点: 不支持lower_bound()和upper_bound()操作   也不支持迭代器的++ --</span><br></pre></td></tr></table></figure>
-<h2 id="bitset-压位运算"><a href="#bitset-压位运算" class="headerlink" title="bitset 压位运算"></a>bitset 压位运算</h2><p>&amp; 按位与  :  如果对应位都为1,那么结果就是1;如果任意一个位是0,则结果就是0<br>| 按位或  : 与&amp; 的区别在于 如果对应位中任一个操作数为1 那么结果就是1(不需要两个对应位都为1)<br>~ 取反    : 对位求反 1变0, 0变1<br>^ 按位异或 : 跟 | 类似, 但有一点不同的是 如果两个操作位都为1的话，结果产生0<br>&lt;&lt;左移   &gt;&gt;右移<br>&#x3D;&#x3D;  !&#x3D;<br>[]</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bitset&lt;N&gt; bst;//N必须是一个整型常数</span><br><span class="line">count();//返回有多少个1</span><br><span class="line"></span><br><span class="line">any();//判断是否至少有一个1</span><br><span class="line">none();//判断是否全为0</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>();;//所有位置成1</span><br><span class="line"><span class="built_in">set</span>(k,v);//讲第k位变成v</span><br><span class="line">reset();//把所有位置变为0</span><br><span class="line"></span><br><span class="line">flip();//取反 等价于~</span><br><span class="line">flip(k);//把第k位取反</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -945,7 +927,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">المقالات</span>
         </a>
       </div>

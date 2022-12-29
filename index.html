@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تغییر ناوبری">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -113,12 +113,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>صفحه اصلی</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>بایگانی</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
@@ -170,10 +170,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="ایجاد شده: 2022-12-21 11:34:22 / تغییر یافته: 11:36:23" itemprop="dateCreated datePublished" datetime="2022-12-21T11:34:22+08:00">2022-12-21</time>
+              <time title="Created: 2022-12-21 11:34:22 / Modified: 11:36:23" itemprop="dateCreated datePublished" datetime="2022-12-21T11:34:22+08:00">2022-12-21</time>
             </span>
 
           
@@ -229,11 +229,17 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
-              
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="ایجاد شده: 2022-12-19 14:37:11 / تغییر یافته: 14:55:27" itemprop="dateCreated datePublished" datetime="2022-12-19T14:37:11+08:00">2022-12-19</time>
+              <time title="Created: 2022-12-19 14:37:11" itemprop="dateCreated datePublished" datetime="2022-12-19T14:37:11+08:00">2022-12-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-29 13:25:07" itemprop="dateModified" datetime="2022-12-29T13:25:07+08:00">2022-12-29</time>
+              </span>
 
           
 
@@ -248,6 +254,12 @@
       
           <h2 id="孤独的照片"><a href="#孤独的照片" class="headerlink" title="孤独的照片"></a>孤独的照片</h2><p>给一个只含’A’,’B’两种字符的字符串<br>找出所有字串中 含有单个元素的个数<br>input：<br>5<br>GHGHG<br>output：<br>3</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">易知<span class="string">&#x27;A&#x27;</span>和<span class="string">&#x27;B&#x27;</span>地位相同</span><br><span class="line">情况分为两种</span><br><span class="line">① AAB BAAA B前面或者后面A的个数-1 即为方案数</span><br><span class="line">② ABA ABAA B前后A的个数之积 即为方案数</span><br><span class="line">先预处理打上序号</span><br><span class="line">const int N=5e5+5;</span><br><span class="line">ll g[2][N],h[2][N];</span><br><span class="line">//第0行表示从前往后连续出现的个数</span><br><span class="line">//第1行表示从后往前连续出现的个数</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>) h[0][i]=h[0][i-1]+1;</span><br><span class="line">    <span class="keyword">else</span> g[0][i]=g[0][i-1]+1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(int i=n;i&gt;=1;i--)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>) h[1][i]=h[1][i+1]+1;</span><br><span class="line">    <span class="keyword">else</span> g[1][i]=g[1][i+1]+1;</span><br><span class="line">&#125;</span><br><span class="line">//遍历计算两种方案</span><br><span class="line">ll ans=0;</span><br><span class="line"><span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i-1]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;g[0][i-1]&gt;1) ans+=g[0][i-1]-1;</span><br><span class="line">        <span class="keyword">if</span>(c[i+1]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;g[1][i+1]&gt;1) ans+=g[1][i+1]-1;</span><br><span class="line">        <span class="keyword">if</span>(c[i-1]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;c[i+1]==<span class="string">&#x27;G&#x27;</span>) ans+=g[0][i-1]*g[1][i+1];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i-1]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;h[0][i-1]&gt;1) ans+=h[0][i-1]-1;</span><br><span class="line">        <span class="keyword">if</span>(c[i+1]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;h[1][i+1]&gt;1) ans+=h[1][i+1]-1;</span><br><span class="line">        <span class="keyword">if</span>(c[i-1]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;c[i+1]==<span class="string">&#x27;H&#x27;</span>) ans+=h[0][i-1]*h[i+1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;cout&lt;&lt;<span class="string">ans&lt;&lt;endl;</span></span><br></pre></td></tr></table></figure>
+<h2 id="统计次数"><a href="#统计次数" class="headerlink" title="统计次数"></a>统计次数</h2><p>求从1到n这n个正整数的十进制表示中 k出现的次数。<br>1≤ n≤ 10^6<br>记忆化递归</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const int N=1e6+5;</span><br><span class="line">int f[N],v[N]=&#123;1&#125;;//v[0]=1 &amp;&amp; f[0]=0;</span><br><span class="line">int count(int i,int k)&#123;</span><br><span class="line">    <span class="keyword">if</span>(v[i]) <span class="built_in">return</span> f[i];</span><br><span class="line">    f[i]=f[i/10]+(i%10)==k;</span><br><span class="line">    v[i]=1;</span><br><span class="line">    <span class="built_in">return</span> f[i];</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    int n,k;cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    int ans=0;</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        ans+=count(i,k);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">ans&lt;&lt;endl;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="上课睡觉"><a href="#上课睡觉" class="headerlink" title="上课睡觉"></a>上课睡觉</h2><p>有 N 堆石子，每堆的石子数量分别为 a1,a2,…,aN。<br>可以对石子堆进行合并操作，将两个相邻的石子堆合并为一个石子堆，例如，如果 a&#x3D;[1,2,3,4,5]，合并第 2,3 堆石子，则石子堆集合变为 a&#x3D;[1,5,4,5]。<br>我们希望通过尽可能少的操作，使得石子堆集合中的每堆石子的数量都相同。<br>请你输出所需的最少操作次数。本题一定有解，因为可以将所有石子堆合并为一堆。<br>1≤ N ≤10^5<br>数论<br>设操作x次成功 合并后有N-x堆<br>设每组有y个 y*(N-x)&#x3D;Σai<br>性质有 sum%y&#x3D;&#x3D;0 当y最小时 x也取到最小<br>可以从小到大枚举sum的因数 并检测一下是否符合题意</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">const int N=1e5+5;</span><br><span class="line">int n;</span><br><span class="line">int a[N];</span><br><span class="line">bool check(int y)&#123;</span><br><span class="line">    int t=0;</span><br><span class="line">    <span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        t+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(t==y)t=0;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(t&gt;y)<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">void <span class="function"><span class="title">volve</span></span>()&#123;</span><br><span class="line">    int mx=0,<span class="built_in">sum</span>=0;</span><br><span class="line">    cin&gt;&gt;n;<span class="keyword">for</span>(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];<span class="built_in">sum</span>+=a[i];mx=max(a[i],mx);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(mx==0)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;0&quot;</span>&lt;&lt;<span class="string">endl;</span></span><br><span class="line"><span class="string">        return;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    //枚举sum的因数并检查是否符合 找出最小的y即可</span></span><br><span class="line"><span class="string">    for(int i=mx;i&lt;=sum;i++)&#123;</span></span><br><span class="line"><span class="string">        if(sum%i==0&amp;&amp;check(i))&#123;</span></span><br><span class="line"><span class="string">            cout&lt;&lt;n-sum/i&lt;&lt;endl</span>;</span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    int t;cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)solve();</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -288,16 +300,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="ایجاد شده: 2022-11-26 12:48:28" itemprop="dateCreated datePublished" datetime="2022-11-26T12:48:28+08:00">2022-11-26</time>
+              <time title="Created: 2022-11-26 12:48:28" itemprop="dateCreated datePublished" datetime="2022-11-26T12:48:28+08:00">2022-11-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">ویرایش شده در</span>
-                <time title="تغییر یافته: 2022-11-27 15:31:17" itemprop="dateModified" datetime="2022-11-27T15:31:17+08:00">2022-11-27</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-11-27 15:31:17" itemprop="dateModified" datetime="2022-11-27T15:31:17+08:00">2022-11-27</time>
               </span>
 
           
@@ -358,10 +370,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="ایجاد شده: 2022-11-22 19:59:10 / تغییر یافته: 20:11:48" itemprop="dateCreated datePublished" datetime="2022-11-22T19:59:10+08:00">2022-11-22</time>
+              <time title="Created: 2022-11-22 19:59:10 / Modified: 20:11:48" itemprop="dateCreated datePublished" datetime="2022-11-22T19:59:10+08:00">2022-11-22</time>
             </span>
 
           
@@ -418,16 +430,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="ایجاد شده: 2022-11-17 11:39:41" itemprop="dateCreated datePublished" datetime="2022-11-17T11:39:41+08:00">2022-11-17</time>
+              <time title="Created: 2022-11-17 11:39:41" itemprop="dateCreated datePublished" datetime="2022-11-17T11:39:41+08:00">2022-11-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">ویرایش شده در</span>
-                <time title="تغییر یافته: 2022-11-19 13:28:59" itemprop="dateModified" datetime="2022-11-19T13:28:59+08:00">2022-11-19</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-11-19 13:28:59" itemprop="dateModified" datetime="2022-11-19T13:28:59+08:00">2022-11-19</time>
               </span>
 
           
@@ -491,16 +503,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="ایجاد شده: 2022-11-06 19:53:57" itemprop="dateCreated datePublished" datetime="2022-11-06T19:53:57+08:00">2022-11-06</time>
+              <time title="Created: 2022-11-06 19:53:57" itemprop="dateCreated datePublished" datetime="2022-11-06T19:53:57+08:00">2022-11-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">ویرایش شده در</span>
-                <time title="تغییر یافته: 2022-11-21 15:25:48" itemprop="dateModified" datetime="2022-11-21T15:25:48+08:00">2022-11-21</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-11-21 15:25:48" itemprop="dateModified" datetime="2022-11-21T15:25:48+08:00">2022-11-21</time>
               </span>
 
           
@@ -571,16 +583,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="ایجاد شده: 2022-10-31 08:45:55" itemprop="dateCreated datePublished" datetime="2022-10-31T08:45:55+08:00">2022-10-31</time>
+              <time title="Created: 2022-10-31 08:45:55" itemprop="dateCreated datePublished" datetime="2022-10-31T08:45:55+08:00">2022-10-31</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">ویرایش شده در</span>
-                <time title="تغییر یافته: 2022-11-12 11:58:08" itemprop="dateModified" datetime="2022-11-12T11:58:08+08:00">2022-11-12</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-11-12 11:58:08" itemprop="dateModified" datetime="2022-11-12T11:58:08+08:00">2022-11-12</time>
               </span>
 
           
@@ -682,16 +694,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="ایجاد شده: 2022-10-29 17:12:51" itemprop="dateCreated datePublished" datetime="2022-10-29T17:12:51+08:00">2022-10-29</time>
+              <time title="Created: 2022-10-29 17:12:51" itemprop="dateCreated datePublished" datetime="2022-10-29T17:12:51+08:00">2022-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">ویرایش شده در</span>
-                <time title="تغییر یافته: 2022-10-31 08:44:23" itemprop="dateModified" datetime="2022-10-31T08:44:23+08:00">2022-10-31</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-31 08:44:23" itemprop="dateModified" datetime="2022-10-31T08:44:23+08:00">2022-10-31</time>
               </span>
 
           
@@ -750,16 +762,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="ایجاد شده: 2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
+              <time title="Created: 2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">ویرایش شده در</span>
-                <time title="تغییر یافته: 2022-10-30 15:31:37" itemprop="dateModified" datetime="2022-10-30T15:31:37+08:00">2022-10-30</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-10-30 15:31:37" itemprop="dateModified" datetime="2022-10-30T15:31:37+08:00">2022-10-30</time>
               </span>
 
           
@@ -818,10 +830,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نوشته شده در</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="ایجاد شده: 2022-10-27 20:09:53 / تغییر یافته: 23:20:40" itemprop="dateCreated datePublished" datetime="2022-10-27T20:09:53+08:00">2022-10-27</time>
+              <time title="Created: 2022-10-27 20:09:53 / Modified: 23:20:40" itemprop="dateCreated datePublished" datetime="2022-10-27T20:09:53+08:00">2022-10-27</time>
             </span>
 
           
@@ -856,7 +868,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="صفحه بعدی"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -900,10 +912,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          فهرست مطالب
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          نمای کلی
+          Overview
         </li>
       </ul>
 
@@ -923,7 +935,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">25</span>
-          <span class="site-state-item-name">پست ها</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
   </nav>
@@ -956,7 +968,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">قدرت گرفته از <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

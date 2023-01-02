@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح">
+    <div class="toggle" aria-label="تغییر ناوبری">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -113,12 +113,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>صفحه اصلی</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>بایگانی</a>
 
   </li>
   </ul>
@@ -148,6 +148,77 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/%E5%8F%8C%E6%8C%87%E9%92%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/03/%E5%8F%8C%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">双指针</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">نوشته شده در</span>
+
+              <time title="ایجاد شده: 2022-10-03 18:11:00" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">ویرایش شده در</span>
+                <time title="تغییر یافته: 2022-10-04 22:01:28" itemprop="dateModified" datetime="2022-10-04T22:01:28+08:00">2022-10-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>对于一个序列 借助两个指针维护一个区间(i与j有单调关系)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">    j=i;</span><br><span class="line">    <span class="keyword">while</span>(j&lt;n&amp;&amp;check(i,j))&#123;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    //每道题的具体逻辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可将暴力两层嵌套循环O(n^2)优化到O(n)</p>
+<h3 id="799-最长连续不重复子序列"><a href="#799-最长连续不重复子序列" class="headerlink" title="799. 最长连续不重复子序列"></a>799. 最长连续不重复子序列</h3><p>找出最长的不包含重复数字的连续子序列[l,c]的长度<br>input 1 2 2 3 5<br>output 3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int res=0;</span><br><span class="line"><span class="keyword">for</span>(int r=0,l=0;r&lt;n;r++)&#123;</span><br><span class="line">	cnt[a[r]]++;//计时器的作用</span><br><span class="line">	<span class="keyword">while</span>(l&lt;r&amp;&amp;s[a[r]]&gt;1)&#123;//当出现重复的数字j向前移动一位直到不再重复</span><br><span class="line">		cnt[a[l]]--;</span><br><span class="line">		l++;	</span><br><span class="line">	&#125;</span><br><span class="line">	res=max(res,r-l+1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现unique函数"><a href="#实现unique函数" class="headerlink" title="实现unique函数"></a>实现unique函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;::iterator unique(vector&lt;int&gt; &amp;a)&#123;</span><br><span class="line">	int j=0;</span><br><span class="line">	<span class="keyword">for</span>(int i=0;i&lt;a.size();i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!i||a[i]!=a[i-1])&#123;//第一个或满足不与前一个数相同 </span><br><span class="line">			a[j]=a[i];</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> a.begin()+j;//返回值必须是迭代器</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用实现去重操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(a.begin(),a.end());</span><br><span class="line">a.erase(unique(a),a.end());</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -170,16 +241,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
-              <time title="أُنشأ: 2022-10-02 18:24:18" itemprop="dateCreated datePublished" datetime="2022-10-02T18:24:18+08:00">2022-10-02</time>
+              <time title="ایجاد شده: 2022-10-02 18:24:18" itemprop="dateCreated datePublished" datetime="2022-10-02T18:24:18+08:00">2022-10-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-03 10:19:22" itemprop="dateModified" datetime="2022-10-03T10:19:22+08:00">2022-10-03</time>
+                <span class="post-meta-item-text">ویرایش شده در</span>
+                <time title="تغییر یافته: 2022-10-03 10:19:22" itemprop="dateModified" datetime="2022-10-03T10:19:22+08:00">2022-10-03</time>
               </span>
 
           
@@ -241,16 +312,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
-              <time title="أُنشأ: 2022-10-02 10:03:49" itemprop="dateCreated datePublished" datetime="2022-10-02T10:03:49+08:00">2022-10-02</time>
+              <time title="ایجاد شده: 2022-10-02 10:03:49" itemprop="dateCreated datePublished" datetime="2022-10-02T10:03:49+08:00">2022-10-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-11-08 14:16:05" itemprop="dateModified" datetime="2022-11-08T14:16:05+08:00">2022-11-08</time>
+                <span class="post-meta-item-text">ویرایش شده در</span>
+                <time title="تغییر یافته: 2022-11-08 14:16:05" itemprop="dateModified" datetime="2022-11-08T14:16:05+08:00">2022-11-08</time>
               </span>
 
           
@@ -308,10 +379,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
               
 
-              <time title="أُنشأ: 2022-09-28 17:40:37 / عُدل: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
+              <time title="ایجاد شده: 2022-09-28 17:40:37 / تغییر یافته: 17:55:59" itemprop="dateCreated datePublished" datetime="2022-09-28T17:40:37+08:00">2022-09-28</time>
             </span>
 
           
@@ -370,16 +441,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
-              <time title="أُنشأ: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
+              <time title="ایجاد شده: 2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
+                <span class="post-meta-item-text">ویرایش شده در</span>
+                <time title="تغییر یافته: 2022-09-27 23:30:40" itemprop="dateModified" datetime="2022-09-27T23:30:40+08:00">2022-09-27</time>
               </span>
 
           
@@ -445,16 +516,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
-              <time title="أُنشأ: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
+              <time title="ایجاد شده: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
+                <span class="post-meta-item-text">ویرایش شده در</span>
+                <time title="تغییر یافته: 2022-09-28 18:02:35" itemprop="dateModified" datetime="2022-09-28T18:02:35+08:00">2022-09-28</time>
               </span>
 
           
@@ -521,16 +592,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">نوشته شده در</span>
 
-              <time title="أُنشأ: 2022-09-26 12:39:36" itemprop="dateCreated datePublished" datetime="2022-09-26T12:39:36+08:00">2022-09-26</time>
+              <time title="ایجاد شده: 2022-09-26 12:39:36" itemprop="dateCreated datePublished" datetime="2022-09-26T12:39:36+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2022-10-27 21:31:26" itemprop="dateModified" datetime="2022-10-27T21:31:26+08:00">2022-10-27</time>
+                <span class="post-meta-item-text">ویرایش شده در</span>
+                <time title="تغییر یافته: 2022-10-27 21:31:26" itemprop="dateModified" datetime="2022-10-27T21:31:26+08:00">2022-10-27</time>
               </span>
 
           
@@ -565,7 +636,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="الصفحة السابقة"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="صفحه قبلی"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 
@@ -609,10 +680,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          المحتويات
+          فهرست مطالب
         </li>
         <li class="sidebar-nav-overview">
-          عام
+          نمای کلی
         </li>
       </ul>
 
@@ -631,8 +702,8 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
-          <span class="site-state-item-name">المقالات</span>
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">پست ها</span>
         </a>
       </div>
   </nav>
@@ -659,13 +730,13 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">zhangas</span>
 </div>
-  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">قدرت گرفته از <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

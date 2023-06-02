@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="数位排序 前缀和与差分若将一维数组a的[l,r]区间加上c 且时间复杂度为O(n)设b[]是 a[]的差分 先将a的[l,+∞]加上c 再讲a[r+1,+∞]减去c 1234void insert(int l,int r)&amp;#123;    b[l]+&#x3D;c;    b[r+1]-&#x3D;c; &amp;#125; 统计出现的次数cnt[]记录 123456789101112while(m--)&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Daily Problems">
+<meta property="og:url" content="http://example.com/2022/12/19/Daily%20problems/index.html">
+<meta property="og:site_name" content="zhangas">
+<meta property="og:description" content="数位排序 前缀和与差分若将一维数组a的[l,r]区间加上c 且时间复杂度为O(n)设b[]是 a[]的差分 先将a的[l,+∞]加上c 再讲a[r+1,+∞]减去c 1234void insert(int l,int r)&amp;#123;    b[l]+&#x3D;c;    b[r+1]-&#x3D;c; &amp;#125; 统计出现的次数cnt[]记录 123456789101112while(m--)&amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-19T06:37:11.905Z">
+<meta property="article:modified_time" content="2023-02-03T04:05:18.442Z">
+<meta property="article:author" content="zhangas">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/12/19/Daily%20problems/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Daily Problems | zhangas</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhangas</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">contact with me: 943622243</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/19/Daily%20problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Daily Problems
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-19 14:37:11" itemprop="dateCreated datePublished" datetime="2022-12-19T14:37:11+08:00">2022-12-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-03 12:05:18" itemprop="dateModified" datetime="2023-02-03T12:05:18+08:00">2023-02-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="数位排序-前缀和与差分"><a href="#数位排序-前缀和与差分" class="headerlink" title="数位排序 前缀和与差分"></a>数位排序 前缀和与差分</h2><p>若将一维数组a的[l,r]区间加上c 且时间复杂度为O(n)<br>设b[]是 a[]的差分 先将a的[l,+∞]加上c 再讲a[r+1,+∞]减去c</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    b[l]+=c;</span><br><span class="line">    b[r+<span class="number">1</span>]-=c; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>统计出现的次数cnt[]记录</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(m--)&#123;</span><br><span class="line">    <span class="type">int</span> l,r;<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;l,&amp;r);</span><br><span class="line">    <span class="comment">//如果直接嵌套循环会TLE</span></span><br><span class="line">    <span class="comment">//for(int i=l;i&lt;=r;i++)cnt[i]++;</span></span><br><span class="line">    <span class="comment">//转化为差分 在循环外面求差分</span></span><br><span class="line">    cnt[l]++;cnt[r+<span class="number">1</span>]--;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cnt[i]+=cnt[i<span class="number">-1</span>];</span><br><span class="line"><span class="built_in">sort</span>(a+<span class="number">1</span>,a+n+<span class="number">1</span>);<span class="built_in">sort</span>(cnt+<span class="number">1</span>,cnt+<span class="number">1</span>+n);</span><br><span class="line">ll sum2=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)sum2+=cnt[i]*a[i];</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,sum2-sum1);</span><br></pre></td></tr></table></figure>
+
+<h2 id="孤独的照片"><a href="#孤独的照片" class="headerlink" title="孤独的照片"></a>孤独的照片</h2><p>给一个只含’A’,’B’两种字符的字符串<br>找出所有字串中 含有单个元素的个数<br>input：<br>5<br>GHGHG<br>output：<br>3</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">易知<span class="string">&#x27;A&#x27;</span>和<span class="string">&#x27;B&#x27;</span>地位相同</span><br><span class="line">情况分为两种</span><br><span class="line">① AAB BAAA B前面或者后面A的个数<span class="number">-1</span> 即为方案数</span><br><span class="line">② ABA ABAA B前后A的个数之积 即为方案数</span><br><span class="line">先预处理打上序号</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">5e5</span>+<span class="number">5</span>;</span><br><span class="line">ll g[<span class="number">2</span>][N],h[<span class="number">2</span>][N];</span><br><span class="line"><span class="comment">//第0行表示从前往后连续出现的个数</span></span><br><span class="line"><span class="comment">//第1行表示从后往前连续出现的个数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>) h[<span class="number">0</span>][i]=h[<span class="number">0</span>][i<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> g[<span class="number">0</span>][i]=g[<span class="number">0</span>][i<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>) h[<span class="number">1</span>][i]=h[<span class="number">1</span>][i+<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> g[<span class="number">1</span>][i]=g[<span class="number">1</span>][i+<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//遍历计算两种方案</span></span><br><span class="line">ll ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i]==<span class="string">&#x27;H&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i<span class="number">-1</span>]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;g[<span class="number">0</span>][i<span class="number">-1</span>]&gt;<span class="number">1</span>) ans+=g[<span class="number">0</span>][i<span class="number">-1</span>]<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(c[i+<span class="number">1</span>]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;g[<span class="number">1</span>][i+<span class="number">1</span>]&gt;<span class="number">1</span>) ans+=g[<span class="number">1</span>][i+<span class="number">1</span>]<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(c[i<span class="number">-1</span>]==<span class="string">&#x27;G&#x27;</span>&amp;&amp;c[i+<span class="number">1</span>]==<span class="string">&#x27;G&#x27;</span>) ans+=g[<span class="number">0</span>][i<span class="number">-1</span>]*g[<span class="number">1</span>][i+<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(c[i<span class="number">-1</span>]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;h[<span class="number">0</span>][i<span class="number">-1</span>]&gt;<span class="number">1</span>) ans+=h[<span class="number">0</span>][i<span class="number">-1</span>]<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(c[i+<span class="number">1</span>]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;h[<span class="number">1</span>][i+<span class="number">1</span>]&gt;<span class="number">1</span>) ans+=h[<span class="number">1</span>][i+<span class="number">1</span>]<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(c[i<span class="number">-1</span>]==<span class="string">&#x27;H&#x27;</span>&amp;&amp;c[i+<span class="number">1</span>]==<span class="string">&#x27;H&#x27;</span>) ans+=h[<span class="number">0</span>][i<span class="number">-1</span>]*h[i+<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;cout&lt;&lt;ans&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+<h2 id="统计次数-记忆化递归"><a href="#统计次数-记忆化递归" class="headerlink" title="统计次数 记忆化递归"></a>统计次数 记忆化递归</h2><p>求从1到n这n个正整数的十进制表示中 k出现的次数。<br>1≤ n≤ 10^6</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> f[N],v[N]=&#123;<span class="number">1</span>&#125;;<span class="comment">//v[0]=1 &amp;&amp; f[0]=0;</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">count</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(v[i]) <span class="keyword">return</span> f[i];</span><br><span class="line">    f[i]=f[i/<span class="number">10</span>]+(i%<span class="number">10</span>)==k;</span><br><span class="line">    v[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> f[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,k;cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        ans+=<span class="built_in">count</span>(i,k);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="上课睡觉-数论"><a href="#上课睡觉-数论" class="headerlink" title="上课睡觉 数论"></a>上课睡觉 数论</h2><p>有 N 堆石子，每堆的石子数量分别为 a1,a2,…,aN。<br>可以对石子堆进行合并操作，将两个相邻的石子堆合并为一个石子堆，例如，如果 a&#x3D;[1,2,3,4,5]，合并第 2,3 堆石子，则石子堆集合变为 a&#x3D;[1,5,4,5]。<br>我们希望通过尽可能少的操作，使得石子堆集合中的每堆石子的数量都相同。<br>请你输出所需的最少操作次数。本题一定有解，因为可以将所有石子堆合并为一堆。<br>1≤ N ≤10^5</p>
+<p>设操作x次成功 合并后有N-x堆<br>设每组有y个 y*(N-x)&#x3D;Σai<br>性质有 sum%y&#x3D;&#x3D;0 当y最小时 x也取到最小<br>可以从小到大枚举sum的因数 并检测一下是否符合题意</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> t=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        t+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(t==y)t=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(t&gt;y)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">volve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> mx=<span class="number">0</span>,sum=<span class="number">0</span>;</span><br><span class="line">    cin&gt;&gt;n;<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];sum+=a[i];mx=<span class="built_in">max</span>(a[i],mx);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(mx==<span class="number">0</span>)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;0&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//枚举sum的因数并检查是否符合 找出最小的y即可</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=mx;i&lt;=sum;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sum%i==<span class="number">0</span>&amp;&amp;<span class="built_in">check</span>(i))&#123;</span><br><span class="line">            cout&lt;&lt;n-sum/i&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)<span class="built_in">solve</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/26/CF836div2/" rel="prev" title="CF836div2">
+      <i class="fa fa-chevron-left"></i> CF836div2
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/12/21/%E9%98%B3%E6%80%A7%E8%AE%B0%E5%BD%95/" rel="next" title="阳性记录">
+      阳性记录 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">数位排序 前缀和与差分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A4%E7%8B%AC%E7%9A%84%E7%85%A7%E7%89%87"><span class="nav-number">2.</span> <span class="nav-text">孤独的照片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E6%AC%A1%E6%95%B0-%E8%AE%B0%E5%BF%86%E5%8C%96%E9%80%92%E5%BD%92"><span class="nav-number">3.</span> <span class="nav-text">统计次数 记忆化递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E8%AF%BE%E7%9D%A1%E8%A7%89-%E6%95%B0%E8%AE%BA"><span class="nav-number">4.</span> <span class="nav-text">上课睡觉 数论</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhangas</p>
+  <div class="site-description" itemprop="description">a freshman from Shandong University of Science and Technology.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangas</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

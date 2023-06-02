@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="单链表1234567891011121314151617181920212223int e[maxn],ne[maxn];&#x2F;&#x2F;e指的是当前节点的值 而ne指的是当前节点的下一个节点的指针int head,idx;&#x2F;&#x2F;head表示头节点的下标 而idx是当前节已经用到了那个点void init()&amp;#123;	head&#x3D;-1;	idx&#x3D;0;&amp;#125;&#x2F;&#x2F;初始化void add_to_head(in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构基础">
+<meta property="og:url" content="http://example.com/2022/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="zhangas">
+<meta property="og:description" content="单链表1234567891011121314151617181920212223int e[maxn],ne[maxn];&#x2F;&#x2F;e指的是当前节点的值 而ne指的是当前节点的下一个节点的指针int head,idx;&#x2F;&#x2F;head表示头节点的下标 而idx是当前节已经用到了那个点void init()&amp;#123;	head&#x3D;-1;	idx&#x3D;0;&amp;#125;&#x2F;&#x2F;初始化void add_to_head(in">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-06T11:38:59.181Z">
+<meta property="article:modified_time" content="2023-02-03T04:04:46.095Z">
+<meta property="article:author" content="zhangas">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据结构基础 | zhangas</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhangas</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">contact with me: 943622243</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构基础
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-06 19:38:59" itemprop="dateCreated datePublished" datetime="2022-10-06T19:38:59+08:00">2022-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-03 12:04:46" itemprop="dateModified" datetime="2023-02-03T12:04:46+08:00">2023-02-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> e[maxn],ne[maxn];</span><br><span class="line"><span class="comment">//e指的是当前节点的值 而ne指的是当前节点的下一个节点的指针</span></span><br><span class="line"><span class="type">int</span> head,idx;</span><br><span class="line"><span class="comment">//head表示头节点的下标 而idx是当前节已经用到了那个点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	head=<span class="number">-1</span>;</span><br><span class="line">	idx=<span class="number">0</span>;</span><br><span class="line">&#125;<span class="comment">//初始化</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_to_head</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	e[idx]=x;</span><br><span class="line">	ne[idx]=head;</span><br><span class="line">	head=idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;<span class="comment">//在头节点插入值为x的节点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> k,<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	e[idx]=x;</span><br><span class="line">	ne[idx]=ne[k];</span><br><span class="line">	ne[k]=idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;<span class="comment">//在第k个节点的后面插入值为x的节点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	ne[k]=ne[ne[k]];</span><br><span class="line">&#125;<span class="comment">//删去第k个节点</span></span><br></pre></td></tr></table></figure>
+<h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> idx;</span><br><span class="line"><span class="type">int</span> e[maxn],l[maxn],r[maxn];<span class="comment">//e是当前节点的值 l是上一节点的指针 r是下一节点的指针</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;<span class="comment">//初始化</span></span><br><span class="line">	r[<span class="number">0</span>]=<span class="number">1</span>;<span class="comment">//左边界</span></span><br><span class="line">	l[<span class="number">1</span>]=<span class="number">0</span>;<span class="comment">//右边界</span></span><br><span class="line">	idx=<span class="number">2</span>;<span class="comment">//0 1 两个节点已经被使用</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> k,<span class="type">int</span> x)</span></span>&#123;<span class="comment">//在第k个节点后插入值为x的节点</span></span><br><span class="line">	e[idx]=x;</span><br><span class="line">	r[idx]=r[k];</span><br><span class="line">	l[idx]=k;</span><br><span class="line"></span><br><span class="line">	l[r[k]]=idx;</span><br><span class="line">	r[k]=idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;<span class="comment">//若实现在第k个节点的前面插入 相当于在第k个节点前面的节点后面插入值为x的节点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">del</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;<span class="comment">//删除第k个节点</span></span><br><span class="line">	r[l[k]]=r[k];</span><br><span class="line">	l[r[k]]=l[k;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">add</span>(r[<span class="number">0</span>],x);<span class="comment">//在链表的最左端插入值为x的节点 </span></span><br><span class="line"><span class="built_in">add</span>(l[<span class="number">1</span>],x);<span class="comment">//在链表的最右端插入值为x的节点</span></span><br></pre></td></tr></table></figure>
+<h2 id="模拟栈"><a href="#模拟栈" class="headerlink" title="模拟栈"></a>模拟栈</h2><p>栈顶插入 栈顶弹出 判断是否为空 查询栈顶元素</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> stk[maxn];</span><br><span class="line"><span class="type">int</span> tt=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	stk[++tt]=x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">	--tt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">empty</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> tt&gt;<span class="number">0</span>?<span class="literal">false</span>:<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> stk[tt];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="模拟队列"><a href="#模拟队列" class="headerlink" title="模拟队列"></a>模拟队列</h2><p>队尾插入 队头弹出 判断是否为空 查询队头元素</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> q[maxn];</span><br><span class="line"><span class="type">int</span> tt=<span class="number">-1</span>,hh=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	q[++tt]=x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">	hh++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">empty</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> hh&gt;tt?<span class="literal">false</span>:<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> q[hh];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><p>输出左侧第一个比当前数字小的数 没有输出-1</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> stk[maxn];</span><br><span class="line"><span class="type">int</span> tt=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> n,x;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		<span class="keyword">while</span>(tt&amp;&amp;stk[tt]&gt;=x)&#123;<span class="comment">//栈不空且栈顶比不比x小</span></span><br><span class="line">			tt- -;<span class="comment">//栈顶出栈</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(tt)&#123;</span><br><span class="line">			cout&lt;&lt;stk[tt]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">&quot;-1 &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		stk[++tt]=x;<span class="comment">//x入栈</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单调队列"><a href="#单调队列" class="headerlink" title="单调队列"></a>单调队列</h2><p>有一个大小为 k 的滑动窗口,它从数组的最左边移动到最右边且每次向右移动一个位置,分别输出窗口的最大值和最小值.<br>初始化并读入到a[]中</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[maxn],q[maxn];</span><br><span class="line"><span class="type">int</span> tt=<span class="number">-1</span>,hh=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    	cin&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>求最小值</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;<span class="comment">//i指向窗口的末端</span></span><br><span class="line">    	<span class="keyword">if</span>(hh&lt;=tt&amp;&amp;i-q[hh]+<span class="number">1</span>&gt;k)&#123;<span class="comment">//队列不为空且滑动窗口的大小&gt;k</span></span><br><span class="line">    		hh++;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">while</span>(hh&lt;=tt&amp;&amp;a[q[tt]]&gt;=a[i])&#123;</span><br><span class="line">    		tt--;</span><br><span class="line">		&#125;</span><br><span class="line">		q[++tt]=i;</span><br><span class="line">		<span class="keyword">if</span>(i&gt;=k<span class="number">-1</span>)&#123;</span><br><span class="line">			cout&lt;&lt;a[q[hh]]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>求最大值</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;<span class="comment">//i指向窗口的末端</span></span><br><span class="line">    	<span class="keyword">if</span>(hh&lt;=tt&amp;&amp;i-q[hh]+<span class="number">1</span>&gt;k)&#123;<span class="comment">//队列不为空且滑动窗口的大小&gt;k</span></span><br><span class="line">    		hh++;</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">while</span>(hh&lt;=tt&amp;&amp;a[q[tt]]&lt;=a[i])&#123;</span><br><span class="line">    		tt--;</span><br><span class="line">		&#125;</span><br><span class="line">		q[++tt]=i;</span><br><span class="line">		<span class="keyword">if</span>(i&gt;=k<span class="number">-1</span>)&#123;</span><br><span class="line">			cout&lt;&lt;a[q[hh]]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="KMP字符串匹配"><a href="#KMP字符串匹配" class="headerlink" title="KMP字符串匹配"></a>KMP字符串匹配</h2><p>初始化并输入</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e5</span>+<span class="number">10</span>,M=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> p[N],s[M];<span class="comment">//p是子串 s是母串 </span></span><br><span class="line"><span class="type">int</span> ne[N];<span class="comment">//next</span></span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"></span><br><span class="line">cin&gt;&gt;n&gt;&gt;p+<span class="number">1</span>&gt;&gt;m&gt;&gt;s+<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>求next[]</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ne[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>,j=<span class="number">0</span>;p[i];i++)&#123;</span><br><span class="line">	<span class="keyword">while</span>(j&amp;&amp;p[i]!=p[j+<span class="number">1</span>])&#123;</span><br><span class="line">		j=ne[j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(p[i]==p[j+<span class="number">1</span>])&#123;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	ne[i]=j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>KMP算法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">0</span>;s[i];i++)&#123;</span><br><span class="line">		<span class="keyword">while</span>(j&amp;&amp;s[i]!=p[j+<span class="number">1</span>])&#123;</span><br><span class="line">			j=ne[j];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(s[i]==p[j+<span class="number">1</span>])&#123;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(j==n)&#123;<span class="comment">//匹配成功时 i在字符串s上对应串p的末尾 </span></span><br><span class="line">			cout&lt;&lt;i-n&lt;&lt;<span class="string">&quot; &quot;</span>;<span class="comment">//输出的是数组的初位置 不需要+1</span></span><br><span class="line">			j=ne[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Trie字符串统计"><a href="#Trie字符串统计" class="headerlink" title="Trie字符串统计"></a>Trie字符串统计</h2><p>I x 向集合中插入一个字符串 x<br>Q x 询问一个字符串在集合中出现了多少次<br>初始化</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> son[maxn][<span class="number">26</span>],cnt[maxn];<span class="comment">//son[]子节点 cnt[]统计一个串出现了多少次</span></span><br><span class="line"><span class="type">int</span> idx=<span class="number">0</span>;<span class="comment">//表示用到了第几个节点</span></span><br><span class="line"><span class="type">char</span> op[<span class="number">2</span>];<span class="comment">//操作符的读入</span></span><br></pre></td></tr></table></figure>
+<p>插入操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">char</span> str[])</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;str[i];i++)&#123;</span><br><span class="line">		<span class="type">int</span> u=str[i]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		<span class="keyword">if</span>(!son[p][u])&#123;<span class="comment">//如果该节点不存在</span></span><br><span class="line">			son[p][u]=++idx;<span class="comment">//添加并记录为当前节点</span></span><br><span class="line">		&#125;</span><br><span class="line">		p=son[p][u];<span class="comment">//进入子节点</span></span><br><span class="line">	&#125;</span><br><span class="line">	cnt[p]++;<span class="comment">//计算串的出现次数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查找操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">char</span> str[])</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;str[i];i++)&#123;</span><br><span class="line">		<span class="type">int</span> u=str[i]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		<span class="keyword">if</span>(!son[p][u])&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//找不到子节点直接返回0</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> cnt[p];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n;</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line"><span class="keyword">while</span>(n--)&#123;</span><br><span class="line">	cin&gt;&gt;op&gt;&gt;str;</span><br><span class="line">	<span class="keyword">if</span>(op[<span class="number">0</span>]==<span class="string">&#x27;I&#x27;</span>)&#123;</span><br><span class="line">		<span class="built_in">insert</span>(str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(op[<span class="number">0</span>]==<span class="string">&#x27;Q&#x27;</span>)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="built_in">query</span>(str)&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>①讲两个集合合并<br>②询问两个集合是否在一个集合当中</p>
+<p>基本原理:每个集合用一棵树来表示.树根的标号就是整个集合的编号.每个节点存储它的父节点.p[x]表示 x 的父节点</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	fa[i]=i;<span class="comment">//让i的父节点指向i</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断树根</span></span><br><span class="line"><span class="keyword">if</span>(p[x]==x)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//求x的集合编号</span></span><br><span class="line"><span class="keyword">while</span>(p[x]!=x)&#123;</span><br><span class="line">	x=p[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//路程压缩优化</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;<span class="comment">//查询x的属于哪个集合 (返回x的根节点)</span></span><br><span class="line">	<span class="keyword">if</span>(p[x]!=x)&#123;</span><br><span class="line">		p[x]=<span class="built_in">find</span>(p[x]);<span class="comment">//路径压缩 路径上所有的点都指向树根</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//合并两个集合 px是a的集合编号 py是b的集合编号</span></span><br><span class="line">px=<span class="built_in">find</span>(x);</span><br><span class="line">py=<span class="built_in">find</span>(y);</span><br><span class="line">p[px]=py;<span class="comment">//让a的根节点的父节点指向b的根节点</span></span><br></pre></td></tr></table></figure>
+<h2 id="模拟堆"><a href="#模拟堆" class="headerlink" title="模拟堆"></a>模拟堆</h2><p>① I x 插入一个数 x;<br>② PM 输出当前集合中的最小值;(输出堆顶 h[1])<br>③ DM 删除当前集合中的最小值(数据保证此时的最小值唯一);<br>④ D k 删除第 k 个插入的数;<br>⑤ C k x 修改第 k 个插入的数,将其变为 x;</p>
+<p>预处理</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> siz;<span class="comment">//堆的末尾</span></span><br><span class="line"><span class="type">int</span> m;<span class="comment">//记录使用节点个数</span></span><br><span class="line"><span class="type">int</span> k,x;<span class="comment">//输入第k个插入的数字 x存储这个数字</span></span><br><span class="line"><span class="type">int</span> h[N];<span class="comment">//存储节点</span></span><br><span class="line"><span class="type">int</span> ph[N],hp[N];<span class="comment">//ph指向第i个插入的数的下标x 插入序数映射到堆的下标 </span></span><br><span class="line"><span class="comment">//hp指向下标是x的数是第i个插入的数 由堆的下标映射到插入序数</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">heap_swap</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;<span class="comment">//堆排列特有的交换方式</span></span><br><span class="line">	<span class="built_in">swap</span>(ph[hp[a]],ph[hp[b]]);</span><br><span class="line">	<span class="built_in">swap</span>(hp[a],hp[b]);</span><br><span class="line">	<span class="built_in">swap</span>(h[a],h[b]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>两个堆的排序函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> u)</span></span>&#123;<span class="comment">//u是节点的序号 寻找三个节点中最小的节点</span></span><br><span class="line">	<span class="type">int</span> t=u;</span><br><span class="line">	<span class="keyword">if</span>(u*<span class="number">2</span>&lt;=siz&amp;&amp;h[u*<span class="number">2</span>]&gt;h[t])&#123;<span class="comment">//未出界 且满足比子节点大 </span></span><br><span class="line">		t=u*<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(u*<span class="number">2</span>+<span class="number">1</span>&lt;=siz&amp;&amp;h[u*<span class="number">2</span>+<span class="number">1</span>]&gt;h[t])&#123;</span><br><span class="line">		t=u*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(t!=u)&#123;</span><br><span class="line">		<span class="built_in">heap_swap</span>(u,t);</span><br><span class="line">		<span class="built_in">down</span>(t);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">up</span><span class="params">(<span class="type">int</span> u)</span></span>&#123;<span class="comment">//交换比u大的父节点</span></span><br><span class="line">	<span class="keyword">while</span>(u/<span class="number">2</span>&gt;=<span class="number">1</span>&amp;&amp;h[u/<span class="number">2</span>]&gt;h[u])&#123;</span><br><span class="line">		<span class="built_in">heap_swap</span>(u,u/<span class="number">2</span>);</span><br><span class="line">		u/=<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>操作实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="built_in">strcmp</span>(op,<span class="string">&quot;I&quot;</span>))&#123;<span class="comment">//插入数x</span></span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	m++;siz++;</span><br><span class="line">	ph[m]=siz;hp[siz]=m;</span><br><span class="line">	h[siz]=x;</span><br><span class="line">	<span class="built_in">up</span>(siz);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(op,<span class="string">&quot;DM&quot;</span>))&#123;<span class="comment">//删除堆顶</span></span><br><span class="line">	<span class="built_in">heap_swap</span>(<span class="number">1</span>,siz);</span><br><span class="line">	siz--;</span><br><span class="line">	<span class="built_in">up</span>(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">down</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(op,<span class="string">&quot;D&quot;</span>))&#123;<span class="comment">//删除第K的插入的数字</span></span><br><span class="line">	cin&gt;&gt;k;</span><br><span class="line">	k=ph[k];<span class="comment">//在交换的过程中ph[k]会变化 预先存储到k上</span></span><br><span class="line">	<span class="built_in">heap_swap</span>(k,siz);</span><br><span class="line">	siz--;</span><br><span class="line">	<span class="built_in">up</span>(k);</span><br><span class="line">	<span class="built_in">down</span>(k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(op,<span class="string">&quot;C&quot;</span>))&#123;<span class="comment">//将第k个插入的数改变成x</span></span><br><span class="line">	cin&gt;&gt;k&gt;&gt;x;</span><br><span class="line">	k=ph[k];<span class="comment">//同理</span></span><br><span class="line">	h[k]=x;</span><br><span class="line">	<span class="built_in">up</span>(k);</span><br><span class="line">	<span class="built_in">down</span>(k);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><h3 id="开放寻址法-蹲坑法"><a href="#开放寻址法-蹲坑法" class="headerlink" title="开放寻址法(蹲坑法)"></a>开放寻址法(蹲坑法)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> null=<span class="number">0x3f3f3f3f</span>;<span class="comment">//极大值1061109567与INT_MAX同一数量级 且不会溢出</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e5</span>+<span class="number">3</span>;</span><br><span class="line"><span class="type">int</span> h[N];</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;<span class="comment">//哈希表特有的搜索函数</span></span><br><span class="line">	<span class="type">int</span> k=(x%N+N)%N;</span><br><span class="line">	<span class="keyword">while</span>(h[k]!=null&amp;&amp;h[k]!=x)&#123;</span><br><span class="line">		k++;</span><br><span class="line">		<span class="keyword">if</span>(k==N)&#123;<span class="comment">//搜到了最后一个槽也是满的 让k回到头节点</span></span><br><span class="line">			k=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> k;<span class="comment">//返回x在哈希表中的位置 若不存在返回null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(h,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(h));</span><br><span class="line"><span class="comment">//插入x操作</span></span><br><span class="line"><span class="type">int</span> k=<span class="built_in">find</span>(x);</span><br><span class="line">h[k]=x;</span><br><span class="line"><span class="comment">//查询x操作</span></span><br><span class="line"><span class="type">int</span> k=<span class="built_in">find</span>(x);</span><br><span class="line"><span class="keyword">if</span>(h[k]!=null)&#123;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拉链法"><a href="#拉链法" class="headerlink" title="拉链法"></a>拉链法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e5</span>+<span class="number">3</span>;</span><br><span class="line"><span class="type">int</span> h[N];</span><br><span class="line"><span class="type">int</span> e[N],ne[N],idx;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> k=(x%N+N)%N;<span class="comment">//负数取模还是负数 会导致数组越界 (+N)%N 避免这一问题</span></span><br><span class="line">	e[idx]=x;</span><br><span class="line">	ne[idx]=k;</span><br><span class="line">	h[k]=idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> k=(x%N+N)%N;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=h[k];i!=<span class="number">-1</span>;i=ne[i])&#123;</span><br><span class="line">		<span class="keyword">if</span>(e[k]==x)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(h,<span class="number">-1</span>,<span class="built_in">sizeof</span>(h));<span class="comment">//-1表示链表的末尾</span></span><br><span class="line"><span class="keyword">if</span>(*op==<span class="string">&#x27;I&#x27;</span>)&#123;</span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	<span class="built_in">insert</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(*op==<span class="string">&#x27;Q&#x27;</span>)&#123;</span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">find</span>(x))&#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串哈希"><a href="#字符串哈希" class="headerlink" title="字符串哈希"></a>字符串哈希</h3><p>判断一个字符串的两个子区间是否完全相等</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ULL;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e5</span>+<span class="number">5</span>,Q=<span class="number">133</span>;</span><br><span class="line"><span class="type">char</span> str[N];<span class="comment">//存储字符串</span></span><br><span class="line">ULL p[N];<span class="comment">//对Q进行预处理</span></span><br><span class="line">ULL h[N];</span><br><span class="line"><span class="type">int</span> n,m;<span class="comment">//n是字符串的长度 m是操作次数</span></span><br><span class="line"><span class="type">int</span> l1,r1,l2,r2,</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ULL <span class="title">get</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> h[r]-h[l<span class="number">-1</span>]*p[r-l+<span class="number">1</span>];<span class="comment">//前缀和计算</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//预处理</span></span><br><span class="line">cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">p[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	p[i]=p[i<span class="number">-1</span>]*Q;</span><br><span class="line">	h[i]=h[i<span class="number">-1</span>]*Q+str[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(m--)&#123;</span><br><span class="line">	cin&gt;&gt;l1&gt;&gt;r1&gt;&gt;l2&gt;&gt;r2;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">get</span>(l1,r1)==<span class="built_in">get</span>(l2,r2))&#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/04/%E7%A6%BB%E6%95%A3%E5%8C%96/" rel="prev" title="离散化">
+      <i class="fa fa-chevron-left"></i> 离散化
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/13/%E5%9B%BE%E8%AE%BA%20%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/" rel="next" title="图论 最短路问题">
+      图论 最短路问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">单链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E6%A0%88"><span class="nav-number">3.</span> <span class="nav-text">模拟栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E9%98%9F%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">模拟队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%B0%83%E6%A0%88"><span class="nav-number">5.</span> <span class="nav-text">单调栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97"><span class="nav-number">6.</span> <span class="nav-text">单调队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KMP%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D"><span class="nav-number">7.</span> <span class="nav-text">KMP字符串匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trie%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BB%9F%E8%AE%A1"><span class="nav-number">8.</span> <span class="nav-text">Trie字符串统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="nav-number">9.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%A0%86"><span class="nav-number">10.</span> <span class="nav-text">模拟堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">11.</span> <span class="nav-text">哈希表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E5%AF%BB%E5%9D%80%E6%B3%95-%E8%B9%B2%E5%9D%91%E6%B3%95"><span class="nav-number">11.1.</span> <span class="nav-text">开放寻址法(蹲坑法)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E9%93%BE%E6%B3%95"><span class="nav-number">11.2.</span> <span class="nav-text">拉链法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C"><span class="nav-number">11.3.</span> <span class="nav-text">字符串哈希</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhangas</p>
+  <div class="site-description" itemprop="description">a freshman from Shandong University of Science and Technology.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangas</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

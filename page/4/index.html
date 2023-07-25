@@ -148,6 +148,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/26/%E6%8E%92%E5%BA%8F%E6%9F%A5%E6%89%BE%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/26/%E6%8E%92%E5%BA%8F%E6%9F%A5%E6%89%BE%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">排序查找函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-09-26 19:57:24" itemprop="dateCreated datePublished" datetime="2022-09-26T19:57:24+08:00">2022-09-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-03 12:05:00" itemprop="dateModified" datetime="2023-02-03T12:05:00+08:00">2023-02-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="lower-bound-时间复杂度为O-n"><a href="#lower-bound-时间复杂度为O-n" class="headerlink" title="lower_bound() 时间复杂度为O(n)"></a>lower_bound() 时间复杂度为O(n)</h1><p>template &lt;class ForwardIterator, class T&gt;<br>ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last,  const T&amp; val);</p>
+<h3 id="函数作用"><a href="#函数作用" class="headerlink" title="函数作用"></a>函数作用</h3><p>在升序的情况下，返回指向第一个值不小于val的位置，即返回第一个大于等于val值的位置。（通过二分查找）<br>借助数组实现 从a[0]到a[n]</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;a[<span class="built_in">lower_bound</span>(a,a+n,val)-a];</span><br></pre></td></tr></table></figure>
+<p>输出第一个大于或等于val的数 </p>
+<h1 id="nth-element-时间复杂度为O-n"><a href="#nth-element-时间复杂度为O-n" class="headerlink" title="nth_element() 时间复杂度为O(n)"></a>nth_element() 时间复杂度为O(n)</h1><p>称第 n 个元素为升序序列中”第n大”的元素<br>例如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="number">4</span> <span class="number">6</span> <span class="number">8</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>2为第1小 8为第4小</p>
+<p>默认升序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">nth_element</span> <span class="params">(RandomAccessIterator first,</span></span></span><br><span class="line"><span class="params"><span class="function">                  RandomAccessIterator nth,</span></span></span><br><span class="line"><span class="params"><span class="function">                  RandomAccessIterator last)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>自定义cmp排序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">nth_element</span> <span class="params">(RandomAccessIterator first,</span></span></span><br><span class="line"><span class="params"><span class="function">                  RandomAccessIterator nth,</span></span></span><br><span class="line"><span class="params"><span class="function">                  RandomAccessIterator last，</span></span></span><br><span class="line"><span class="params"><span class="function">                  Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="函数作用-1"><a href="#函数作用-1" class="headerlink" title="函数作用"></a>函数作用</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nth_element</span>(a,a+n,a+k);<span class="comment">//使第k小整数就位</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/26/END/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -358,7 +433,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

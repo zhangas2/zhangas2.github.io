@@ -148,6 +148,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/29/%E5%9B%BE%E8%AE%BA%20%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/29/%E5%9B%BE%E8%AE%BA%20%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">图论 最小生成树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-29 17:03:44" itemprop="dateCreated datePublished" datetime="2022-10-29T17:03:44+08:00">2022-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-03 12:05:29" itemprop="dateModified" datetime="2023-02-03T12:05:29+08:00">2023-02-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="普利姆算法-prim"><a href="#普利姆算法-prim" class="headerlink" title="普利姆算法(prim)"></a>普利姆算法(prim)</h2><h3 id="朴素版-稠密图常用-O-n-2"><a href="#朴素版-稠密图常用-O-n-2" class="headerlink" title="朴素版 稠密图常用 O(n^2)"></a>朴素版 稠密图常用 O(n^2)</h3><p>借助临界矩阵存储g[N][N]</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> INF=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">prim</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> res=<span class="number">0</span>;<span class="comment">//最小生成树的距离</span></span><br><span class="line">    <span class="built_in">memset</span>(dist,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(dist));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> t=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!st[j]&amp;&amp;(t==<span class="number">-1</span>||dist[t]&gt;dist[j])&#123;</span><br><span class="line">                t=j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//不是第一个点且到集合的距离为INF 说明与集合不相连</span></span><br><span class="line">        <span class="keyword">if</span>(i&amp;&amp;dist[t]==INF)&#123;</span><br><span class="line">            <span class="keyword">return</span> INF;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i)&#123;</span><br><span class="line">            res+=dist[t];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//拓展其他节点到集合的距离</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            dist[j]=<span class="built_in">min</span>(dist[j],g[t][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        st[t]=<span class="literal">true</span>;<span class="comment">//将该点加入集合</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>()&#123;</span><br><span class="line">    <span class="built_in">memset</span>(g,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(g));</span><br><span class="line">    cin&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        g[a][b]=g[b][a]=<span class="built_in">min</span>(g[a][b],c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> t=<span class="built_in">prim</span>();</span><br><span class="line">    <span class="keyword">if</span>(prim==INF)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;impossible&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    else&#123;</span></span><br><span class="line"><span class="string">        cout&lt;&lt;t&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="堆优化版O-m-logn"><a href="#堆优化版O-m-logn" class="headerlink" title="堆优化版O(m*logn)"></a>堆优化版O(m*logn)</h3><p>不常用</p>
+<h2 id="克鲁斯卡尔算法-Kruskal"><a href="#克鲁斯卡尔算法-Kruskal" class="headerlink" title="克鲁斯卡尔算法(Kruskal)"></a>克鲁斯卡尔算法(Kruskal)</h2><h3 id="稀疏图常用-O-m-logm"><a href="#稀疏图常用-O-m-logm" class="headerlink" title="稀疏图常用 O(m*logm)"></a>稀疏图常用 O(m*logm)</h3><p>①将所有边按权重从小到大排序O(m*logn)<br>②枚举每条边a b和权重c<br>if(a b不连通){<br>    将a b这条边加入集合中<br>}</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//排序</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span>&#123;</span><br><span class="line">    <span class="type">int</span> a,b,w;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&lt;(<span class="type">const</span> Edge &amp;W)&#123;</span><br><span class="line">        <span class="keyword">return</span> w&lt;W.w;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;edges[N];</span><br><span class="line"></span><br><span class="line"><span class="built_in">sort</span>(edges,edges+m);</span><br><span class="line"></span><br><span class="line"><span class="comment">//并查集初始化</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    p[i]=i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p[x]!=x)&#123;</span><br><span class="line">        p[x]=<span class="built_in">find</span>(f[x]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//枚举每条边</span></span><br><span class="line"><span class="type">int</span> res=<span class="number">0</span>,cnt=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">    <span class="type">int</span> a=edges[i].a,b=edges[i].b,w=edges[i].w;</span><br><span class="line">    a=<span class="built_in">find</span>(a),b=<span class="built_in">find</span>(b);</span><br><span class="line">    <span class="keyword">if</span>(a!=b)&#123;</span><br><span class="line">        f[a]=b;</span><br><span class="line">        res+=w;</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="keyword">if</span>(cnt!=n<span class="number">-1</span>)&#123;<span class="comment">//n个节点的最小生成树 有n-1条边</span></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;impossible);</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">else&#123;</span></span><br><span class="line"><span class="string">    cout&lt;&lt;res&lt;&lt;endl;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/27/%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -845,77 +913,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/%E5%8F%8C%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/03/%E5%8F%8C%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">双指针</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-03 18:11:00" itemprop="dateCreated datePublished" datetime="2022-10-03T18:11:00+08:00">2022-10-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-03 12:04:44" itemprop="dateModified" datetime="2023-02-03T12:04:44+08:00">2023-02-03</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>对于一个序列 借助两个指针维护一个区间(i与j有单调关系)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    j=i;</span><br><span class="line">    <span class="keyword">while</span>(j&lt;n&amp;&amp;<span class="built_in">check</span>(i,j))&#123;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//每道题的具体逻辑</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可将暴力两层嵌套循环O(n^2)优化到O(n)</p>
-<h3 id="799-最长连续不重复子序列"><a href="#799-最长连续不重复子序列" class="headerlink" title="799. 最长连续不重复子序列"></a>799. 最长连续不重复子序列</h3><p>找出最长的不包含重复数字的连续子序列[l,c]的长度<br>input 1 2 2 3 5<br>output 3</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> r=<span class="number">0</span>,l=<span class="number">0</span>;r&lt;n;r++)&#123;</span><br><span class="line">	cnt[a[r]]++;<span class="comment">//计时器的作用</span></span><br><span class="line">	<span class="keyword">while</span>(l&lt;r&amp;&amp;s[a[r]]&gt;<span class="number">1</span>)&#123;<span class="comment">//当出现重复的数字j向前移动一位直到不再重复</span></span><br><span class="line">		cnt[a[l]]--;</span><br><span class="line">		l++;	</span><br><span class="line">	&#125;</span><br><span class="line">	res=<span class="built_in">max</span>(res,r-l+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实现unique函数"><a href="#实现unique函数" class="headerlink" title="实现unique函数"></a>实现unique函数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt;::<span class="function">iterator <span class="title">unique</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;a)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;a.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!i||a[i]!=a[i<span class="number">-1</span>])&#123;<span class="comment">//第一个或满足不与前一个数相同 </span></span><br><span class="line">			a[j]=a[i];</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a.<span class="built_in">begin</span>()+j;<span class="comment">//返回值必须是迭代器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用实现去重操作</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(a.<span class="built_in">begin</span>(),a.<span class="built_in">end</span>());</span><br><span class="line">a.<span class="built_in">erase</span>(<span class="built_in">unique</span>(a),a.<span class="built_in">end</span>());</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -985,7 +982,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

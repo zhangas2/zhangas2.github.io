@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="E - Equalising Audio题目链接签到,保持$a_1$到$a_n$比例不变，给出K输出满足$K&#x3D;&#x3D;\frac{1}{n}\sum a_i^2$的$a_i$ 123456789101112   int n&#x3D;read(),k&#x3D;read();   int cnt&#x3D;0;for(int i&#x3D;1;i&lt;&#x3D;n;i++)&amp;#123;	a[i]&#x3D;read();	cnt+&#x3D;a[i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SDKD2023SummerTeamContest C">
+<meta property="og:url" content="http://example.com/2023/08/12/SDKD2023SummerTeamContest%20C/index.html">
+<meta property="og:site_name" content="zhangas">
+<meta property="og:description" content="E - Equalising Audio题目链接签到,保持$a_1$到$a_n$比例不变，给出K输出满足$K&#x3D;&#x3D;\frac{1}{n}\sum a_i^2$的$a_i$ 123456789101112   int n&#x3D;read(),k&#x3D;read();   int cnt&#x3D;0;for(int i&#x3D;1;i&lt;&#x3D;n;i++)&amp;#123;	a[i]&#x3D;read();	cnt+&#x3D;a[i">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-12T03:26:49.581Z">
+<meta property="article:modified_time" content="2023-08-12T04:27:44.860Z">
+<meta property="article:author" content="zhangas">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/08/12/SDKD2023SummerTeamContest%20C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>SDKD2023SummerTeamContest C | zhangas</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhangas</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">contact with me: 943622243</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/12/SDKD2023SummerTeamContest%20C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SDKD2023SummerTeamContest C
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-12 11:26:49 / 修改时间：12:27:44" itemprop="dateCreated datePublished" datetime="2023-08-12T11:26:49+08:00">2023-08-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="E-Equalising-Audio"><a href="#E-Equalising-Audio" class="headerlink" title="E - Equalising Audio"></a>E - Equalising Audio</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573102#problem/E">题目链接</a><br>签到,保持$a_1$到$a_n$比例不变，给出K输出满足$K&#x3D;&#x3D;\frac{1}{n}\sum a_i^2$的$a_i$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   <span class="type">int</span> n=<span class="built_in">read</span>(),k=<span class="built_in">read</span>();</span><br><span class="line">   <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	a[i]=<span class="built_in">read</span>();</span><br><span class="line">	cnt+=a[i]*a[i];<span class="comment">//求出总份数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">double</span> per;</span><br><span class="line"><span class="keyword">if</span>(!cnt)per=<span class="number">0</span>;<span class="comment">//可能全为0 这里特殊处理下</span></span><br><span class="line"><span class="keyword">else</span> per=<span class="built_in">sqrt</span>(x*n*<span class="number">1.0</span>/cnt);<span class="comment">//一份的大小</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.9lf &quot;</span>,per*a[i]);<span class="comment">//乘以对应的份数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="I-Imperfect-Imperial-Units"><a href="#I-Imperfect-Imperial-Units" class="headerlink" title="I - Imperfect Imperial Units"></a>I - Imperfect Imperial Units</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573102#problem/I">题目链接</a><br>n次definition</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> &lt;unit&gt; = &lt;value&gt; &lt;unit&gt;</span><br></pre></td></tr></table></figure>
+<p>q次query</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;value&gt; &lt;unit&gt; to &lt;unit&gt;</span><br></pre></td></tr></table></figure>
+<p>保证每次询问前都曾有定义过</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> cnt;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">id</span><span class="params">(string s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!mp[s])&#123;</span><br><span class="line">        mp[s]=++cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mp[s];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>并查集维护是否可以兑换,输出”impossible”的情况</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f[x]!=x)<span class="keyword">return</span> f[x]=<span class="built_in">find</span>(f[x]);</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(string a,string b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ia=<span class="built_in">id</span>(a),ib=<span class="built_in">id</span>(b);</span><br><span class="line">    ia=<span class="built_in">find</span>(ia),ib=<span class="built_in">find</span>(ib);</span><br><span class="line">    <span class="keyword">if</span>(ia==ib)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//&quot;impossible&quot;的情况</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">string t;</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> t,<span class="type">int</span> b,<span class="type">double</span> e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t==b)&#123;</span><br><span class="line">        ans=e;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=h[t];i!=<span class="number">-1</span>;i=ne[i])&#123;</span><br><span class="line">        <span class="type">int</span> j=e[i];</span><br><span class="line">        <span class="type">double</span> d=w[i];</span><br><span class="line">        <span class="keyword">if</span>(!st[j])&#123;</span><br><span class="line">            st[j]=<span class="number">1</span>;</span><br><span class="line">            <span class="built_in">dfs</span>(j,b,e*d);</span><br><span class="line">            st[j]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">double</span> c)</span></span>&#123;</span><br><span class="line">    e[idx]=b;</span><br><span class="line">    ne[idx]=a;</span><br><span class="line">    w[idx]=c;</span><br><span class="line">    h[a]=idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">de</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> a;cin&gt;&gt;a;</span><br><span class="line">    string s1;cin&gt;&gt;s1;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="type">double</span> b;cin&gt;&gt;b;</span><br><span class="line">    string s2;cin&gt;&gt;s2;</span><br><span class="line">    <span class="type">int</span> ida=<span class="built_in">id</span>(s1),idb=<span class="built_in">id</span>(s2);</span><br><span class="line">    <span class="built_in">add</span>(ida,idb,b);</span><br><span class="line">    <span class="built_in">add</span>(idb,ida,<span class="number">1.0</span>/b);</span><br><span class="line">    ida=<span class="built_in">find</span>(ida),idb=<span class="built_in">find</span>(idb);</span><br><span class="line">    f[ida]=idb;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">qu</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> a;cin&gt;&gt;a;</span><br><span class="line">    string s1;cin&gt;&gt;s1;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    string s2;cin&gt;&gt;s2;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">check</span>(s1,s2))<span class="built_in">puts</span>(<span class="string">&quot;impossible&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">memset</span>(st,<span class="number">0</span>,<span class="built_in">sizeof</span>(st));</span><br><span class="line">        <span class="type">int</span> ida=<span class="built_in">id</span>(s1),idb=<span class="built_in">id</span>(s2);</span><br><span class="line">        st[ida]=<span class="number">1</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(ida,idb,<span class="number">1.0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.7g&quot;</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="L-Lowest-Latency"><a href="#L-Lowest-Latency" class="headerlink" title="L - Lowest Latency"></a>L - Lowest Latency</h1><p>求三维平面内 距离最小的两点<br>使用分治的思想 按照x轴大小排序后 分为左，中，右三部分<br>最短距离有三种可能<br><strong>1.左部分之间的两点<br>2.右部分之间的两点<br>3.跨越中间的两点</strong><br>求出1，2两部分的最小值$d&#x3D;min(d1,d2)$后，借助贪心的思想，将与中间点距离小于d的点放入容器内，借助$O(M^2)\quad M&lt;&lt;N$遍历</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="type">int</span> x,y,z;</span><br><span class="line">&#125;a[N];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;<span class="comment">//按照x轴的大小排序</span></span><br><span class="line">	<span class="keyword">if</span>(a.x!=b.x)<span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">	<span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">dist</span><span class="params">(node a,node b)</span></span>&#123;<span class="comment">//求任意两点之间的距离</span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y)+(a.z-b.z)*(a.z-b.z));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> t[N];<span class="comment">//存储与中间点距离小于d的点的下标</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l==r)<span class="keyword">return</span> <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">if</span>(l+<span class="number">1</span>==r)<span class="keyword">return</span> <span class="built_in">dist</span>(a[l],a[r]);<span class="comment">//只剩下两点</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="type">double</span> d1=<span class="built_in">merge</span>(l,mid);</span><br><span class="line">    <span class="type">double</span> d2=<span class="built_in">merge</span>(mid+<span class="number">1</span>,r);</span><br><span class="line">    </span><br><span class="line">    <span class="type">double</span> ans=<span class="built_in">min</span>(d1,d2);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> idx=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=l;i&lt;=r;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">fabs</span>(a[i].x-a[mid].x)&lt;ans)&#123;</span><br><span class="line">            t[++idx]=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//遍历</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=idx;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;=idx;j++)&#123;</span><br><span class="line">            <span class="type">int</span> td=<span class="built_in">dist</span>(a[t[i]],a[t[j]]);</span><br><span class="line">            ans=<span class="built_in">min</span>(ans,td);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/03/SDKD2023SummerTeamContest%20A/" rel="prev" title="SDKD2023SummerTeamContest A">
+      <i class="fa fa-chevron-left"></i> SDKD2023SummerTeamContest A
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/26/data%20structure%20(pta)/" rel="next" title="Data structure (PTA)">
+      Data structure (PTA) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#E-Equalising-Audio"><span class="nav-number">1.</span> <span class="nav-text">E - Equalising Audio</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-Imperfect-Imperial-Units"><span class="nav-number">2.</span> <span class="nav-text">I - Imperfect Imperial Units</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#L-Lowest-Latency"><span class="nav-number">3.</span> <span class="nav-text">L - Lowest Latency</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhangas</p>
+  <div class="site-description" itemprop="description">a freshman from Shandong University of Science and Technology.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangas</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

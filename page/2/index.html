@@ -148,6 +148,155 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/24/7.24SDKDACM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/24/7.24SDKDACM/" class="post-title-link" itemprop="url">7.24SDKDACM</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-07-24 14:36:25 / 修改时间：16:58:42" itemprop="dateCreated datePublished" datetime="2023-07-24T14:36:25+08:00">2023-07-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="P1114-“非常男女”计划"><a href="#P1114-“非常男女”计划" class="headerlink" title="P1114 “非常男女”计划"></a>P1114 “非常男女”计划</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1114">题目链接</a></p>
+<h2 id="N-2暴力-60pts"><a href="#N-2暴力-60pts" class="headerlink" title="N^2暴力 60pts"></a>N^2暴力 60pts</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">   <span class="type">int</span> n=<span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	t[i]=<span class="built_in">read</span>();</span><br><span class="line">	<span class="keyword">if</span>(t[i])a[i]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> b[i]=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	a[i]+=a[i<span class="number">-1</span>];</span><br><span class="line">	b[i]+=b[i<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">		<span class="type">int</span> aa=a[j]-a[i<span class="number">-1</span>];</span><br><span class="line">		<span class="type">int</span> bb=b[j]-b[i<span class="number">-1</span>];</span><br><span class="line">		<span class="keyword">if</span>(aa==bb)</span><br><span class="line">			ans=<span class="built_in">max</span>(ans,j-i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;ans&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+<h2 id="借助局部答案优化内层循环-100pts-不是正解-数据大仍可hack"><a href="#借助局部答案优化内层循环-100pts-不是正解-数据大仍可hack" class="headerlink" title="借助局部答案优化内层循环 100pts 不是正解,数据大仍可hack"></a>借助局部答案优化内层循环 100pts 不是正解,数据大仍可hack</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="type">int</span> k=<span class="built_in">max</span>(<span class="number">1</span>,ans);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=i+k;j&lt;=n;j++)&#123;</span><br><span class="line">		<span class="type">int</span> aa=a[j]-a[i<span class="number">-1</span>];</span><br><span class="line">		<span class="type">int</span> bb=b[j]-b[i<span class="number">-1</span>];</span><br><span class="line">			ans=<span class="built_in">max</span>(ans,j-i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="正解：-边读入边处理-分两种情况"><a href="#正解：-边读入边处理-分两种情况" class="headerlink" title="正解： 边读入边处理 分两种情况"></a>正解： 边读入边处理 分两种情况</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;mp;</span><br><span class="line"><span class="type">int</span> n=<span class="built_in">read</span>();</span><br><span class="line"><span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	t[i]=<span class="built_in">read</span>();</span><br><span class="line">	<span class="keyword">if</span>(!t[i])</span><br><span class="line">           t[i]=<span class="number">-1</span>;<span class="comment">//女生标注为-1</span></span><br><span class="line">	t[i]+=t[i<span class="number">-1</span>];</span><br><span class="line">	<span class="keyword">if</span>(!t[i])<span class="comment">//当人数相等时 即和为0</span></span><br><span class="line">		ans=i;</span><br><span class="line">	<span class="keyword">else</span>&#123;<span class="comment">//有-1 和 1两种可能</span></span><br><span class="line">		<span class="keyword">if</span>(mp[t[i]])&#123;<span class="comment">//减去第一次出现-1 或者1 的下标</span></span><br><span class="line">			ans=<span class="built_in">max</span>(ans,i-mp[t[i]]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> mp[t[i]]=i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;ans;</span><br></pre></td></tr></table></figure>
+<h1 id="P3074-USACO13FEB-Milk-Scheduling-S"><a href="#P3074-USACO13FEB-Milk-Scheduling-S" class="headerlink" title="P3074 [USACO13FEB] Milk Scheduling S"></a>P3074 [USACO13FEB] Milk Scheduling S</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3074">题目链接</a><br>有M个要求：<em>奶牛A必须在奶牛B前挤奶</em><br>为了尽量完成挤奶任务，聘请了一大批雇工协助任务，同一时刻足够去给任意数量的奶牛挤奶。然而，尽管奶牛可以同时挤奶，但仍需要满足以上的挤奶先后顺序。请计算挤奶过程中的最小总时间。</p>
+<h2 id="找出所有非孤立且入度为0的点dfs即可"><a href="#找出所有非孤立且入度为0的点dfs即可" class="headerlink" title="找出所有非孤立且入度为0的点dfs即可"></a>找出所有非孤立且入度为0的点dfs即可</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10005</span>];</span><br><span class="line"><span class="type">int</span> ru[<span class="number">10005</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;d[<span class="number">10005</span>];</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="type">int</span> t[<span class="number">10005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(t[u]!=<span class="number">0</span>)<span class="comment">//记忆化搜索</span></span><br><span class="line">		<span class="keyword">return</span> t[u];</span><br><span class="line">	<span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;d[u].<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		<span class="type">int</span> v=d[u][i];</span><br><span class="line">		<span class="comment">//u -&gt; v</span></span><br><span class="line">		res=<span class="built_in">max</span>(res,<span class="built_in">dfs</span>(v));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> t[u]=res+a[u];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1&lt;&#x3D;N&lt;&#x3D;10,000 1&lt;&#x3D;M&lt;&#x3D;50,000 借助稀疏图存储路径<br>显然孤立点消耗的时间就是读入的时间，应该在所有孤立点中取最长时间</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	a[i]=<span class="built_in">read</span>();</span><br><span class="line">&#125;</span><br><span class="line">   <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">       <span class="comment">//a -&gt; b</span></span><br><span class="line">	<span class="type">int</span> a=<span class="built_in">read</span>(),b=<span class="built_in">read</span>();</span><br><span class="line">	ru[b]++;</span><br><span class="line">	d[a].<span class="built_in">push_back</span>(b);<span class="comment">//建图</span></span><br><span class="line">&#125;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">       <span class="keyword">if</span>(d[i].<span class="built_in">size</span>()==<span class="number">0</span>)</span><br><span class="line">           t[i]=a[i];</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(ru[i]==<span class="number">0</span>&amp;&amp;d[i].<span class="built_in">size</span>()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">dfs</span>(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">       ans=<span class="built_in">max</span>(ans,t[i]);</span><br><span class="line">   &#125;</span><br><span class="line">   cout&lt;&lt;ans&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/20/MathtoCS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/20/MathtoCS/" class="post-title-link" itemprop="url">曲线救国,跨院数学->计科建议</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-07-20 11:01:31 / 修改时间：11:50:52" itemprop="dateCreated datePublished" datetime="2023-07-20T11:01:31+08:00">2023-07-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <pre><code>22年填报志愿时，是50190位次，本来也不够数学的位次，应该录取我的是50225的通信工程，
+但是有了吴方班的出现使得普通班降了4000的位次。我很幸运遇到了一位21届从数学转出的学长，
+使得从我入学的几天起我就暗暗下定决心转专业。今日写下这个建议，希望可以延续有想法的学弟学妹。
+</code></pre>
+<h1 id="总结来说就是-运气-绩点硬实力-c语言绝对水平"><a href="#总结来说就是-运气-绩点硬实力-c语言绝对水平" class="headerlink" title="总结来说就是: 运气+绩点硬实力+c语言绝对水平"></a>总结来说就是: 运气+绩点硬实力+c语言绝对水平</h1><h2 id="转专业文件分析"><a href="#转专业文件分析" class="headerlink" title="转专业文件分析"></a>转专业文件分析</h2><pre><code>（1）高考综合改革省份学生须选考物理。其他省份考生须为理工类考生。
+高考成绩在折算为 750 分后，须不低于该专业在山东省 2022年最低录取分数下 20 分。
+考生需提供相应证明材料。
+</code></pre>
+<p>这个是硬要求，不满足直接就不能申请，因为面试前老师会让你打印当年的成绩查询成绩单。</p>
+<pre><code>（2）一年级考生申请转入我院各专业的，第一学期所学必修课程考试全部合格，无补考、重修记录，
+且总成绩在原专业年级排名在 20%（含）以内（以报名时在教务系统中的排名为准）。
+</code></pre>
+<p>文件绩点要求只看大一上排名+大一下不挂科这一要求，原专业位次最好5%上下 低于10%有些危险(面试会看这个)；<br><em>学长当年是加权3.88 位次7.4% 也算是勉勉强强合格。</em></p>
+<h2 id="机考分析"><a href="#机考分析" class="headerlink" title="机考分析"></a>机考分析</h2><pre><code>申请转入我院的考生，须参加 C 语言机试，机试平台为我校 OJ平台，OJ 平台网址及机考要求在考试前公布。
+该课程可通过我校网络教学平台上的《程序设计基础》慕课课程*进行自学，参考教材为《从问题到程序：程序
+设计与 C 语言引论》（第 2 版）（裘宗燕，机械工业出版社，2011 年出版）。
+</code></pre>
+<p>机考的难度比外院的c语言期末高很多，但近似于计算机学院的c语言期末考试难度<br>建议多做OJ 上的题目，老实对待c语言课程，差不多可以30分钟做完外院的期末考试水平就够了。<br><em>最稳妥的是在机考2h内将所有题目做完 最多剩一道</em></p>
+<h2 id="面试分析"><a href="#面试分析" class="headerlink" title="面试分析"></a>面试分析</h2><pre><code>根据报名人数分为若干个面试小组，每个小组由 3—5 名教师组成。
+面试满分为 100 分。面试成绩是面试小组各位专家评分的平均分。
+</code></pre>
+<p>注意: 面试的问题很基础，不会涉及专业课知识，只是简单问问你对本专业的认知和学习生活习惯,但是要老老实实准备，面试也会筛选人数。<br><em>牢记 计算机科学与工程学院——计算机科学与技术 提问的时候可能会要求辨析</em></p>
+<h2 id="运气"><a href="#运气" class="headerlink" title="运气"></a>运气</h2><p>从21届降转的取消，再到22届分数线要求和18进6这一比例，这条道路的难度一目了然。在这条道路上，我很幸运，遇到了能够指引方向的学长，遇到了真正能帮助同学的老师们… 虽然新的一届大概率会增加新的要求，但希望真正有想法的学弟学妹们，能够攻坚克难，实现自己的内心想法。走过这条路会发现，新的道路已经开始。</p>
+<pre><code>2023.7.20记
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/15/Data%20structure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -723,149 +872,10 @@ output:   2 3 7 4 - * + 8 4 / +
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/22/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/22/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">约瑟夫环问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-22 19:59:10" itemprop="dateCreated datePublished" datetime="2022-11-22T19:59:10+08:00">2022-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-03 12:05:20" itemprop="dateModified" datetime="2023-02-03T12:05:20+08:00">2023-02-03</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="队列模拟"><a href="#队列模拟" class="headerlink" title="队列模拟"></a>队列模拟</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line">queue&lt;<span class="type">int</span>&gt;ql;</span><br><span class="line"><span class="type">int</span> n=<span class="built_in">read</span>(),k=<span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    q.<span class="built_in">push</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//开始操作</span></span><br><span class="line"><span class="type">int</span> now=<span class="number">1</span>;<span class="comment">//用来计数 当now == k的时候满足条件 让q.front() 输出并出列</span></span><br><span class="line"><span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">    <span class="keyword">if</span>(now==k)&#123;</span><br><span class="line">        cout&lt;&lt;q.<span class="built_in">front</span>()&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        now=<span class="number">1</span>;<span class="comment">//初始化</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;<span class="comment">//如果不满足是第k个, 则将队头转移到队尾</span></span><br><span class="line">        now++;</span><br><span class="line">        q.<span class="built_in">push</span>(q.<span class="built_in">front</span>());</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="公式法"><a href="#公式法" class="headerlink" title="公式法"></a>公式法</h2><p>f(10,3)&#x3D;(f(9,3)+3)%10<br>∴ 从n中依次删去第k的数子<br>f(n,k)&#x3D;(f(n-1,k)+k)%n</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数的两种实现方式</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">josephus</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">josephus</span>(n<span class="number">-1</span>,k)+k)%n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">josephus</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="comment">//从底层向上推</span></span><br><span class="line">    <span class="type">int</span> value=<span class="number">0</span>;<span class="comment">//value 即为f(0,k) -&gt; 向上递推到 f(m,k)</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;<span class="comment">//从n 一直到 1推出答案 共n次</span></span><br><span class="line">        value=(value+k)%i; <span class="comment">//i即使n的变化值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> n=<span class="built_in">read</span>(),k=<span class="built_in">read</span>();</span><br><span class="line">cout&lt;&lt;<span class="built_in">josephus</span>(n,k)+<span class="number">1</span>&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-title-link" itemprop="url">动态规划</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-17 11:39:41" itemprop="dateCreated datePublished" datetime="2022-11-17T11:39:41+08:00">2022-11-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-03 12:04:53" itemprop="dateModified" datetime="2023-02-03T12:04:53+08:00">2023-02-03</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><h2 id="线性DP"><a href="#线性DP" class="headerlink" title="线性DP"></a>线性DP</h2><h3 id="数字三角形"><a href="#数字三角形" class="headerlink" title="数字三角形"></a>数字三角形</h3><p>从顶部出发，在每一结点可以选择移动至其左下方的结点或移动至其右下方的结点，一直走到底层，要求找出一条路径，使路径上的数字的和最大。<br>input:<br>5<br>7<br>3 8<br>8 1 0<br>2 7 4 4<br>4 5 2 6 5<br>output:<br>30</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从下向上DP更新</span></span><br><span class="line"><span class="comment">//f[i][j]=max(f[i+1][j],f[i+1][j+1])+a[i][j];</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">    f[n][j]=a[n][j];<span class="comment">//将最后一行输入到f数组中</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">1</span>;i--)&#123;<span class="comment">//从n-1行开始</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">        f[i][j]=<span class="built_in">max</span>(f[i+<span class="number">1</span>][j],f[i+<span class="number">1</span>][j+<span class="number">1</span>])+a[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;f[<span class="number">1</span>][<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="最长上升子序列"><a href="#最长上升子序列" class="headerlink" title="最长上升子序列"></a>最长上升子序列</h3><p>给定一个长度为 N 的数列，求数值严格单调递增的子序列的长度最长是多少。<br>input:<br>7<br>3 1 2 1 8 5 6<br>output:<br>1 2 5 6<br>4</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">q.<span class="built_in">push_back</span>(a[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a[i]&gt;q.<span class="built_in">back</span>())&#123;</span><br><span class="line">        q.<span class="built_in">push_back</span>(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        *<span class="built_in">lower_bound</span>(q.<span class="built_in">begin</span>(),q.<span class="built_in">end</span>(),a[i])=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i:q)&#123;</span><br><span class="line">    cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cout&lt;&lt;endl&lt;&lt;q.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
-<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p>给定两个长度分别为 N 和 M 的字符串 A 和 B，求既是 A 的子序列又是 B 的子序列的字符串长度最长是多少。<br>input：<br>4 5<br>acbd<br>abedc<br>output：<br>abd<br>3</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//f[i][j]表示A的前i个于B的前j个的最长公共子序列</span></span><br><span class="line"><span class="comment">//f[i][j]=max(f[i-1][j-1]AB都不选,f[i][j-1]A选B不选,f[i-1][j]A不选B选,f[i-1][j-1]+1AB都选)</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1005</span>;</span><br><span class="line"><span class="type">char</span> a[N],b[N];</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"><span class="type">int</span> n=<span class="built_in">read</span>(),m=<span class="built_in">read</span>();</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%s,a+1);scanf(&quot;</span>%s,b+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">        f[i][j]=<span class="built_in">max</span>(f[i<span class="number">-1</span>][j],f[i][j<span class="number">-1</span>]);</span><br><span class="line">        <span class="keyword">if</span>(a[i]==b[j]) f[i][j]=<span class="built_in">max</span>(f[i][j],f[i<span class="number">-1</span>][j<span class="number">-1</span>]+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h2><h3 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h3><p>设有 N 堆石子排成一排，其编号为 1，2，3，…N。</p>
-<p>每堆石子有一定的质量，可以用一个整数来描述，现在要将这 N 堆石子合并成为一堆。</p>
-<p>每次只能合并相邻的两堆，合并的代价为这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻，合并时由于选择的顺序不同，合并的总代价也不相同。<br>input：<br>4<br>1 3 5 2<br>output：<br>22<br>假设f[i][j]表示从第i个到第j个合并所付出的最小的代价 f[1][n]即为答案 </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -931,7 +941,7 @@ output:   2 3 7 4 - * + 8 4 / +
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

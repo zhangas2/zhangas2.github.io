@@ -148,6 +148,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/25/7.25SDKDACM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/25/7.25SDKDACM/" class="post-title-link" itemprop="url">7.25SDKDACM</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-07-25 17:15:14 / 修改时间：18:31:08" itemprop="dateCreated datePublished" datetime="2023-07-25T17:15:14+08:00">2023-07-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="P2362-围栏木桩"><a href="#P2362-围栏木桩" class="headerlink" title="P2362 围栏木桩"></a>P2362 围栏木桩</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2362">题目链接</a><br>T次询问 求序列最长上升子序列长度和个数 N^2可过<br>f[i]记录以a[i]结尾的序列长度<br>s[i]记录以a[i]结尾的序列个数<br>f[j]&gt;&#x3D;f[i]时 取最大个数 s[i]&#x3D;s[j]<br>f[j]&lt; f[i] 且 f[j]+1&#x3D;&#x3D;f[i]时 加上a[i]使得序列长度相等</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    f[i]=s[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;i;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[j]&lt;=a[i])&#123;<span class="comment">//单调不减序列</span></span><br><span class="line">            <span class="keyword">if</span>(f[j]&gt;=f[i])&#123;</span><br><span class="line">                f[i]=f[j]+<span class="number">1</span>;</span><br><span class="line">                s[i]=s[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(f[j]+<span class="number">1</span>==f[i])&#123;</span><br><span class="line">                f[i]+=f[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="P2390-地标访问"><a href="#P2390-地标访问" class="headerlink" title="P2390 地标访问"></a>P2390 地标访问</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2390">题目链接</a><br>预处理出0到位置p的地标个数<br>四种情况1左 2右 3先左然后拐右 4先右然后拐右左<br>1 2 O(1)可以得到<br>3 4可以筛一遍地标 O(N) <em>注意t可能超过整个来回的可能 我就是错这里 就30pts了</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">100005</span>],b[<span class="number">100005</span>];<span class="comment">//预处理坐标P到原点之间的地标个数</span></span><br><span class="line"><span class="type">int</span> aa[<span class="number">50005</span>],bb[<span class="number">50005</span>];<span class="comment">//存储地标</span></span><br><span class="line"><span class="type">int</span> l,r;</span><br><span class="line"><span class="type">int</span> lm,rm;<span class="comment">//两端最远距离</span></span><br><span class="line"><span class="type">int</span> lc,rc;<span class="comment">//两端地标个数</span></span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//1 2两种情况</span></span><br><span class="line">	<span class="keyword">if</span>(t&gt;=lm)</span><br><span class="line">		ans=<span class="built_in">max</span>(ans,lc);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		ans=<span class="built_in">max</span>(ans,a[t]);</span><br><span class="line">	<span class="keyword">if</span>(t&gt;=rm)</span><br><span class="line">		ans=<span class="built_in">max</span>(ans,rc);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		ans=<span class="built_in">max</span>(ans,b[t]);</span><br><span class="line">    <span class="comment">//3 4两种情况</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=lc;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(t&gt;aa[i]*<span class="number">2</span>)&#123;<span class="comment">//足够一个来回才有意义更新答案</span></span><br><span class="line">			<span class="type">int</span> g=t-aa[i]*<span class="number">2</span>;</span><br><span class="line">			<span class="type">int</span> res=a[aa[i]];</span><br><span class="line">			<span class="keyword">if</span>(g&gt;=rm)res+=rc;<span class="comment">//如果返回后也超过另一方向</span></span><br><span class="line">			<span class="keyword">else</span> res+=b[g];	</span><br><span class="line">			ans=<span class="built_in">max</span>(ans,res);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=rc;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(t&gt;bb[i]*<span class="number">2</span>)&#123;</span><br><span class="line">			<span class="type">int</span> g=t-bb[i]*<span class="number">2</span>;</span><br><span class="line">			<span class="type">int</span> res=b[bb[i]];</span><br><span class="line">			<span class="keyword">if</span>(g&gt;=lm)res+=lc;</span><br><span class="line">			<span class="keyword">else</span> res+=a[g];</span><br><span class="line">			ans=<span class="built_in">max</span>(ans,res);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="P1388-算式"><a href="#P1388-算式" class="headerlink" title="P1388 算式"></a>P1388 算式</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1388">题目链接</a><br>2≤ n ≤ 15,0 ≤ k&lt; n</p>
+<h3 id="预处理出区间和再-对K个乘法的位置爆搜81pts"><a href="#预处理出区间和再-对K个乘法的位置爆搜81pts" class="headerlink" title="预处理出区间和再 对K个乘法的位置爆搜81pts"></a>预处理出区间和再 对K个乘法的位置爆搜81pts</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">int</span> a[<span class="number">50</span>];</span><br><span class="line"><span class="type">int</span> b[<span class="number">50</span>];<span class="comment">//a数组的前缀和</span></span><br><span class="line"><span class="type">int</span> vis[<span class="number">50</span>];</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="comment">//put * in position e</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> e,<span class="type">int</span> d,<span class="type">int</span> sum)</span></span>&#123;<span class="comment">//e是位置 d是深度 sum是局部答案</span></span><br><span class="line">	<span class="keyword">if</span>(d==m)&#123;</span><br><span class="line">		ans=<span class="built_in">max</span>(ans,sum*(b[n]-b[e]));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=e+<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">			vis[i]=<span class="number">1</span>;</span><br><span class="line">			<span class="built_in">dfs</span>(i,d+<span class="number">1</span>,sum*(b[i]-b[e]));</span><br><span class="line">			vis[i]=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">dfs</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);<span class="comment">//是k+1个数的乘积 所以sum初始化为1</span></span><br></pre></td></tr></table></figure>
+<h1 id="P1676-USACO05FEB-Aggressive-cows-G"><a href="#P1676-USACO05FEB-Aggressive-cows-G" class="headerlink" title="P1676 [USACO05FEB] Aggressive cows G"></a>P1676 [USACO05FEB] Aggressive cows G</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1676">题目链接</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(a+<span class="number">1</span>,a+<span class="number">1</span>+n);</span><br><span class="line"><span class="type">int</span> r=a[n]-a[<span class="number">1</span>];<span class="comment">//最大距离</span></span><br><span class="line"><span class="type">int</span> l=r;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">	l=<span class="built_in">min</span>(l,a[i+<span class="number">1</span>]-a[i]);<span class="comment">//最小距离</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//答案就在[L,R]中</span></span><br><span class="line"><span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">    <span class="type">int</span> mid=(l+r+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">check</span>(mid))&#123;</span><br><span class="line">        l=mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> r=mid<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>check函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> e)</span></span>&#123;</span><br><span class="line">    <span class="comment">//检查满足最小距离为e的情况下 是否可以放置m个奶牛</span></span><br><span class="line">    <span class="comment">//有个贪心思想 如果从最右边的牛舍开始放都不能满足条件 那么从右侧某个牛舍开始也一定不能满足条件</span></span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">1</span>,res=a[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> t=a[i]-res;</span><br><span class="line">        <span class="keyword">if</span>(t&gt;=e)&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            res=a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt&gt;=m)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/24/7.24SDKDACM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -802,76 +870,6 @@ output:   2 3 7 4 - * + 8 4 / +
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/26/CF836div2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/26/CF836div2/" class="post-title-link" itemprop="url">CF836div2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-26 12:48:28" itemprop="dateCreated datePublished" datetime="2022-11-26T12:48:28+08:00">2022-11-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-04 15:57:00" itemprop="dateModified" datetime="2023-02-04T15:57:00+08:00">2023-02-04</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="CF836div2"><a href="#CF836div2" class="headerlink" title="CF836div2"></a>CF836div2</h2><p>T2:给定数字n 构造数列a1…an s.t.<br>a1^a2^…^an&#x3D;(a1+a2+…+an)&#x2F;n &amp;&amp;(ai&gt;&#x3D;1)<br>intput:<br>3<br>1<br>4<br>3<br>output:<br>69<br>13 2 8 1<br>7 7 7</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">性质 a为偶数的时候a^<span class="number">1</span>==a+<span class="number">1</span> a为奇数的时候 a^<span class="number">1</span>==a<span class="number">-1</span></span><br><span class="line">a^a=<span class="number">0</span> <span class="number">0</span>^a=a </span><br><span class="line">so: 当n为奇数的时候 n个<span class="number">1</span>满足条件 <span class="number">1</span>^<span class="number">1</span>^<span class="number">1</span>==<span class="number">1</span> (<span class="number">1</span>+<span class="number">1</span>+<span class="number">1</span>)/<span class="number">3</span>=<span class="number">1</span>成立</span><br><span class="line">当n为偶数的时候 <span class="number">1</span>^<span class="number">3</span>==<span class="number">2</span> (<span class="number">1</span>+<span class="number">3</span>)/<span class="number">2</span>==<span class="number">2</span> 只需让其余的全为<span class="number">2</span>即可</span><br><span class="line"><span class="type">void</span> <span class="built_in">solve</span>()&#123;</span><br><span class="line">    <span class="type">int</span> t=<span class="built_in">read</span>();<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="type">int</span> n=<span class="built_in">read</span>();</span><br><span class="line">        <span class="keyword">if</span>(t%<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">                cout&lt;&lt;<span class="string">&quot;1 &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;1 3 &quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-2</span>;i++)&#123;</span><br><span class="line">                cout&lt;&lt;<span class="string">&quot;2 &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>T4 构造严格递增数列满足 max(a1,a2,a3…an)-min(a1,a2,a3…an)&#x3D;√a1+a2+…+an</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">假定每个数为<span class="number">4</span>n 那么 a1+a2+...+an==<span class="number">4</span>n^<span class="number">2</span> √a1+a2+...+an==<span class="number">2</span>n</span><br><span class="line">设最大值为x最小值为y x+y=<span class="number">8</span>n x-y=<span class="number">2</span>n -&gt; x=<span class="number">5</span>n y=<span class="number">3</span>n </span><br><span class="line">如果输入的n是奇数 中间的数为<span class="number">4</span>n 向左为<span class="number">4</span>n<span class="number">-1</span> <span class="number">4</span>n<span class="number">-2.</span>.. 向右为<span class="number">4</span>n+<span class="number">1</span> <span class="number">4</span>n+<span class="number">2.</span>..</span><br><span class="line"><span class="type">void</span> <span class="built_in">solve</span>()&#123;</span><br><span class="line">    <span class="type">int</span> t=<span class="built_in">read</span>();<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="type">int</span> n=<span class="built_in">read</span>();</span><br><span class="line">        cout&lt;&lt;<span class="number">3</span>*n&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="type">int</span> t=<span class="number">4</span>*n-n/<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n/<span class="number">2</span><span class="number">-1</span>;i++)&#123;</span><br><span class="line">            cout&lt;&lt;t&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">            t++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>)cout&lt;&lt;<span class="number">4</span>*n&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        t=<span class="number">4</span>n+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n/<span class="number">2</span><span class="number">-1</span>;i++)&#123;</span><br><span class="line">            cout&lt;&lt;t&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">            t++;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;<span class="number">5</span>*n；</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="ABC279"><a href="#ABC279" class="headerlink" title="ABC279"></a>ABC279</h2><p>T3 给定两个大小相同A B字符矩阵 问A矩阵可以通过列的交换化成B矩阵吗? 可以的话输出Yes 否则输出No </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">将A字符矩阵的每一个列向量存入map中 接着讲B字符矩阵从map中减去</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">4e5</span>;</span><br><span class="line">mp&lt;vector&lt;<span class="type">char</span>&gt;,<span class="type">int</span>&gt;mp;</span><br><span class="line">string s[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> h=<span class="built_in">read</span>(),w=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;h;i++)&#123;</span><br><span class="line">        cin&gt;&gt;s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;w;j++)&#123;</span><br><span class="line">        vector&lt;<span class="type">char</span>&gt;v;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;h;i++)&#123;</span><br><span class="line">            v.<span class="built_in">push_back</span>(s[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        mp[v]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;h;i++)&#123;</span><br><span class="line">        cin&gt;&gt;s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;w;j++)&#123;</span><br><span class="line">        vector&lt;<span class="type">char</span>&gt;v;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;h;i++)&#123;</span><br><span class="line">            v.<span class="built_in">push_back</span>(s[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        mp[v]--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//检查是否合法</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:mp)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i.second)&#123;<span class="comment">//不为0</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -941,7 +939,7 @@ output:   2 3 7 4 - * + 8 4 / +
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

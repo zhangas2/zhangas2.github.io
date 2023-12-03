@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="新建运动会支持创建&#x2F; 删除运动会项目 且删除时需要输入管理员密码 设置运动会的地点、时间输入比赛地点，运动会期间每一天上午、下午的开赛时间、结束时间 参赛人员分组可以选择添加 本科组、研究生组、教职工组 每一个大组可以分为甲、乙两个小组 且每个组都分为男子组、女子组、混合组大一默认为乙组，大二、三、四默认为甲组 支持导入修改代表队的简称及全称①批量导入是按照每一行的顺序去填入表格，且代表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="田径运动会软件功能刨析">
+<meta property="og:url" content="http://example.com/2023/12/03/tjydh/index.html">
+<meta property="og:site_name" content="zhangas">
+<meta property="og:description" content="新建运动会支持创建&#x2F; 删除运动会项目 且删除时需要输入管理员密码 设置运动会的地点、时间输入比赛地点，运动会期间每一天上午、下午的开赛时间、结束时间 参赛人员分组可以选择添加 本科组、研究生组、教职工组 每一个大组可以分为甲、乙两个小组 且每个组都分为男子组、女子组、混合组大一默认为乙组，大二、三、四默认为甲组 支持导入修改代表队的简称及全称①批量导入是按照每一行的顺序去填入表格，且代表">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-03T03:50:02.679Z">
+<meta property="article:modified_time" content="2023-12-03T06:33:19.404Z">
+<meta property="article:author" content="zhangas">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/12/03/tjydh/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>田径运动会软件功能刨析 | zhangas</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhangas</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">contact with me: 943622243</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/03/tjydh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a freshman from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          田径运动会软件功能刨析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-12-03 11:50:02 / 修改时间：14:33:19" itemprop="dateCreated datePublished" datetime="2023-12-03T11:50:02+08:00">2023-12-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="新建运动会"><a href="#新建运动会" class="headerlink" title="新建运动会"></a>新建运动会</h1><p>支持<strong>创建&#x2F; 删除</strong>运动会项目 且删除时需要输入管理员密码</p>
+<h1 id="设置运动会的地点、时间"><a href="#设置运动会的地点、时间" class="headerlink" title="设置运动会的地点、时间"></a>设置运动会的地点、时间</h1><p>输入比赛地点，运动会期间每一天上午、下午的开赛时间、结束时间</p>
+<h1 id="参赛人员分组"><a href="#参赛人员分组" class="headerlink" title="参赛人员分组"></a>参赛人员分组</h1><p>可以选择添加 本科组、研究生组、教职工组 每一个大组可以分为甲、乙两个小组 且每个组都分为男子组、女子组、混合组<br><strong>大一默认为乙组，大二、三、四默认为甲组</strong></p>
+<h1 id="支持导入修改代表队的简称及全称"><a href="#支持导入修改代表队的简称及全称" class="headerlink" title="支持导入修改代表队的简称及全称"></a>支持导入修改代表队的简称及全称</h1><p>①批量导入是按照每一行的顺序去填入表格，且代表队伍的简称和全程都可以有。<br>②直接人工填入表格。</p>
+<h1 id="为每一个竞赛组（格式为”本科A组男子”）去选择比赛项目"><a href="#为每一个竞赛组（格式为”本科A组男子”）去选择比赛项目" class="headerlink" title="为每一个竞赛组（格式为”本科A组男子”）去选择比赛项目"></a>为每一个竞赛组（格式为”本科A组男子”）去选择比赛项目</h1><p>50m、100m…5000m的跨栏，短、长跑，障碍，仰卧起坐等等。<br><strong>且支持新建插入自己设定的项目</strong></p>
+<h1 id="运动员报名限制"><a href="#运动员报名限制" class="headerlink" title="运动员报名限制"></a>运动员报名限制</h1><p>①每一个学院的代表队可以在当前组最多报名人数<br>例如：体育学院代表队在本科A组里的<strong>所有项目</strong>中可以报名多少人<br>②每一个人限制最多报名多少项比赛<br>例如：体育学院的甲同学 最多报名两项比赛<br><strong>我认为报名这里可以让学院的代表队里人数多一些，可以出现替补上场</strong></p>
+<h1 id="竞赛组的比赛器材规格"><a href="#竞赛组的比赛器材规格" class="headerlink" title="竞赛组的比赛器材规格"></a>竞赛组的比赛器材规格</h1><p>例如：铅球的重量</p>
+<h1 id="名次录取排序和晋级方式"><a href="#名次录取排序和晋级方式" class="headerlink" title="名次录取排序和晋级方式"></a>名次录取排序和晋级方式</h1><p>①预赛中多少队晋级多少队<br>②决赛中取前多少个队伍获得对应的奖牌</p>
+<h1 id="预赛、决赛的每组中的分道方式"><a href="#预赛、决赛的每组中的分道方式" class="headerlink" title="预赛、决赛的每组中的分道方式"></a>预赛、决赛的每组中的分道方式</h1><p>①随机分道<br>②按照先前成绩分道</p>
+<h1 id="填入各项的项目记录"><a href="#填入各项的项目记录" class="headerlink" title="填入各项的项目记录"></a>填入各项的项目记录</h1><p>一级：校记录<br>二级：县记录<br>三级：市记录</p>
+<h1 id="（可选）按照比赛成绩去判定运动员的等级"><a href="#（可选）按照比赛成绩去判定运动员的等级" class="headerlink" title="（可选）按照比赛成绩去判定运动员的等级"></a>（可选）按照比赛成绩去判定运动员的等级</h1><p>少年级、三级、二级、一级、健将、国际健将。</p>
+<h1 id="设置计分的办法"><a href="#设置计分的办法" class="headerlink" title="设置计分的办法"></a>设置计分的办法</h1><p>七分制：前6名 7 5 4 3 2 1<br>九分制：前八名 9 7 6 5 4 3 2 1<br>名次分制度：可以自己为名次赋值<br>去给学院代表队统计集体分数<br><strong>为照顾选手，可以选择在参赛并完成比赛的基础上添加基础分</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/11/10/the%20Question%20of%20STL/" rel="prev" title="关于STL在DFS使用中产生的爆栈问题">
+      <i class="fa fa-chevron-left"></i> 关于STL在DFS使用中产生的爆栈问题
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E8%BF%90%E5%8A%A8%E4%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">新建运动会</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%BF%90%E5%8A%A8%E4%BC%9A%E7%9A%84%E5%9C%B0%E7%82%B9%E3%80%81%E6%97%B6%E9%97%B4"><span class="nav-number">2.</span> <span class="nav-text">设置运动会的地点、时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%B5%9B%E4%BA%BA%E5%91%98%E5%88%86%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">参赛人员分组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E5%AF%BC%E5%85%A5%E4%BF%AE%E6%94%B9%E4%BB%A3%E8%A1%A8%E9%98%9F%E7%9A%84%E7%AE%80%E7%A7%B0%E5%8F%8A%E5%85%A8%E7%A7%B0"><span class="nav-number">4.</span> <span class="nav-text">支持导入修改代表队的简称及全称</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E6%AF%8F%E4%B8%80%E4%B8%AA%E7%AB%9E%E8%B5%9B%E7%BB%84%EF%BC%88%E6%A0%BC%E5%BC%8F%E4%B8%BA%E2%80%9D%E6%9C%AC%E7%A7%91A%E7%BB%84%E7%94%B7%E5%AD%90%E2%80%9D%EF%BC%89%E5%8E%BB%E9%80%89%E6%8B%A9%E6%AF%94%E8%B5%9B%E9%A1%B9%E7%9B%AE"><span class="nav-number">5.</span> <span class="nav-text">为每一个竞赛组（格式为”本科A组男子”）去选择比赛项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E5%8A%A8%E5%91%98%E6%8A%A5%E5%90%8D%E9%99%90%E5%88%B6"><span class="nav-number">6.</span> <span class="nav-text">运动员报名限制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%9E%E8%B5%9B%E7%BB%84%E7%9A%84%E6%AF%94%E8%B5%9B%E5%99%A8%E6%9D%90%E8%A7%84%E6%A0%BC"><span class="nav-number">7.</span> <span class="nav-text">竞赛组的比赛器材规格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8D%E6%AC%A1%E5%BD%95%E5%8F%96%E6%8E%92%E5%BA%8F%E5%92%8C%E6%99%8B%E7%BA%A7%E6%96%B9%E5%BC%8F"><span class="nav-number">8.</span> <span class="nav-text">名次录取排序和晋级方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E8%B5%9B%E3%80%81%E5%86%B3%E8%B5%9B%E7%9A%84%E6%AF%8F%E7%BB%84%E4%B8%AD%E7%9A%84%E5%88%86%E9%81%93%E6%96%B9%E5%BC%8F"><span class="nav-number">9.</span> <span class="nav-text">预赛、决赛的每组中的分道方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A1%AB%E5%85%A5%E5%90%84%E9%A1%B9%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95"><span class="nav-number">10.</span> <span class="nav-text">填入各项的项目记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89%E6%8C%89%E7%85%A7%E6%AF%94%E8%B5%9B%E6%88%90%E7%BB%A9%E5%8E%BB%E5%88%A4%E5%AE%9A%E8%BF%90%E5%8A%A8%E5%91%98%E7%9A%84%E7%AD%89%E7%BA%A7"><span class="nav-number">11.</span> <span class="nav-text">（可选）按照比赛成绩去判定运动员的等级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AE%A1%E5%88%86%E7%9A%84%E5%8A%9E%E6%B3%95"><span class="nav-number">12.</span> <span class="nav-text">设置计分的办法</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zhangas</p>
+  <div class="site-description" itemprop="description">a freshman from Shandong University of Science and Technology.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangas</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

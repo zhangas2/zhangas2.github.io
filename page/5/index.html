@@ -148,6 +148,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/03/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">位运算</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-03 21:31:37" itemprop="dateCreated datePublished" datetime="2022-10-03T21:31:37+08:00">2022-10-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-03 12:04:58" itemprop="dateModified" datetime="2023-02-03T12:04:58+08:00">2023-02-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>位运算概览</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">符号 描述	 运算规则</span><br><span class="line">&amp;	 与	    两个位都为<span class="number">1</span>时，结果才为<span class="number">1</span></span><br><span class="line">|	 或	    两个位都为<span class="number">0</span>时，结果才为<span class="number">0</span></span><br><span class="line">^	 异或	两个位相同为<span class="number">0</span>，相异为<span class="number">1</span></span><br><span class="line">~	 取反	<span class="number">0</span>变<span class="number">1</span>，<span class="number">1</span>变<span class="number">0</span></span><br><span class="line">&lt;&lt;	 左移	各二进位全部左移若干位，高位丢弃，低位补<span class="number">0</span></span><br><span class="line">&gt;&gt;	 右移	各二进位全部右移若干位，对无符号数，高位补<span class="number">0</span>，有符号数，各编译器处理方法不一样，有的补符号位（算术右移），有的补<span class="number">0</span>（逻辑右移）</span><br></pre></td></tr></table></figure>
+<h3 id="求n的二进制第k位是多少"><a href="#求n的二进制第k位是多少" class="headerlink" title="求n的二进制第k位是多少"></a>求n的二进制第k位是多少</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;(n&gt;&gt;k&amp;<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>这里&amp;1判断n是否为奇数<br>①n为奇数时,对应的二进制数最低位一定为1,&amp;1的结果就是1.<br>②n为偶数时,相应的最低位为0,n&amp;1的结果就是0.<br>这里等价于 (n&gt;&gt;k)%2</p>
+<h3 id="统计n的二进制中有多少个1"><a href="#统计n的二进制中有多少个1" class="headerlink" title="统计n的二进制中有多少个1"></a>统计n的二进制中有多少个1</h3><p>x&amp;-x<br>(-x)&#x3D;~x+1</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">假设x==42</span></span><br><span class="line"><span class="comment">原码  x  (101010)</span></span><br><span class="line"><span class="comment">反码 ~x  (010101)</span></span><br><span class="line"><span class="comment">补码 ~x+1(010110)</span></span><br><span class="line"><span class="comment">   x&amp;-x  (000010)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x&amp;-x;</span><br><span class="line">&#125; </span><br><span class="line"><span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(a)&#123;</span><br><span class="line">		a-=<span class="built_in">lowbit</span>(a);<span class="comment">//减去最右侧第一个1到末尾的部分</span></span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;cnt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/%E5%8F%8C%E6%8C%87%E9%92%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -710,7 +779,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

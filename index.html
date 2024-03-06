@@ -148,6 +148,130 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/06/Matrix-Exponentiation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zhangas">
+      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/06/Matrix-Exponentiation/" class="post-title-link" itemprop="url">Matrix-Exponentiation</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-06 13:55:16 / 修改时间：14:36:58" itemprop="dateCreated datePublished" datetime="2024-03-06T13:55:16+08:00">2024-03-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Let’s first consider below simple question.</p>
+<blockquote>
+<p>What is the minimun complexity to find n’th Fibonacci Number?</p>
+</blockquote>
+<p>We can find n’th Fibonacci Number in <strong>O(log n)</strong> time using $Matrix\quad Exponentiation$. In this post, a general implementation of Matrix Exponentiation is discussed.</p>
+<pre><code class="cpp">For solving the problem, we are assuming a linear recurrence eqution like below:
+F(n) = a * F(n - 1) + b * F(n - 2) + c * F(n - 3) for n &gt;= 3  ....Equation (1)
+where a, b, c are constants.
+
+For this recurrence relation, it depends on three previous value.
+Now we will try to represent Equation(1) in terms of the matrix.
+|F(n)|                    |F(n - 1)|
+|F(n - 1)| = Matrix &#39;C&#39; * |F(n - 2)|
+|F(n - 2)|                |F(n - 3)|
+Now we need to fill the Matrix &#39;C&#39;.
+so according to our equation.
+             |a b c|
+Matrix &#39;C&#39; = |1 0 0|
+             |0 1 0|
+so for n, the equation(1) changes to 
+|F(n)|                     |F(2)|
+|F(n - 1)| = C ^ (n - 2) * |F(1)|
+|F(n - 2)|                 |F(0)|
+So we can simply multiply our matrix &#39;C&#39; n - 2 times and the multiply it with the matrix below to get the result.
+|F(2)|
+|F(1)|
+|F(0)|
+Multiplication can be done in O(Log n) time using Divie and Conquer algorithm for fast power.
+There is rough code below.
+
+
+typedef struct Mat&#123;
+    int m[105][105];
+&#125;Mat;
+Mat a;
+Mat multiply(Mat x, Mat y)&#123;
+    // Creating an new matrix to store elements 
+    // of the multiplication matrix
+    Mat c;
+    for(int i = 1; i &lt;= 3; ++ i)&#123;
+        for(int j = 1; j &lt;= 3; ++ j)&#123;
+            c.m[i][j] = 0;
+            for(int k = 1; k &lt;= 3; ++ k)
+                c.m[i][j] += x.m[i][k] * y.m[k][j];
+        &#125;
+    &#125;
+    return c;
+    // return the result
+&#125;
+Mat Matrix_fastpow(Mat a, Mat k)&#123;
+    //initial values for matrix &#39;C&#39;
+    Mat res;
+    res.m[1][1] = a;res.m[1][2] = b;res.m[1][3] = c;
+    res.m[2][1] = 1;res.m[2][2] = 0;res.m[2][3] = 0;
+    res.m[3][1] = 0;res.m[3][2] = 1;res.m[3][3] = 0;
+
+    while(k)&#123;
+        if(k &amp; 1)&#123;
+            res = multiple(a, res);
+        &#125;
+        k &gt;&gt;= 1;
+        a = multiple(a, a);
+    &#125;
+    return res;
+&#125;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/03/tjydh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -784,73 +908,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/01/8.1%20SDKDACM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangas">
-      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/01/8.1%20SDKDACM/" class="post-title-link" itemprop="url">8.1 SDKDACM</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-08-01 19:25:58" itemprop="dateCreated datePublished" datetime="2023-08-01T19:25:58+08:00">2023-08-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-02 17:36:06" itemprop="dateModified" datetime="2023-08-02T17:36:06+08:00">2023-08-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="P3029-USACO11NOV-Cow-Lineup-S"><a href="#P3029-USACO11NOV-Cow-Lineup-S" class="headerlink" title="P3029 [USACO11NOV] Cow Lineup S"></a>P3029 [USACO11NOV] Cow Lineup S</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3029">题目链接</a><br>求包含K种数字的最短连续子序列长度<br>双指针 维护连续子序列[L,R]</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,id;</span><br><span class="line">&#125;;</span><br><span class="line">node a[<span class="number">50005</span>];</span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line">unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;mp;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(node xx,node yy)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> xx.x&lt;yy.x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    n=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        a[i].x=<span class="built_in">read</span>(),a[i].id=<span class="built_in">read</span>();</span><br><span class="line">        <span class="keyword">if</span>(!mp[a[i].id])&#123;</span><br><span class="line">            k++;</span><br><span class="line">            mp[a[i].id]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mp.<span class="built_in">clear</span>();</span><br><span class="line">    <span class="built_in">sort</span>(a+<span class="number">1</span>,a+<span class="number">1</span>+n,cmp);</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">1e9</span>;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,r=<span class="number">1</span>;r&lt;=n;r++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!mp[a[r].id])&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        mp[a[r].id]++;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r&amp;&amp;mp[a[l].id]&gt;<span class="number">1</span>)&#123;</span><br><span class="line">            l++;</span><br><span class="line">            mp[a[l].id]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt==k)ans=<span class="built_in">min</span>(ans,a[r].x-a[l].x);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="P3029-P1934-封印"><a href="#P3029-P1934-封印" class="headerlink" title="P3029 P1934 封印"></a>P3029 P1934 封印</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1934">题目链接</a><br>1.dp[i]由上一层加上a[i]*N^2递推<br>2.dp[i]由前面第j层加上(a[j]+a[j+1]+…+a[i])x(a[j]+a[i])递推 需要满足a[i]+a[j]&lt;&#x3D;t这一条件</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n,t;</span><br><span class="line"><span class="type">int</span> a[<span class="number">1005</span>],b[<span class="number">1005</span>],dp[<span class="number">1005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    n=<span class="built_in">read</span>(),t=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        a[i]=<span class="built_in">read</span>();</span><br><span class="line">        b[i]=b[i<span class="number">-1</span>]+a[i];<span class="comment">//a[i]的前缀和 用于O(1)求数组a的区间和</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> m=n*n;</span><br><span class="line">    <span class="built_in">memset</span>(dp,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(dp));</span><br><span class="line">    dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        dp[i]=<span class="built_in">min</span>(dp[i],dp[i<span class="number">-1</span>]+a[i]*m);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]+a[j]&lt;=t)&#123;</span><br><span class="line">                dp[i]=<span class="built_in">min</span>(dp[i],dp[j<span class="number">-1</span>]+(b[i]-b[j<span class="number">-1</span>])*(a[i]+a[j]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;dp[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -920,7 +977,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

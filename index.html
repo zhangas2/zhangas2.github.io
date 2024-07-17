@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -113,12 +113,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
@@ -170,16 +170,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
+              <time title="Created: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2024-03-07 12:39:20" itemprop="dateModified" datetime="2024-03-07T12:39:20+08:00">2024-03-07</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-07 12:39:20" itemprop="dateModified" datetime="2024-03-07T12:39:20+08:00">2024-03-07</time>
               </span>
 
           
@@ -228,6 +228,286 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2024/04/06/data_structure_2024_04_06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zuowei Zhang">
+      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/06/data_structure_2024_04_06/" class="post-title-link" itemprop="url">data_structure_2024_04_06</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-04-06 13:14:04 / Modified: 13:29:34" itemprop="dateCreated datePublished" datetime="2024-04-06T13:14:04+08:00">2024-04-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="请利用一个栈-将下面的代码改写成非递归版本"><a href="#请利用一个栈-将下面的代码改写成非递归版本" class="headerlink" title="请利用一个栈,将下面的代码改写成非递归版本"></a>请利用一个栈,将下面的代码改写成非递归版本</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">play</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    ans += n;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span> || n == <span class="number">2</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">play</span>(n - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">play</span>(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">stk.<span class="built_in">push</span>(n);</span><br><span class="line"><span class="keyword">while</span>(stk.<span class="built_in">size</span>())&#123;</span><br><span class="line">	<span class="type">int</span> t = stk.<span class="built_in">top</span>();</span><br><span class="line">	ans += t;</span><br><span class="line">	stk.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="keyword">if</span>(t == <span class="number">1</span> || t == <span class="number">2</span>) <span class="keyword">continue</span>;</span><br><span class="line">	stk.<span class="built_in">push</span>(t - <span class="number">1</span>);</span><br><span class="line">	stk.<span class="built_in">push</span>(t - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="P4387-【深基15-习9】验证栈序列"><a href="#P4387-【深基15-习9】验证栈序列" class="headerlink" title="P4387 【深基15.习9】验证栈序列"></a>P4387 【深基15.习9】验证栈序列</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">int</span> n = <span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i) a[i] = <span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i) b[i] = <span class="built_in">read</span>();</span><br><span class="line">stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"><span class="type">int</span> idx = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i)&#123;</span><br><span class="line">	stk.<span class="built_in">push</span>(a[i]);</span><br><span class="line">	<span class="keyword">while</span>(stk.<span class="built_in">size</span>() &amp;&amp; stk.<span class="built_in">top</span>() == b[idx])&#123;</span><br><span class="line">		++ idx;</span><br><span class="line">		stk.<span class="built_in">pop</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(stk.<span class="built_in">size</span>() == <span class="number">0</span>)&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; endl;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2023/07/20/MathtoCS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zuowei Zhang">
+      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/20/MathtoCS/" class="post-title-link" itemprop="url">MathtoCS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-07-20 11:01:31" itemprop="dateCreated datePublished" datetime="2023-07-20T11:01:31+08:00">2023-07-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-09 11:11:32" itemprop="dateModified" datetime="2024-03-09T11:11:32+08:00">2024-03-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <pre><code>22年填报志愿时，是50190位次，本来也不够数学的位次，应该录取我的是50225的通信工程，
+但是有了吴方班的出现使得普通班降了4000的位次。我很幸运遇到了一位21届从数学转出的学长，
+使得从我入学的几天起我就暗暗下定决心转专业。今日写下这个建议，希望可以延续有想法的学弟学妹。
+</code></pre>
+<h1 id="总结来说就是-运气-绩点硬实力-c语言绝对水平"><a href="#总结来说就是-运气-绩点硬实力-c语言绝对水平" class="headerlink" title="总结来说就是: 运气+绩点硬实力+c语言绝对水平"></a>总结来说就是: 运气+绩点硬实力+c语言绝对水平</h1><h2 id="转专业文件分析"><a href="#转专业文件分析" class="headerlink" title="转专业文件分析"></a>转专业文件分析</h2><pre><code>（1）高考综合改革省份学生须选考物理。其他省份考生须为理工类考生。
+高考成绩在折算为 750 分后，须不低于该专业在山东省 2022年最低录取分数下 20 分。
+考生需提供相应证明材料。
+</code></pre>
+<p>这个是硬要求，不满足直接就不能申请，因为面试前老师会让你打印当年的成绩查询成绩单。</p>
+<pre><code>（2）一年级考生申请转入我院各专业的，第一学期所学必修课程考试全部合格，无补考、重修记录，
+且总成绩在原专业年级排名在 20%（含）以内（以报名时在教务系统中的排名为准）。
+</code></pre>
+<p>文件绩点要求只看大一上排名+大一下不挂科这一要求，原专业位次最好5%上下 低于10%有些危险(面试会看这个)；<br><em>学长当年是加权3.88 位次7.4% 也算是勉勉强强合格。</em></p>
+<h2 id="机考分析"><a href="#机考分析" class="headerlink" title="机考分析"></a>机考分析</h2><pre><code>申请转入我院的考生，须参加 C 语言机试，机试平台为我校 OJ平台，OJ 平台网址及机考要求在考试前公布。
+该课程可通过我校网络教学平台上的《程序设计基础》慕课课程*进行自学，参考教材为《从问题到程序：程序
+设计与 C 语言引论》（第 2 版）（裘宗燕，机械工业出版社，2011 年出版）。
+</code></pre>
+<p>机考的难度比外院的c语言期末高很多，但近似于计算机学院的c语言期末考试难度<br>建议多做OJ 上的题目，老实对待c语言课程，差不多可以30分钟做完外院的期末考试水平就够了。<br><em>最稳妥的是在机考2h内将所有题目做完 最多剩一道</em></p>
+<h2 id="面试分析"><a href="#面试分析" class="headerlink" title="面试分析"></a>面试分析</h2><pre><code>根据报名人数分为若干个面试小组，每个小组由 3—5 名教师组成。
+面试满分为 100 分。面试成绩是面试小组各位专家评分的平均分。
+</code></pre>
+<p>注意: 面试的问题很基础，不会涉及专业课知识，只是简单问问你对本专业的认知和学习生活习惯,但是要老老实实准备，面试也会筛选人数。<br><em>牢记 计算机科学与工程学院——计算机科学与技术 提问的时候可能会要求辨析</em></p>
+<h2 id="运气"><a href="#运气" class="headerlink" title="运气"></a>运气</h2><p>从21届降转的取消，再到22届分数线要求和18进6这一比例，这条道路的难度一目了然。在这条道路上，我很幸运，遇到了能够指引方向的学长，遇到了真正能帮助同学的老师们… 虽然新的一届大概率会增加新的要求，但希望真正有想法的学弟学妹们，能够攻坚克难，实现自己的内心想法。走过这条路会发现，新的道路已经开始。</p>
+<pre><code>2023.7.20记
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2024/07/16/K/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zuowei Zhang">
+      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/16/K/" class="post-title-link" itemprop="url">K</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-07-16 19:31:55" itemprop="dateCreated datePublished" datetime="2024-07-16T19:31:55+08:00">2024-07-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-07-17 20:57:10" itemprop="dateModified" datetime="2024-07-17T20:57:10+08:00">2024-07-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>数据操作</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = torch.arange(<span class="number">12</span>)</span><br><span class="line">a = a.reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b = torch.zeros((<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>))</span><br><span class="line">torch.randn(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">a[<span class="number">0</span>:<span class="number">2</span>, :]</span><br><span class="line">b = a.numpy() <span class="comment"># tensor张量转ndarray</span></span><br><span class="line"><span class="built_in">type</span>(b)</span><br><span class="line">c = torch.tensor(b) <span class="comment"># ndarray转tensor张量</span></span><br><span class="line"><span class="built_in">type</span>(c)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>数据pandas读入处理</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;/content/sample_data/mnist_train_small.csv&quot;</span>) <span class="comment"># 读入csv</span></span><br><span class="line"><span class="built_in">input</span>, output = data.iloc[:, <span class="number">0</span>:<span class="number">2</span>], data.iloc[:, <span class="number">2</span>:<span class="number">4</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(output)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">input</span>))</span><br><span class="line">X = torch.tensor(<span class="built_in">input</span>.to_numpy(dtype=<span class="built_in">int</span>)) <span class="comment"># DataFrame先转numpy再转tensor张量</span></span><br><span class="line">Y = torch.tensor(output.to_numpy(dtype=<span class="built_in">int</span>))</span><br><span class="line"><span class="built_in">print</span>(X)</span><br><span class="line"><span class="built_in">print</span>(Y)</span><br></pre></td></tr></table></figure>
+<p>线性代数</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">a = torch.arange(<span class="number">12</span>)</span><br><span class="line">a = a.reshape((<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(a.shape)</span><br><span class="line">b = torch.arange(<span class="number">16</span>).reshape(<span class="number">4</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line"><span class="built_in">print</span>(b.<span class="built_in">sum</span>(axis=<span class="number">0</span>)) <span class="comment"># 每一列求和</span></span><br><span class="line"><span class="built_in">print</span>(b.<span class="built_in">sum</span>(axis=<span class="number">1</span>)) <span class="comment"># 每一行求和</span></span><br><span class="line"><span class="built_in">print</span>(b.<span class="built_in">sum</span>()) <span class="comment"># 所有元素求和</span></span><br><span class="line">c = torch.arange(<span class="number">1</span>, <span class="number">17</span>).reshape(<span class="number">4</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"><span class="built_in">print</span>(b * c) <span class="comment"># 对应元素相乘</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>(b * c)) <span class="comment"># 每一列求和</span></span><br><span class="line"><span class="built_in">print</span>(b @ c) <span class="comment"># 矩阵乘法</span></span><br><span class="line"><span class="built_in">print</span>(torch.mm(b, c)) <span class="comment"># 矩阵乘法——运算速度快</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2024/04/07/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zuowei Zhang">
+      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/07/problems/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-04-07 22:40:44 / Modified: 22:48:16" itemprop="dateCreated datePublished" datetime="2024-04-07T22:40:44+08:00">2024-04-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>P3367 【模板】并查集<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3367">https://www.luogu.com.cn/problem/P3367</a><br>P1111 修复公路<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1111">https://www.luogu.com.cn/problem/P1111</a><br>P1551 亲戚<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1551">https://www.luogu.com.cn/problem/P1551</a><br>P2024 [NOI2001] 食物链<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2024">https://www.luogu.com.cn/problem/P2024</a></p>
+<h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><p>3374 【模板】树状数组 1 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3374">https://www.luogu.com.cn/problem/P3374</a><br>P3368 【模板】树状数组 2 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3368">https://www.luogu.com.cn/problem/P3368</a><br>P1908 逆序对<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">https://www.luogu.com.cn/problem/P1908</a><br>P3655 不成熟的梦想家 (未熟 DREAMER)<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3655">https://www.luogu.com.cn/problem/P3655</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
     <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2024/03/06/Matrix-Exponentiation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -250,10 +530,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Erstellt: 2024-03-06 13:55:16 / Geändert am: 14:36:58" itemprop="dateCreated datePublished" datetime="2024-03-06T13:55:16+08:00">2024-03-06</time>
+              <time title="Created: 2024-03-06 13:55:16 / Modified: 14:36:58" itemprop="dateCreated datePublished" datetime="2024-03-06T13:55:16+08:00">2024-03-06</time>
             </span>
 
           
@@ -374,10 +654,10 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Erstellt: 2023-12-03 11:50:02 / Geändert am: 14:33:19" itemprop="dateCreated datePublished" datetime="2023-12-03T11:50:02+08:00">2023-12-03</time>
+              <time title="Created: 2023-12-03 11:50:02 / Modified: 14:33:19" itemprop="dateCreated datePublished" datetime="2023-12-03T11:50:02+08:00">2023-12-03</time>
             </span>
 
           
@@ -444,16 +724,16 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2023-11-10 16:51:03" itemprop="dateCreated datePublished" datetime="2023-11-10T16:51:03+08:00">2023-11-10</time>
+              <time title="Created: 2023-11-10 16:51:03" itemprop="dateCreated datePublished" datetime="2023-11-10T16:51:03+08:00">2023-11-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2024-03-06 16:04:54" itemprop="dateModified" datetime="2024-03-06T16:04:54+08:00">2024-03-06</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-06 16:04:54" itemprop="dateModified" datetime="2024-03-06T16:04:54+08:00">2024-03-06</time>
               </span>
 
           
@@ -519,16 +799,16 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Erstellt: 2023-10-29 23:21:53" itemprop="dateCreated datePublished" datetime="2023-10-29T23:21:53+08:00">2023-10-29</time>
+              <time title="Created: 2023-10-29 23:21:53" itemprop="dateCreated datePublished" datetime="2023-10-29T23:21:53+08:00">2023-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2023-10-30 00:29:48" itemprop="dateModified" datetime="2023-10-30T00:29:48+08:00">2023-10-30</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-30 00:29:48" itemprop="dateModified" datetime="2023-10-30T00:29:48+08:00">2023-10-30</time>
               </span>
 
           
@@ -592,10 +872,10 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Erstellt: 2023-10-21 16:30:09 / Geändert am: 16:35:05" itemprop="dateCreated datePublished" datetime="2023-10-21T16:30:09+08:00">2023-10-21</time>
+              <time title="Created: 2023-10-21 16:30:09 / Modified: 16:35:05" itemprop="dateCreated datePublished" datetime="2023-10-21T16:30:09+08:00">2023-10-21</time>
             </span>
 
           
@@ -638,303 +918,10 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
-    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2023/10/15/Report2023.10.14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zuowei Zhang">
-      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/15/Report2023.10.14/" class="post-title-link" itemprop="url">体创报告2023.10.14</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2023-10-15 15:58:10 / Geändert am: 16:55:03" itemprop="dateCreated datePublished" datetime="2023-10-15T15:58:10+08:00">2023-10-15</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="解决主板电源与机箱风扇冲突造成的电源接触不良问题"><a href="#解决主板电源与机箱风扇冲突造成的电源接触不良问题" class="headerlink" title="解决主板电源与机箱风扇冲突造成的电源接触不良问题"></a>解决主板电源与机箱风扇冲突造成的电源接触不良问题</h1><p>将风扇与主板都拆下，先接主板电源，再将风扇贴紧装上。</p>
-<blockquote>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBd9247fe37542db6b08c5ea46d2653f8c?method=download&shareKey=cc7585d74aec5e436d9bef501da5ed00" alt="Power_Fan_clash"></p>
-</blockquote>
-<h1 id="摄像头需要两个接口USB-3-0-和SMA-公头"><a href="#摄像头需要两个接口USB-3-0-和SMA-公头" class="headerlink" title="摄像头需要两个接口USB 3.0 和SMA 公头"></a>摄像头需要两个接口USB 3.0 和SMA 公头</h1><p>USB 3.0接口 由主板20Pin 接口转USB 3.0提供<br>SMA公头 由 E90-DTU 右侧的N 型母头 提供</p>
-<blockquote>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBfd9cb4d90aa87f73c8df12b6c85d6a04?method=download&shareKey=2b073ebf600c9ab7ae523ddc8271664f" alt="E90-DTU"></p>
-</blockquote>
-<h1 id="RS485接口的分线问题："><a href="#RS485接口的分线问题：" class="headerlink" title="RS485接口的分线问题："></a>RS485接口的分线问题：</h1><p>将黑线接入GND 接口，将黄线接入VCC 接口 </p>
-<blockquote>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBc2d91aef9c10dbb4a5e2d71ceaad60b1?method=download&shareKey=c1ef173e31446908350819056d1a31c8" alt="GND_VCC"><br>基于样板图如下：<br><img src="https://note.youdao.com/yws/api/personal/file/WEB9c8f68403b45072d2b728ba4480499bd?method=download&shareKey=e8a8b69158e9dce95a27b250fc9492d7" alt="model_E90-DTU"></p>
-</blockquote>
-<h1 id="下次任务重点"><a href="#下次任务重点" class="headerlink" title="下次任务重点"></a>下次任务重点</h1><blockquote>
-<p>• 1.完成接线和分线任务<br>• 2.连接摄影机调试图像输入<br>• 3.学习田径运动会管理软件的使用流程</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
-    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2023/09/26/data%20structure%20(pta)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zuowei Zhang">
-      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/26/data%20structure%20(pta)/" class="post-title-link" itemprop="url">Data structure (PTA)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-
-              <time title="Erstellt: 2023-09-26 17:51:50" itemprop="dateCreated datePublished" datetime="2023-09-26T17:51:50+08:00">2023-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2023-09-27 00:13:45" itemprop="dateModified" datetime="2023-09-27T00:13:45+08:00">2023-09-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h1><h2 id="原地反转单链表"><a href="#原地反转单链表" class="headerlink" title="原地反转单链表"></a>原地反转单链表</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* L)</span></span>&#123;</span><br><span class="line">    <span class="comment">//如果没有头节点 需要建立头节点</span></span><br><span class="line">    ListNode * head = (ListNode *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span> (ListNode));</span><br><span class="line">    head -&gt; next = L;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果已有头节点</span></span><br><span class="line">    <span class="keyword">auto</span> p = head -&gt; next;</span><br><span class="line">    head -&gt; next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p)&#123;</span><br><span class="line">        <span class="keyword">auto</span> t = p -&gt; next; <span class="comment">// 暂存p下一节点</span></span><br><span class="line">        p -&gt; next = head -&gt; next;</span><br><span class="line">        head -&gt; next = p;</span><br><span class="line">        p = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head -&gt; next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="尾插法建立单链表"><a href="#尾插法建立单链表" class="headerlink" title="尾插法建立单链表"></a>尾插法建立单链表</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">LinkList L = (LNode *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span> (LNode));</span><br><span class="line"><span class="type">int</span> n;cin&gt;&gt;n;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++ i)&#123;</span><br><span class="line">    <span class="type">int</span> t;cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">auto</span> p = (LNode *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span> (LNode));</span><br><span class="line">    p -&gt; val = t;</span><br><span class="line">    p -&gt; next = L -&gt;next;</span><br><span class="line">    L -&gt; next = p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="递归建立单链表"><a href="#递归建立单链表" class="headerlink" title="递归建立单链表"></a>递归建立单链表</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">creat</span><span class="params">(LinkList L,<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!n)<span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">creat</span>(L, n - <span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> t;<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">        LNode *p = (LNode *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span> (LNode));</span><br><span class="line">        p -&gt; val = t;</span><br><span class="line">        p -&gt; next = L -&gt; next;</span><br><span class="line">        L -&gt; next = p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="双指针求倒数第k项"><a href="#双指针求倒数第k项" class="headerlink" title="双指针求倒数第k项"></a>双指针求倒数第k项</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">get_k_LinkList</span><span class="params">(LinkList L, <span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">    LNode *fast = L, *slow = L;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; ++ i)&#123;</span><br><span class="line">        fast = fast -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(fast)&#123;</span><br><span class="line">        fast = fast -&gt; next;</span><br><span class="line">        slow = slow -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow -&gt; data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
-    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2023/08/12/SDKD2023SummerTeamContest%20C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zuowei Zhang">
-      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/12/SDKD2023SummerTeamContest%20C/" class="post-title-link" itemprop="url">SDKD2023SummerTeamContest C</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2023-08-12 11:26:49 / Geändert am: 12:27:44" itemprop="dateCreated datePublished" datetime="2023-08-12T11:26:49+08:00">2023-08-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="E-Equalising-Audio"><a href="#E-Equalising-Audio" class="headerlink" title="E - Equalising Audio"></a>E - Equalising Audio</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573102#problem/E">题目链接</a><br>签到,保持$a_1$到$a_n$比例不变，给出K输出满足$K&#x3D;&#x3D;\frac{1}{n}\sum a_i^2$的$a_i$</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   <span class="type">int</span> n=<span class="built_in">read</span>(),k=<span class="built_in">read</span>();</span><br><span class="line">   <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	a[i]=<span class="built_in">read</span>();</span><br><span class="line">	cnt+=a[i]*a[i];<span class="comment">//求出总份数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">double</span> per;</span><br><span class="line"><span class="keyword">if</span>(!cnt)per=<span class="number">0</span>;<span class="comment">//可能全为0 这里特殊处理下</span></span><br><span class="line"><span class="keyword">else</span> per=<span class="built_in">sqrt</span>(x*n*<span class="number">1.0</span>/cnt);<span class="comment">//一份的大小</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.9lf &quot;</span>,per*a[i]);<span class="comment">//乘以对应的份数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="I-Imperfect-Imperial-Units"><a href="#I-Imperfect-Imperial-Units" class="headerlink" title="I - Imperfect Imperial Units"></a>I - Imperfect Imperial Units</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573102#problem/I">题目链接</a><br>n次definition</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> &lt;unit&gt; = &lt;value&gt; &lt;unit&gt;</span><br></pre></td></tr></table></figure>
-<p>q次query</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;value&gt; &lt;unit&gt; to &lt;unit&gt;</span><br></pre></td></tr></table></figure>
-<p>保证每次询问前都曾有定义过</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> cnt;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">id</span><span class="params">(string s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!mp[s])&#123;</span><br><span class="line">        mp[s]=++cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mp[s];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>并查集维护是否可以兑换,输出”impossible”的情况</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f[x]!=x)<span class="keyword">return</span> f[x]=<span class="built_in">find</span>(f[x]);</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(string a,string b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ia=<span class="built_in">id</span>(a),ib=<span class="built_in">id</span>(b);</span><br><span class="line">    ia=<span class="built_in">find</span>(ia),ib=<span class="built_in">find</span>(ib);</span><br><span class="line">    <span class="keyword">if</span>(ia==ib)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//&quot;impossible&quot;的情况</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">string t;</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> t,<span class="type">int</span> b,<span class="type">double</span> e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t==b)&#123;</span><br><span class="line">        ans=e;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=h[t];i!=<span class="number">-1</span>;i=ne[i])&#123;</span><br><span class="line">        <span class="type">int</span> j=e[i];</span><br><span class="line">        <span class="type">double</span> d=w[i];</span><br><span class="line">        <span class="keyword">if</span>(!st[j])&#123;</span><br><span class="line">            st[j]=<span class="number">1</span>;</span><br><span class="line">            <span class="built_in">dfs</span>(j,b,e*d);</span><br><span class="line">            st[j]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">double</span> c)</span></span>&#123;</span><br><span class="line">    e[idx]=b;</span><br><span class="line">    ne[idx]=a;</span><br><span class="line">    w[idx]=c;</span><br><span class="line">    h[a]=idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">de</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> a;cin&gt;&gt;a;</span><br><span class="line">    string s1;cin&gt;&gt;s1;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="type">double</span> b;cin&gt;&gt;b;</span><br><span class="line">    string s2;cin&gt;&gt;s2;</span><br><span class="line">    <span class="type">int</span> ida=<span class="built_in">id</span>(s1),idb=<span class="built_in">id</span>(s2);</span><br><span class="line">    <span class="built_in">add</span>(ida,idb,b);</span><br><span class="line">    <span class="built_in">add</span>(idb,ida,<span class="number">1.0</span>/b);</span><br><span class="line">    ida=<span class="built_in">find</span>(ida),idb=<span class="built_in">find</span>(idb);</span><br><span class="line">    f[ida]=idb;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">qu</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> a;cin&gt;&gt;a;</span><br><span class="line">    string s1;cin&gt;&gt;s1;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    string s2;cin&gt;&gt;s2;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">check</span>(s1,s2))<span class="built_in">puts</span>(<span class="string">&quot;impossible&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">memset</span>(st,<span class="number">0</span>,<span class="built_in">sizeof</span>(st));</span><br><span class="line">        <span class="type">int</span> ida=<span class="built_in">id</span>(s1),idb=<span class="built_in">id</span>(s2);</span><br><span class="line">        st[ida]=<span class="number">1</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(ida,idb,<span class="number">1.0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.7g&quot;</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="L-Lowest-Latency"><a href="#L-Lowest-Latency" class="headerlink" title="L - Lowest Latency"></a>L - Lowest Latency</h1><p>求三维平面内 距离最小的两点<br>使用分治的思想 按照x轴大小排序后 分为左，中，右三部分<br>最短距离有三种可能<br><strong>1.左部分之间的两点<br>2.右部分之间的两点<br>3.跨越中间的两点</strong><br>求出1，2两部分的最小值$d&#x3D;min(d1,d2)$后，借助贪心的思想，将与中间点距离小于d的点放入容器内，借助$O(M^2)\quad M&lt;&lt;N$遍历</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="type">int</span> x,y,z;</span><br><span class="line">&#125;a[N];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;<span class="comment">//按照x轴的大小排序</span></span><br><span class="line">	<span class="keyword">if</span>(a.x!=b.x)<span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">	<span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">dist</span><span class="params">(node a,node b)</span></span>&#123;<span class="comment">//求任意两点之间的距离</span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y)+(a.z-b.z)*(a.z-b.z));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> t[N];<span class="comment">//存储与中间点距离小于d的点的下标</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l==r)<span class="keyword">return</span> <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">if</span>(l+<span class="number">1</span>==r)<span class="keyword">return</span> <span class="built_in">dist</span>(a[l],a[r]);<span class="comment">//只剩下两点</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="type">double</span> d1=<span class="built_in">merge</span>(l,mid);</span><br><span class="line">    <span class="type">double</span> d2=<span class="built_in">merge</span>(mid+<span class="number">1</span>,r);</span><br><span class="line">    </span><br><span class="line">    <span class="type">double</span> ans=<span class="built_in">min</span>(d1,d2);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> idx=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=l;i&lt;=r;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">fabs</span>(a[i].x-a[mid].x)&lt;ans)&#123;</span><br><span class="line">            t[++idx]=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//遍历</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=idx;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;=idx;j++)&#123;</span><br><span class="line">            <span class="type">int</span> td=<span class="built_in">dist</span>(a[t[i]],a[t[j]]);</span><br><span class="line">            ans=<span class="built_in">min</span>(ans,td);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
-    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2023/08/03/SDKD2023SummerTeamContest%20A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zuowei Zhang">
-      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/03/SDKD2023SummerTeamContest%20A/" class="post-title-link" itemprop="url">SDKD2023SummerTeamContest A</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-
-              <time title="Erstellt: 2023-08-03 18:03:20" itemprop="dateCreated datePublished" datetime="2023-08-03T18:03:20+08:00">2023-08-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Bearbeitet am</span>
-                <time title="Geändert am: 2023-08-04 21:40:03" itemprop="dateModified" datetime="2023-08-04T21:40:03+08:00">2023-08-04</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>SDKD2023 Summer TeamContest A——NCC_17011</strong></p>
-<h1 id="C-Cosmic-Commute"><a href="#C-Cosmic-Commute" class="headerlink" title="C - Cosmic Commute"></a>C - Cosmic Commute</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573064#problem/C">题目链接</a><br>无向图从1到n存在m条light trains<br>m&gt;&#x3D;n-1 所以点1和n一定是<strong>联通</strong>的<br>存在k个wormhole 可以随机传送到另外k-1个位置 且at most once<br>求最少经过多少条light trains 可以到达点n<br><strong>思路</strong></p>
-<blockquote>
-<p>• Compute dist(s, w) and dist(w, t) for each wormhole w and sum S using two BFS from s and t.<br>• Determine the wormhole you should enter to minimize the expected distance.<br>• If you enter wormhole w , the expected distance from s to t is<br>$$dist_w&#x3D;dist(s,w)+\frac{1}{k-1}\sum dist(w_1,t)(w_1≠w)&#x3D;dist(s,w)+\frac{1}{k-1}(S-dist(w_1,t))\with\quad S&#x3D;\sum dist(w_1,t)$$</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bfs两次 求任一点到1和n的距离dist1数组和dist2数组</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> dist[])</span></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(st,<span class="number">0</span>,<span class="built_in">sizeof</span>(st));</span><br><span class="line">	queue&lt;<span class="type">int</span>&gt;q;</span><br><span class="line">	q.<span class="built_in">push</span>(u);</span><br><span class="line">	dist[u]=<span class="number">0</span>;</span><br><span class="line">	st[u]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">		<span class="type">int</span> t=q.<span class="built_in">front</span>();</span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=h[t];i!=<span class="number">-1</span>;i=ne[i])&#123;</span><br><span class="line">			<span class="type">int</span> j=e[i];<span class="comment">//t-&gt;j</span></span><br><span class="line">			<span class="keyword">if</span>(dist[j]&gt;dist[t]+<span class="number">1</span>)&#123;</span><br><span class="line">				dist[j]=dist[t]+<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">if</span>(!st[j])&#123;</span><br><span class="line">					q.<span class="built_in">push</span>(j);</span><br><span class="line">					st[j]=<span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(dist1,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(dist1));</span><br><span class="line">	<span class="built_in">bfs</span>(<span class="number">1</span>,dist1);</span><br><span class="line">	<span class="built_in">memset</span>(dist2,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(dist2));</span><br><span class="line">	<span class="built_in">bfs</span>(n,dist2);</span><br><span class="line">	<span class="type">int</span> sum=<span class="number">0</span>;<span class="comment">//计算S 所有wormhole点到n的距离之和</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</span><br><span class="line">		sum+=dist2[hole[i]];</span><br><span class="line">		dist1[hole[i]]*=(k<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> mi=dist1[n]*(k<span class="number">-1</span>);<span class="comment">//不使用wormhole的最短距离</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</span><br><span class="line">		<span class="type">int</span> t=sum-dist2[hole[i]]+dist1[hole[i]];</span><br><span class="line">		mi=<span class="built_in">min</span>(mi,t);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> t=<span class="built_in">gcd</span>(mi,k<span class="number">-1</span>);</span><br><span class="line">	cout&lt;&lt;mi/t&lt;&lt;<span class="string">&#x27;/&#x27;</span>&lt;&lt;(k<span class="number">-1</span>)/t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="D-DnD-Dice"><a href="#D-DnD-Dice" class="headerlink" title="D - DnD Dice"></a>D - DnD Dice</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573064#problem/D">题目链接</a><br>读了一遍题 dp？ <strong>数学正态分布！</strong><br>两个6面骰子的结果和出现次数<br>2 3 4 5 6 7 8 9 10 11 12<br>1 2 3 4 5 6 5 4  3  2  1<br>一个4面骰子和一个6面骰子的结果和出现次数<br>2 3 4 5 6 7 8 9 10<br>1 2 3 4 5 4 3 2  1<br>观察可发现数字出现的次数成正态分布<br>需要注意分<strong>奇偶</strong>使用两个指针l r向前后移动输出即可</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">25</span>];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	a[<span class="number">4</span>]=<span class="built_in">read</span>(),a[<span class="number">6</span>]=<span class="built_in">read</span>(),a[<span class="number">8</span>]=<span class="built_in">read</span>(),a[<span class="number">12</span>]=<span class="built_in">read</span>(),a[<span class="number">20</span>]=<span class="built_in">read</span>();</span><br><span class="line">	<span class="type">int</span> mi=a[<span class="number">4</span>]+a[<span class="number">6</span>]+a[<span class="number">8</span>]+a[<span class="number">12</span>]+a[<span class="number">20</span>];</span><br><span class="line">	<span class="type">int</span> ma=a[<span class="number">4</span>]*<span class="number">4</span>+a[<span class="number">6</span>]*<span class="number">6</span>+a[<span class="number">8</span>]*<span class="number">8</span>+a[<span class="number">12</span>]*<span class="number">12</span>+a[<span class="number">20</span>]*<span class="number">20</span>;</span><br><span class="line">	<span class="type">int</span> mid=mi+ma&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>((ma+mi)%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">		cout&lt;&lt;mid&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> l=mid<span class="number">-1</span>,r=mid+<span class="number">1</span>;r&lt;=ma&amp;&amp;l&gt;=mi;l--,r++)&#123;</span><br><span class="line">			cout&lt;&lt;r&lt;&lt;<span class="string">&#x27; &#x27;</span>&lt;&lt;l&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> l=mid,r=mid+<span class="number">1</span>;r&lt;=ma&amp;&amp;l&gt;=mi;l--,r++)&#123;</span><br><span class="line">			cout&lt;&lt;r&lt;&lt;<span class="string">&#x27; &#x27;</span>&lt;&lt;l&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="E-Eszett"><a href="#E-Eszett" class="headerlink" title="E - Eszett"></a>E - Eszett</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573064#problem/E">题目链接</a><br>签到 ss转化为G输出</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	string s;cin&gt;&gt;s;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i:s)i=<span class="built_in">tolower</span>(i);</span><br><span class="line">	cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(s[i]==<span class="string">&#x27;s&#x27;</span>&amp;&amp;s[i+<span class="number">1</span>]==<span class="string">&#x27;s&#x27;</span>)&#123;</span><br><span class="line">			string ans=s.<span class="built_in">substr</span>(<span class="number">0</span>,i);</span><br><span class="line">			ans+=<span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">			ans+=s.<span class="built_in">substr</span>(i+<span class="number">2</span>,s.<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">			cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="I-Investigating-Frog-Behaviour-on-Lily-Pad-Patterns"><a href="#I-Investigating-Frog-Behaviour-on-Lily-Pad-Patterns" class="headerlink" title="I - Investigating Frog Behaviour on Lily Pad Patterns"></a>I - Investigating Frog Behaviour on Lily Pad Patterns</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573064#problem/I">题目链接</a><br>set存储目前所以的空位 且最多最多移动到ma+q的位置上(最右端的青蛙连续跳q次)<br>借助upper_bound函数查找第一个大于x的数</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">200005</span>];</span><br><span class="line"><span class="type">int</span> mp[<span class="number">1000005</span>];</span><br><span class="line">set&lt;<span class="type">int</span>&gt;st;</span><br><span class="line"><span class="type">int</span> ma;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		a[i]=<span class="built_in">read</span>();</span><br><span class="line">        mp[a[i]]=<span class="number">1</span>;</span><br><span class="line">        ma=<span class="built_in">max</span>(ma,a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> q=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=ma+q;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!mp[i])st.<span class="built_in">insert</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;q;i++)&#123;</span><br><span class="line">        <span class="type">int</span> tt=<span class="built_in">read</span>();</span><br><span class="line">        <span class="keyword">auto</span> t=st.<span class="built_in">upper_bound</span>(a[tt]);</span><br><span class="line">        <span class="type">int</span> b=*t;</span><br><span class="line">        cout&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">        st.<span class="built_in">erase</span>(t);<span class="comment">//删掉空座t</span></span><br><span class="line">        st.<span class="built_in">insert</span>(a[tt]);<span class="comment">//添加产生的新空座 注意该青蛙后面的frog可以到达这个位置</span></span><br><span class="line">        a[tt]=b;<span class="comment">//更新跳跃青蛙的位置</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="G-German-Conference-for-Public-Counting"><a href="#G-German-Conference-for-Public-Counting" class="headerlink" title="G - German Conference for Public Counting"></a>G - German Conference for Public Counting</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573064#problem/G">题目链接</a><br>每个数字都可以由0-9的卡牌组成<br>求从0-N需要多少张不同的卡牌<br>特判前两位大小情况 0一定是长度-1张</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> cnt[<span class="number">15</span>];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">char</span> c,string s)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i:s)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i&lt;c)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n=<span class="built_in">read</span>();</span><br><span class="line">	string a=<span class="built_in">to_string</span>(n);</span><br><span class="line">	<span class="keyword">if</span>(n&lt;<span class="number">10</span>)cout&lt;&lt;n+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="type">int</span> len=a.<span class="built_in">size</span>();</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;a[<span class="number">0</span>]-<span class="string">&#x27;0&#x27;</span>;i++)&#123;</span><br><span class="line">			cnt[i]=len;</span><br><span class="line">		&#125;</span><br><span class="line">		cnt[<span class="number">0</span>]=len<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">if</span>(a[<span class="number">0</span>]&lt;a[<span class="number">1</span>])&#123;</span><br><span class="line">			cnt[a[<span class="number">0</span>]-<span class="string">&#x27;0&#x27;</span>]=len;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a[<span class="number">0</span>]==a[<span class="number">1</span>])&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">check</span>(a[<span class="number">0</span>],a))cnt[a[<span class="number">0</span>]-<span class="string">&#x27;0&#x27;</span>]=len;</span><br><span class="line">			<span class="keyword">else</span> a[a[<span class="number">0</span>]-<span class="string">&#x27;0&#x27;</span>]=len<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!cnt[i])cnt[i]=len<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++)ans+=cnt[i];</span><br><span class="line">		cout&lt;&lt;ans;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="L-Loop-Invariant"><a href="#L-Loop-Invariant" class="headerlink" title="L - Loop Invariant"></a>L - Loop Invariant</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573064#problem/L">题目链接</a><br>首先给出balanced的定义-&gt;<strong>可以通过不断插入括号的操作获得的序列</strong><br>特点是序列内的括号是一一对应存在的<br>将括号序列的前后连起来 求是否存在切割点满足切割后仍是balanced序列但不于前序列相同<br>思路: 先将序列分解成对应的子序列 再将序列复制前后联通 剪枝N^2暴力</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">string t[<span class="number">1000010</span>];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	string s;cin&gt;&gt;s;</span><br><span class="line">	<span class="type">int</span> len=s.<span class="built_in">size</span>();</span><br><span class="line">	<span class="type">int</span> l=<span class="number">0</span>,r=<span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> p=<span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(s[i]==<span class="string">&#x27;(&#x27;</span>)l++;</span><br><span class="line">		<span class="keyword">else</span> r++;</span><br><span class="line">		<span class="keyword">if</span>(l==r&amp;&amp;l&amp;&amp;r)&#123;</span><br><span class="line">			t[++cnt]=s.<span class="built_in">substr</span>(p,i-p+<span class="number">1</span>);</span><br><span class="line">			p=i+<span class="number">1</span>;</span><br><span class="line">			l=<span class="number">0</span>,r=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> f=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=cnt+<span class="number">1</span>;i&lt;=cnt*<span class="number">2</span><span class="number">-1</span>;i++)&#123;</span><br><span class="line">		t[i]=t[i-cnt];<span class="comment">//复制一遍 在遍历的时候满足前后联通</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=cnt;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(t[i]==t[i<span class="number">-1</span>]&amp;&amp;t[i+cnt<span class="number">-1</span>]==t[i+cnt<span class="number">-2</span>])<span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">//剪枝 如果移动后与移动前的前后端都不变 那么一定不满足</span></span><br><span class="line">		string tt=<span class="string">&quot;&quot;</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;i+cnt;j++)&#123;</span><br><span class="line">			tt+=t[j];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(tt!=s)&#123;</span><br><span class="line">			cout&lt;&lt;tt;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;no&quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="M-Mischievous-Math"><a href="#M-Mischievous-Math" class="headerlink" title="M - Mischievous Math"></a>M - Mischievous Math</h1><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/573064#problem/M">题目链接</a><br>给出数d(1&lt;&#x3D;d&lt;&#x3D;100)构造出a b c三个数(1&lt;&#x3D;a,b,c&lt;&#x3D;100)两两不同<br>且满足a，b，c通过加减乘除运算 <strong>且a,b,c至多用一次</strong>后一定不等于d</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n=<span class="built_in">read</span>();</span><br><span class="line">	<span class="keyword">if</span>(n&gt;=<span class="number">10</span>)cout&lt;&lt;<span class="string">&quot;1 2 3&quot;</span>;<span class="comment">//显然1 2 3 怎么运算也不会超过9</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(n&gt;<span class="number">2</span>)cout&lt;&lt;<span class="string">&quot;98 99 100&quot;</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(n==<span class="number">2</span>)cout&lt;&lt;<span class="string">&quot;96 99 100&quot;</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(n==<span class="number">1</span>)cout&lt;&lt;<span class="string">&quot;96 98 100&quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>1.首次参加SDKD夏季集训 体验到前3h小时读题 后2h写题的训练方式 遗憾的是没有到现场参加<br>2.有不少题赛后发现仔细理解题目后 还是可以完成的,看到没有人去开新题 就不敢自己去试试。<br>3.代码模板熟练情况，构造题的思维，还有边界条件的处理，复杂度的剪枝优化等，需要强化。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -978,10 +965,10 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          Overview
         </li>
       </ul>
 
@@ -1000,8 +987,8 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
   </nav>
@@ -1034,7 +1021,7 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
   </span>
   <span class="author" itemprop="copyrightHolder">Zuowei Zhang</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/test.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/test.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhangas2.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="D - Delft Distance难度：⭐⭐类型： 图论题意：​        你现在地图西北角，想去东南角的比赛地点。要到那里，必须穿过这座城市的历史中心。这座城市由$h*w$的建筑网格组成，不仅有方形的住宅建筑，还有一些圆形的中世纪塔楼。所有的方形建筑都以$10m$的边长轴线排列，所有的圆形塔的直径都是$10m$。在两座相邻的建筑之间有一条宽度可以忽略不计的小巷子。 ​		你需要找到一条从酒">
+<meta property="og:type" content="article">
+<meta property="og:title" content="D - Delft Distance">
+<meta property="og:url" content="https://zhangas2.github.io/2024/08/07/D%20-%20Delft%20Distance/index.html">
+<meta property="og:site_name" content="zhangas">
+<meta property="og:description" content="D - Delft Distance难度：⭐⭐类型： 图论题意：​        你现在地图西北角，想去东南角的比赛地点。要到那里，必须穿过这座城市的历史中心。这座城市由$h*w$的建筑网格组成，不仅有方形的住宅建筑，还有一些圆形的中世纪塔楼。所有的方形建筑都以$10m$的边长轴线排列，所有的圆形塔的直径都是$10m$。在两座相邻的建筑之间有一条宽度可以忽略不计的小巷子。 ​		你需要找到一条从酒">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB3d71a13862503da017f582f5b15541ca?method=download&shareKey=44953b7e97454a0da273a460c0be3980">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB265067ba704b3a697afd914e3b035234?method=download&shareKey=5ce1855672fb696fe1d42b4a02d01bd0">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB9b759417be0cdc6d2d14dfc78031e40d?method=download&shareKey=0c9e654dd6860239d483a5a2dbf4baf0">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBc61a6f4646830be021eeb08d6bba606c?method=download&shareKey=4474a8afda3b939665cac2b26ce34797">
+<meta property="article:published_time" content="2024-08-07T12:18:24.730Z">
+<meta property="article:modified_time" content="2024-08-07T12:19:19.058Z">
+<meta property="article:author" content="Zuowei Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB3d71a13862503da017f582f5b15541ca?method=download&shareKey=44953b7e97454a0da273a460c0be3980">
+
+<link rel="canonical" href="https://zhangas2.github.io/2024/08/07/D%20-%20Delft%20Distance/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-cn'
+  };
+</script>
+
+  <title>D - Delft Distance | zhangas</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zhangas</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Pay more attention</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2024/08/07/D%20-%20Delft%20Distance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zuowei Zhang">
+      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          D - Delft Distance
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-07 20:18:24 / Modified: 20:19:19" itemprop="dateCreated datePublished" datetime="2024-08-07T20:18:24+08:00">2024-08-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="D-Delft-Distance"><a href="#D-Delft-Distance" class="headerlink" title="D - Delft Distance"></a><a target="_blank" rel="noopener" href="https://vjudge.net/contest/642848#problem/D">D - Delft Distance</a></h2><h3 id="难度：⭐⭐"><a href="#难度：⭐⭐" class="headerlink" title="难度：⭐⭐"></a>难度：⭐⭐</h3><h3 id="类型：-图论"><a href="#类型：-图论" class="headerlink" title="类型： 图论"></a>类型： 图论</h3><h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>​        你现在地图西北角，想去东南角的比赛地点。要到那里，必须穿过这座城市的历史中心。这座城市由$h*w$的建筑网格组成，不仅有方形的住宅建筑，还有一些圆形的中世纪塔楼。所有的方形建筑都以$10m$的边长轴线排列，所有的圆形塔的直径都是$10m$。在两座相邻的建筑之间有一条宽度可以忽略不计的小巷子。</p>
+<p>​		你需要找到一条从酒店到比赛地点的最短路径，输出从西北角到东南角的最短路径的长度，以米为单位。您的答案的绝对误差最多$1e^{-6}$</p>
+<p>​        数据范围：$h(1\le h\le 700)$，$w(1\le w\le700)$</p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><img src="https://note.youdao.com/yws/api/personal/file/WEB3d71a13862503da017f582f5b15541ca?method=download&shareKey=44953b7e97454a0da273a460c0be3980" style="zoom:50%;" />
+
+<center>图1：样例1——红色的是最短路径</center>
+
+
+
+<h4 id="单源最短路径"><a href="#单源最短路径" class="headerlink" title="单源最短路径"></a>单源最短路径</h4><img src="https://note.youdao.com/yws/api/personal/file/WEB265067ba704b3a697afd914e3b035234?method=download&shareKey=5ce1855672fb696fe1d42b4a02d01bd0" alt="image-20240807102258431" style="zoom:50%;" />
+
+<center>图2：建图所需的顶点</center>
+
+<p>​		并非地图上的所有点都需要建立，我们只需要建立每个方格对应上、下、左、右四个方向的结点，和结点之间的边，跑一次Dijkstra单源最短路即可。</p>
+<h4 id="解的表示"><a href="#解的表示" class="headerlink" title="解的表示"></a>解的表示</h4><p>​		$double\space dist[N]$表示压缩后的结点，距离出发点的最短距离，跑完Dijkstra单源最短路后，右下角方格$(n, m)$对应下面和右边的点加上到终点的$5.0m$，即</p>
+<p>$\pmb{min(dist[hashed(n, m, 2)],\space dist[hashed(n, m, 4)]) + 5.0}$就是我们的答案。</p>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>​		节点数$N&#x3D;w<em>h$，跑Dijkstra最短路需要$O(NlogN)$，复杂度为$O(w</em>h<em>log(w</em>h))$</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="id函数"><a href="#id函数" class="headerlink" title="id函数"></a>id函数</h4><p>​	将$(x, y)$坐标压到一维，$D&#x3D;(x - 1) * (2 * m + 1) + y$</p>
+<h4 id="hashed函数"><a href="#hashed函数" class="headerlink" title="hashed函数"></a>hashed函数</h4><p>​	计算第$(i,j)$个建筑物，上下左右四个方向对应的坐标。$\pmb{f\in [1,2,3,4]}$分别对应上、下、左、右四个方向。</p>
+<h4 id="addall函数"><a href="#addall函数" class="headerlink" title="addall函数"></a>addall函数</h4><p>对于当前的方格，无论是$’X’$还是$’O’$，都建立从四个顶点出发，到八个方向的有向边，长度均为$10m$。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB9b759417be0cdc6d2d14dfc78031e40d?method=download&shareKey=0c9e654dd6860239d483a5a2dbf4baf0" alt="direction"></p>
+<center>图3：四个顶点对应的八条有向边</center>
+
+
+
+<h4 id="addo函数"><a href="#addo函数" class="headerlink" title="addo函数"></a>addo函数</h4><p>对于当前的所有$’O’$的方格，建立沿圆形$\frac{1}{4}$弧的边，长度均为$\frac{1}{4}<em>2</em>\pi*(10*\frac{1}{2})m$</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEBc61a6f4646830be021eeb08d6bba606c?method=download&shareKey=4474a8afda3b939665cac2b26ce34797" alt="image-20240807101428234"></p>
+<center>图4：'O'方格的两个圆弧的边</center>
+
+
+
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PI acos(-1)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> endl <span class="string">&#x27;\n&#x27;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="comment">// #define int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">id</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x - <span class="number">1</span>) * (<span class="number">2</span> * m + <span class="number">1</span>) + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">hashed</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (f == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">id</span>((x - <span class="number">1</span>) * <span class="number">2</span> + <span class="number">1</span>, y * <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (f == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">id</span>(x * <span class="number">2</span> + <span class="number">1</span>, y * <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (f == <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">id</span>(x * <span class="number">2</span>, (y - <span class="number">1</span>) * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">id</span>(x * <span class="number">2</span>, y * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> s[<span class="number">1505</span>][<span class="number">1505</span>];</span><br><span class="line">vector&lt;pair&lt;<span class="type">double</span>, <span class="type">int</span>&gt;&gt; g[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">addall</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">1</span>)].<span class="built_in">push_back</span>(&#123;<span class="number">10.0</span>, <span class="built_in">hashed</span>(x, y + <span class="number">1</span>, <span class="number">1</span>)&#125;);</span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">1</span>)].<span class="built_in">push_back</span>(&#123;<span class="number">10.0</span>, <span class="built_in">hashed</span>(x, y + <span class="number">1</span>, <span class="number">3</span>)&#125;);</span><br><span class="line"></span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">2</span>)].<span class="built_in">push_back</span>(&#123;<span class="number">10.0</span>, <span class="built_in">hashed</span>(x + <span class="number">1</span>, y + <span class="number">1</span>, <span class="number">1</span>)&#125;);</span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">2</span>)].<span class="built_in">push_back</span>(&#123;<span class="number">10.0</span>, <span class="built_in">hashed</span>(x + <span class="number">1</span>, y + <span class="number">1</span>, <span class="number">3</span>)&#125;);</span><br><span class="line"></span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">3</span>)].<span class="built_in">push_back</span>(&#123;<span class="number">10.0</span>, <span class="built_in">hashed</span>(x + <span class="number">1</span>, y, <span class="number">1</span>)&#125;);</span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">3</span>)].<span class="built_in">push_back</span>(&#123;<span class="number">10.0</span>, <span class="built_in">hashed</span>(x + <span class="number">1</span>, y, <span class="number">3</span>)&#125;);</span><br><span class="line"></span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">4</span>)].<span class="built_in">push_back</span>(&#123;<span class="number">10.0</span>, <span class="built_in">hashed</span>(x + <span class="number">1</span>, y + <span class="number">1</span>, <span class="number">1</span>)&#125;);</span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">4</span>)].<span class="built_in">push_back</span>(&#123;<span class="number">10.0</span>, <span class="built_in">hashed</span>(x + <span class="number">1</span>, y + <span class="number">1</span>, <span class="number">3</span>)&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">addo</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">double</span> L = PI * <span class="number">5.0</span> / <span class="number">2.0</span>;</span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">1</span>)].<span class="built_in">push_back</span>(&#123;L, <span class="built_in">hashed</span>(x, y, <span class="number">4</span>)&#125;);</span><br><span class="line">    g[<span class="built_in">hashed</span>(x, y, <span class="number">3</span>)].<span class="built_in">push_back</span>(&#123;L, <span class="built_in">hashed</span>(x, y, <span class="number">2</span>)&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> st[N];</span><br><span class="line"><span class="type">double</span> dist[N];</span><br><span class="line">priority_queue&lt;pair&lt;<span class="type">double</span>, <span class="type">int</span>&gt;, vector&lt;pair&lt;<span class="type">double</span>, <span class="type">int</span>&gt;&gt;, greater&lt;pair&lt;<span class="type">double</span>, <span class="type">int</span>&gt;&gt;&gt; q;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">dijkstra</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        dist[i] = <span class="number">2e9</span>;</span><br><span class="line">    dist[<span class="built_in">hashed</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)] = <span class="number">5.0</span>;</span><br><span class="line">    dist[<span class="built_in">hashed</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>)] = <span class="number">5.0</span>;</span><br><span class="line">    q.<span class="built_in">push</span>(&#123;<span class="number">5.0</span>, <span class="built_in">hashed</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)&#125;);</span><br><span class="line">    q.<span class="built_in">push</span>(&#123;<span class="number">5.0</span>, <span class="built_in">hashed</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>)&#125;);</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        pair&lt;<span class="type">double</span>, <span class="type">int</span>&gt; t = q.<span class="built_in">top</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="type">double</span> distance = t.first;</span><br><span class="line">        <span class="type">int</span> u = t.second;</span><br><span class="line">        <span class="keyword">if</span> (st[u])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        st[u] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; g[u].<span class="built_in">size</span>(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> j = g[u][i].second;</span><br><span class="line">            <span class="type">double</span> d = g[u][i].first;</span><br><span class="line">            <span class="keyword">if</span> (dist[j] &gt; dist[u] + d)</span><br><span class="line">            &#123;</span><br><span class="line">                dist[j] = dist[u] + d;</span><br><span class="line">                <span class="keyword">if</span> (!st[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    q.<span class="built_in">push</span>(&#123;dist[j], j&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">min</span>(dist[<span class="built_in">hashed</span>(n, m, <span class="number">2</span>)], dist[<span class="built_in">hashed</span>(n, m, <span class="number">4</span>)]) + <span class="number">5.0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solves</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            cin &gt;&gt; s[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">addall</span>(i, j);</span><br><span class="line">            <span class="keyword">if</span> (s[i][j] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">                <span class="built_in">addo</span>(i, j);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.10lf&quot;</span>, <span class="built_in">dijkstra</span>());</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    <span class="type">int</span> T = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// cin &gt;&gt; T;</span></span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        <span class="built_in">solves</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/07/16/pytorch/" rel="prev" title="pytorch">
+      <i class="fa fa-chevron-left"></i> pytorch
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Delft-Distance"><span class="nav-number">1.</span> <span class="nav-text">D - Delft Distance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%BE%E5%BA%A6%EF%BC%9A%E2%AD%90%E2%AD%90"><span class="nav-number">1.1.</span> <span class="nav-text">难度：⭐⭐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%EF%BC%9A-%E5%9B%BE%E8%AE%BA"><span class="nav-number">1.2.</span> <span class="nav-text">类型： 图论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="nav-number">1.4.1.</span> <span class="nav-text">单源最短路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.4.2.</span> <span class="nav-text">解的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.4.3.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id%E5%87%BD%E6%95%B0"><span class="nav-number">1.5.1.</span> <span class="nav-text">id函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashed%E5%87%BD%E6%95%B0"><span class="nav-number">1.5.2.</span> <span class="nav-text">hashed函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#addall%E5%87%BD%E6%95%B0"><span class="nav-number">1.5.3.</span> <span class="nav-text">addall函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#addo%E5%87%BD%E6%95%B0"><span class="nav-number">1.5.4.</span> <span class="nav-text">addo函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="nav-number">1.6.</span> <span class="nav-text">完整代码</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zuowei Zhang</p>
+  <div class="site-description" itemprop="description">a student from Shandong University of Science and Technology.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zuowei Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

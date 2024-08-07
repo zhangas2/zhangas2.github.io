@@ -83,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="تشغيل شريط التصفح">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -118,7 +118,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
 
   </li>
   </ul>
@@ -170,16 +170,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Created: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
+              <time title="أُنشأ: 2022-09-26 17:22:06" itemprop="dateCreated datePublished" datetime="2022-09-26T17:22:06+08:00">2022-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-07 20:15:00" itemprop="dateModified" datetime="2024-08-07T20:15:00+08:00">2024-08-07</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2024-08-07 20:15:00" itemprop="dateModified" datetime="2024-08-07T20:15:00+08:00">2024-08-07</time>
               </span>
 
           
@@ -228,67 +228,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
-    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2024/04/06/data_structure_2024_04_06/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zuowei Zhang">
-      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangas">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/04/06/data_structure_2024_04_06/" class="post-title-link" itemprop="url">data_structure_2024_04_06</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-04-06 13:14:04 / Modified: 13:29:34" itemprop="dateCreated datePublished" datetime="2024-04-06T13:14:04+08:00">2024-04-06</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="请利用一个栈-将下面的代码改写成非递归版本"><a href="#请利用一个栈-将下面的代码改写成非递归版本" class="headerlink" title="请利用一个栈,将下面的代码改写成非递归版本"></a>请利用一个栈,将下面的代码改写成非递归版本</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">play</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    ans += n;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span> || n == <span class="number">2</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">play</span>(n - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">play</span>(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参考</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">stk.<span class="built_in">push</span>(n);</span><br><span class="line"><span class="keyword">while</span>(stk.<span class="built_in">size</span>())&#123;</span><br><span class="line">	<span class="type">int</span> t = stk.<span class="built_in">top</span>();</span><br><span class="line">	ans += t;</span><br><span class="line">	stk.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="keyword">if</span>(t == <span class="number">1</span> || t == <span class="number">2</span>) <span class="keyword">continue</span>;</span><br><span class="line">	stk.<span class="built_in">push</span>(t - <span class="number">1</span>);</span><br><span class="line">	stk.<span class="built_in">push</span>(t - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="P4387-【深基15-习9】验证栈序列"><a href="#P4387-【深基15-习9】验证栈序列" class="headerlink" title="P4387 【深基15.习9】验证栈序列"></a>P4387 【深基15.习9】验证栈序列</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">int</span> n = <span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i) a[i] = <span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i) b[i] = <span class="built_in">read</span>();</span><br><span class="line">stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"><span class="type">int</span> idx = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i)&#123;</span><br><span class="line">	stk.<span class="built_in">push</span>(a[i]);</span><br><span class="line">	<span class="keyword">while</span>(stk.<span class="built_in">size</span>() &amp;&amp; stk.<span class="built_in">top</span>() == b[idx])&#123;</span><br><span class="line">		++ idx;</span><br><span class="line">		stk.<span class="built_in">pop</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(stk.<span class="built_in">size</span>() == <span class="number">0</span>)&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; endl;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
     <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2023/07/20/MathtoCS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -311,16 +250,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Created: 2023-07-20 11:01:31" itemprop="dateCreated datePublished" datetime="2023-07-20T11:01:31+08:00">2023-07-20</time>
+              <time title="أُنشأ: 2023-07-20 11:01:31" itemprop="dateCreated datePublished" datetime="2023-07-20T11:01:31+08:00">2023-07-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-09 11:11:32" itemprop="dateModified" datetime="2024-03-09T11:11:32+08:00">2024-03-09</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2024-08-07 20:20:26" itemprop="dateModified" datetime="2024-08-07T20:20:26+08:00">2024-08-07</time>
               </span>
 
           
@@ -400,10 +339,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Created: 2024-08-07 20:18:24 / Modified: 20:19:19" itemprop="dateCreated datePublished" datetime="2024-08-07T20:18:24+08:00">2024-08-07</time>
+              <time title="أُنشأ: 2024-08-07 20:18:24 / عُدل: 20:19:19" itemprop="dateCreated datePublished" datetime="2024-08-07T20:18:24+08:00">2024-08-07</time>
             </span>
 
           
@@ -491,16 +430,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Created: 2024-07-16 19:31:55" itemprop="dateCreated datePublished" datetime="2024-07-16T19:31:55+08:00">2024-07-16</time>
+              <time title="أُنشأ: 2024-07-16 19:31:55" itemprop="dateCreated datePublished" datetime="2024-07-16T19:31:55+08:00">2024-07-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-07 20:06:09" itemprop="dateModified" datetime="2024-08-07T20:06:09+08:00">2024-08-07</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2024-08-07 20:20:56" itemprop="dateModified" datetime="2024-08-07T20:20:56+08:00">2024-08-07</time>
               </span>
 
           
@@ -556,7 +495,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/04/07/problems/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2024/04/07/problems/" class="post-title-link" itemprop="url">بدون عنوان</a>
         </h2>
 
         <div class="post-meta">
@@ -564,10 +503,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Created: 2024-04-07 22:40:44 / Modified: 22:48:16" itemprop="dateCreated datePublished" datetime="2024-04-07T22:40:44+08:00">2024-04-07</time>
+              <time title="أُنشأ: 2024-04-07 22:40:44 / عُدل: 22:48:16" itemprop="dateCreated datePublished" datetime="2024-04-07T22:40:44+08:00">2024-04-07</time>
             </span>
 
           
@@ -584,6 +523,73 @@
           <h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>P3367 【模板】并查集<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3367">https://www.luogu.com.cn/problem/P3367</a><br>P1111 修复公路<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1111">https://www.luogu.com.cn/problem/P1111</a><br>P1551 亲戚<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1551">https://www.luogu.com.cn/problem/P1551</a><br>P2024 [NOI2001] 食物链<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2024">https://www.luogu.com.cn/problem/P2024</a></p>
 <h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><p>3374 【模板】树状数组 1 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3374">https://www.luogu.com.cn/problem/P3374</a><br>P3368 【模板】树状数组 2 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3368">https://www.luogu.com.cn/problem/P3368</a><br>P1908 逆序对<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">https://www.luogu.com.cn/problem/P1908</a><br>P3655 不成熟的梦想家 (未熟 DREAMER)<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3655">https://www.luogu.com.cn/problem/P3655</a></p>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="https://zhangas2.github.io/2024/04/06/data_structure_2024_04_06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zuowei Zhang">
+      <meta itemprop="description" content="a student from Shandong University of Science and Technology.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangas">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/06/data_structure_2024_04_06/" class="post-title-link" itemprop="url">data_structure_2024_04_06</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">نُشر في</span>
+
+              <time title="أُنشأ: 2024-04-06 13:14:04" itemprop="dateCreated datePublished" datetime="2024-04-06T13:14:04+08:00">2024-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2024-08-07 20:21:01" itemprop="dateModified" datetime="2024-08-07T20:21:01+08:00">2024-08-07</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="请利用一个栈-将下面的代码改写成非递归版本"><a href="#请利用一个栈-将下面的代码改写成非递归版本" class="headerlink" title="请利用一个栈,将下面的代码改写成非递归版本"></a>请利用一个栈,将下面的代码改写成非递归版本</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">play</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    ans += n;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span> || n == <span class="number">2</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">play</span>(n - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">play</span>(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">stk.<span class="built_in">push</span>(n);</span><br><span class="line"><span class="keyword">while</span>(stk.<span class="built_in">size</span>())&#123;</span><br><span class="line">	<span class="type">int</span> t = stk.<span class="built_in">top</span>();</span><br><span class="line">	ans += t;</span><br><span class="line">	stk.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="keyword">if</span>(t == <span class="number">1</span> || t == <span class="number">2</span>) <span class="keyword">continue</span>;</span><br><span class="line">	stk.<span class="built_in">push</span>(t - <span class="number">1</span>);</span><br><span class="line">	stk.<span class="built_in">push</span>(t - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="P4387-【深基15-习9】验证栈序列"><a href="#P4387-【深基15-习9】验证栈序列" class="headerlink" title="P4387 【深基15.习9】验证栈序列"></a>P4387 【深基15.习9】验证栈序列</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">int</span> n = <span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i) a[i] = <span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i) b[i] = <span class="built_in">read</span>();</span><br><span class="line">stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"><span class="type">int</span> idx = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++ i)&#123;</span><br><span class="line">	stk.<span class="built_in">push</span>(a[i]);</span><br><span class="line">	<span class="keyword">while</span>(stk.<span class="built_in">size</span>() &amp;&amp; stk.<span class="built_in">top</span>() == b[idx])&#123;</span><br><span class="line">		++ idx;</span><br><span class="line">		stk.<span class="built_in">pop</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(stk.<span class="built_in">size</span>() == <span class="number">0</span>)&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; endl;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -624,10 +630,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Created: 2024-03-06 13:55:16 / Modified: 14:36:58" itemprop="dateCreated datePublished" datetime="2024-03-06T13:55:16+08:00">2024-03-06</time>
+              <time title="أُنشأ: 2024-03-06 13:55:16 / عُدل: 14:36:58" itemprop="dateCreated datePublished" datetime="2024-03-06T13:55:16+08:00">2024-03-06</time>
             </span>
 
           
@@ -748,10 +754,10 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
               
 
-              <time title="Created: 2023-12-03 11:50:02 / Modified: 14:33:19" itemprop="dateCreated datePublished" datetime="2023-12-03T11:50:02+08:00">2023-12-03</time>
+              <time title="أُنشأ: 2023-12-03 11:50:02 / عُدل: 14:33:19" itemprop="dateCreated datePublished" datetime="2023-12-03T11:50:02+08:00">2023-12-03</time>
             </span>
 
           
@@ -818,16 +824,16 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Created: 2023-11-10 16:51:03" itemprop="dateCreated datePublished" datetime="2023-11-10T16:51:03+08:00">2023-11-10</time>
+              <time title="أُنشأ: 2023-11-10 16:51:03" itemprop="dateCreated datePublished" datetime="2023-11-10T16:51:03+08:00">2023-11-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-06 16:04:54" itemprop="dateModified" datetime="2024-03-06T16:04:54+08:00">2024-03-06</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2024-03-06 16:04:54" itemprop="dateModified" datetime="2024-03-06T16:04:54+08:00">2024-03-06</time>
               </span>
 
           
@@ -893,16 +899,16 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Created: 2023-10-29 23:21:53" itemprop="dateCreated datePublished" datetime="2023-10-29T23:21:53+08:00">2023-10-29</time>
+              <time title="أُنشأ: 2023-10-29 23:21:53" itemprop="dateCreated datePublished" datetime="2023-10-29T23:21:53+08:00">2023-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-10-30 00:29:48" itemprop="dateModified" datetime="2023-10-30T00:29:48+08:00">2023-10-30</time>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2023-10-30 00:29:48" itemprop="dateModified" datetime="2023-10-30T00:29:48+08:00">2023-10-30</time>
               </span>
 
           
@@ -943,7 +949,7 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="الصفحة التالية"></i></a>
   </nav>
 
 
@@ -987,10 +993,10 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          المحتويات
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          عام
         </li>
       </ul>
 
@@ -1010,7 +1016,7 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
           <a href="/archives/">
         
           <span class="site-state-item-count">52</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">المقالات</span>
         </a>
       </div>
   </nav>
@@ -1043,7 +1049,7 @@ Mat Matrix_fastpow(Mat a, Mat k)&#123;
   </span>
   <span class="author" itemprop="copyrightHolder">Zuowei Zhang</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
